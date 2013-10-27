@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * Implements hook_schema
+ */
+function xiaozhushou_tigtag_user_schema () {
+  $schema['xiaozhushou_tigtag_user'] = array(
+    'description' => 'Records Tigtag users',
+    'fields' => array(
+      
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => true,
+        'not null' => true
+      ),
+      
+      'username' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not_null' => true,
+        'default' => ''
+      ),
+      
+      'password' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not_null' => true,
+        'default' => ''
+      ),
+      
+      'created' => array(
+        'description' => 'The Unix timestamp when the node was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      
+      'valid' =>array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 1,
+      ),
+      
+    ),
+    'unique keys' => array(
+      'id' => array('id'),
+    ),
+  );
+  
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function xiaozhushou_tigtag_user_install() {
+  // Populate the test account
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utilities.class');
+  echo "hello";
+//  db_insert('xiaozhushou_tigtag_user')
+//    ->fields(array(
+//
+//    ))
+//    ->execute();
+}

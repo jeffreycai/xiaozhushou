@@ -8,3 +8,11 @@ function xiaozhushou_tigtag_help($path, $arg) {
     return t('Scrape content from Tigtag');
   }
 }
+
+/**
+ * Implements hook_init()
+ */
+function hook_init() {
+  $util = Utility::getInstance();
+  $util::bootstrap();
+}

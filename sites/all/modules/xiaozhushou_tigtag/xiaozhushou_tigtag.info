@@ -2,6 +2,7 @@ name = Tigtag
 description = Xiaozhushou Tigtag module
 package = Xiaozhushou
 dependencies[] = xiaozhushou_utilities
+dependencies[] = xiaozhushou_tigtag_user
 core = 7.x
 php = 5.3
 

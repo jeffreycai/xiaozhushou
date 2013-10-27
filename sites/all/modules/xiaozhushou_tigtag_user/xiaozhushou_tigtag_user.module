@@ -1,0 +1,21 @@
+<?php
+
+/**
+* Implements hook_help().
+*/
+function xiaozhushou_tigtag_user_help($path, $arg) {
+  if ($path == 'admin/help#xiaozhushou_tigtag_user') {
+    return t('User registeration and management');
+  }
+}
+
+/**
+ * Implements hook_init()
+ */
+function xiaozhushou_tigtag_user_init() {
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Setting.class');
+  $util = Utility::getInstance();
+  $util::bootstrap();
+}
+

@@ -1,0 +1,10 @@
+name = Tigtag Users
+description = Management for Tigtag users
+package = Xiaozhushou
+core = 7.x
+php = 5.3
+dependencies[] = xiaozhushou_utilities
+
+version = "7.x-1.0-dev"
+project = "xiaozhushou"
+

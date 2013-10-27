@@ -7,4 +7,5 @@ php = 5.3
 version = "7.x-1.0-dev"
 project = "xiaozhushou"
 
-files[] = includes/classes/Setting.inc
+files[] = includes/classes/Setting.class.inc
+files[] = includes/classes/Utility.class.inc
