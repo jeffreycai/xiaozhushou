@@ -1,9 +1,12 @@
 <?php
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'Setting.class.inc';
+
 class Utility {
   public static function getInstance() {
     static $inst = null;
     if ($inst === null) {
       $inst = new Utility();
+      $inst->bootstrap();
     }
     return $inst;
   }
@@ -15,7 +18,7 @@ class Utility {
   /**
    * Load all settings
    */
-  public static function loadSettings($module) {
+  public function loadSettings($module) {
     $settings = Setting::getInstance();
     $settings->load($module);
   }
@@ -23,7 +26,7 @@ class Utility {
   /**
    * Get settings
    */
-  public static function getSetting($path) {
+  public function getSetting($path = "") {
     $settings = Setting::getInstance();
     return $settings->get($path);
   }
@@ -31,9 +34,8 @@ class Utility {
   /**
    * Load settings and constants
    */
-  public static function bootstrap() {
-    define("DS", DIRECTORY_SEPARATOR);
-    self::loadSettings('xiaozhushao_utilities');
+  private function bootstrap() {
+    $this->loadSettings('xiaozhushou_utilities');
   }
 }
 

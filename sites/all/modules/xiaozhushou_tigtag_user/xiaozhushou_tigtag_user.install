@@ -17,14 +17,14 @@ function xiaozhushou_tigtag_user_schema () {
       'username' => array(
         'type' => 'varchar',
         'length' => 32,
-        'not_null' => true,
+        'not null' => true,
         'default' => ''
       ),
       
       'password' => array(
         'type' => 'varchar',
         'length' => 32,
-        'not_null' => true,
+        'not null' => true,
         'default' => ''
       ),
       
@@ -51,15 +51,30 @@ function xiaozhushou_tigtag_user_schema () {
 }
 
 /**
+ * Implements hook_uninstall()
+ */
+function xiaozhushou_tigtag_user_uninstall() {
+  db_query('DROP TABLE {xiaozhushou_tigtag_user}');
+}
+
+/**
  * Implements hook_install().
  */
 function xiaozhushou_tigtag_user_install() {
   // Populate the test account
-  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utilities.class');
-  echo "hello";
-//  db_insert('xiaozhushou_tigtag_user')
-//    ->fields(array(
-//
-//    ))
-//    ->execute();
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  
+  // dump test account as initial record
+  $util = Utility::getInstance();
+  $util->loadSettings('xiaozhushou_tigtag_user');
+  $username = $util->getSetting('tigtag_user->test_account->username');
+  $password = $util->getSetting('tigtag_user->test_account->password');
+  
+  db_insert('xiaozhushou_tigtag_user')
+    ->fields(array(
+        'username' => $username,
+        'password' => $password,
+        'created' => time()
+    ))
+    ->execute();
 }

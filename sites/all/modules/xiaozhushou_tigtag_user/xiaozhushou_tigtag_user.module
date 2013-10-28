@@ -14,8 +14,40 @@ function xiaozhushou_tigtag_user_help($path, $arg) {
  */
 function xiaozhushou_tigtag_user_init() {
   module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
-  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Setting.class');
+  
   $util = Utility::getInstance();
-  $util::bootstrap();
+  $util->loadSettings('xiaozhushou_tigtag_user');
 }
 
+/**
+ * Implements hook_permission()
+ */
+function xiaozhushou_tigtag_user_permission() {
+  return array(
+    'view tigtag user list' => array(
+      'title' => t('View Tigtag user list'),
+      'description' => t('Be able to administer Tigtag user list'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu()
+ * @return string
+ */
+function xiaozhushou_tigtag_user_menu() {
+//  module_load_include('inc', 'xiaozhushou_tigtag_user', 'includes/tigtag_user_list');
+  
+  $items = array();
+
+  $items['admin/config/xiaozhushou/tigtag/user/list'] = array(
+    'title' => 'Available Tigtag users',
+    'description' => 'This page lists all available Tigtag Users.',
+    'page callback' => '_tigtag_user_list',
+    'access arguments' => array('view tigtag user list'),
+    'weight' => -50,
+    'file' => 'includes/tigtag_user_list.inc',
+  );
+  
+  return $items;
+}

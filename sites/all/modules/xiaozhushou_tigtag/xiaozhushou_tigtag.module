@@ -12,7 +12,9 @@ function xiaozhushou_tigtag_help($path, $arg) {
 /**
  * Implements hook_init()
  */
-function hook_init() {
+function xiaozhushou_tigtag_init() {
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  
   $util = Utility::getInstance();
-  $util::bootstrap();
+  $util->loadSettings('xiaozhushou_tigtag');
 }

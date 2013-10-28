@@ -1,5 +1,8 @@
 <?php
 
+define("DS", DIRECTORY_SEPARATOR);
+
+
 /**
 * Implements hook_help().
 */

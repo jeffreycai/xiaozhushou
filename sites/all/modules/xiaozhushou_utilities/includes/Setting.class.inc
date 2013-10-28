@@ -23,15 +23,14 @@ class Setting {
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/spyc');
     $Spyc  = new Spyc;
     
-    // load main settings file
-    $main_settings_path = drupal_get_path('module', 'xiaozhushou_utilities') . DS . 'conf' . DS . 'settings.yml';
-    $this->set($Spyc->load($main_settings_path));
-    
-    // load module settings, if it is not the main settings
-    if ($module != 'xiaozhushou_utilities') {
-      $module_settings_path = drupal_get_path('module', $module) . DS . 'conf' . DS . 'settings.yml';
-      $this->set($Spyc->load($module_settings_path));
+    $module_settings_path = DRUPAL_ROOT . DS . drupal_get_path('module', $module) . DS . 'conf' . DS . 'settings.yml';
+    // don't do it if settings file does not exist
+    if (!is_file($module_settings_path)) {
+      return;
     }
+    
+    $setting = $Spyc->loadFile($module_settings_path);
+    $this->set($setting);
   }
   
   /**
@@ -47,8 +46,12 @@ class Setting {
    * @param string $path, indicating the array keys of the setting that needs to be fetched
    * @return type
    */
-  public function get($path) {
-    $tokens = explode('|'); 
+  public function get($path = "") {
+    if ($path == "") {
+      return $this->vars;
+    }
+
+    $tokens = explode('->', $path); 
     $rtn = $this->vars;
     foreach ($tokens as $key) {
       $rtn = $rtn[$key];
