@@ -11,3 +11,35 @@ function xiaozhushou_utilities_help($path, $arg) {
     return t('Global functions and utilities for Xiaozhushou Module group');
   }
 }
+
+/**
+ * Implements hook_permission()
+ */
+function xiaozhushou_utilities_permission() {
+  return array(
+    'access xiaozhushou settings' => array(
+      'title' => t('Access Xiaozhushou settings'),
+      'description' => t('Be able to access Xiao Zhu Shou settings'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu()
+ */
+function xiaozhushou_utilities_menu() {
+  $items = array();
+  
+  $items['admin/config/xiaozhushou'] = array(
+   'title' => t('Xiao Zhu Shou'),
+   'description' => 'Xiao Zhu Shou settings group.',
+   'position' => 'right',
+   'weight' => -50,
+   'page callback' => 'system_admin_menu_block_page',
+   'access arguments' => array('access xiaozhushou settings'),
+   'file' => 'system.admin.inc',
+   'file path' => drupal_get_path('module', 'system'),
+  );
+  
+  return $items;
+}

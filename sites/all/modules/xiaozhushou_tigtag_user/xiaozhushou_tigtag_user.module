@@ -20,18 +20,6 @@ function xiaozhushou_tigtag_user_init() {
 }
 
 /**
- * Implements hook_permission()
- */
-function xiaozhushou_tigtag_user_permission() {
-  return array(
-    'view tigtag user list' => array(
-      'title' => t('View Tigtag user list'),
-      'description' => t('Be able to administer Tigtag user list'),
-    ),
-  );
-}
-
-/**
  * Implements hook_menu()
  * @return string
  */
@@ -39,15 +27,71 @@ function xiaozhushou_tigtag_user_menu() {
 //  module_load_include('inc', 'xiaozhushou_tigtag_user', 'includes/tigtag_user_list');
   
   $items = array();
-
-  $items['admin/config/xiaozhushou/tigtag/user/list'] = array(
-    'title' => 'Available Tigtag users',
-    'description' => 'This page lists all available Tigtag Users.',
-    'page callback' => '_tigtag_user_list',
-    'access arguments' => array('view tigtag user list'),
-    'weight' => -50,
-    'file' => 'includes/tigtag_user_list.inc',
+  
+  $items['admin/config/xiaozhushou/tigtag'] = array(
+    'title' => 'Tigtag settings',
+    'description' => 'All Tigtag settings',
+    'weight' => 0,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access xiaozhushou settings'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
   );
   
+  $items['admin/config/xiaozhushou/tigtag/user'] = array(
+    'title' => 'Tigtag users setting',
+    'description' => 'Manage user tigtag user accounts.',
+    'page callback' => 'tigtag_user_admin',
+//    'page arguments' => array('list'),
+    'access arguments' => array('access xiaozhushou settings'),
+    'position' => 'left',
+    'weight' => -4,
+    'file' => 'includes/tigtag_user.inc',
+  );
+  
+  $items['admin/config/xiaozhushou/tigtag/user/list'] = array(
+    'title' => 'List',
+    'description' => 'Find and manage Tigtag user accounts.',
+    'access arguments' => array('access xiaozhushou settings'),
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    'weight' => -10,
+    'file' => 'includes/tigtag_user.inc',
+  );
+  
+  $items['admin/config/xiaozhushou/tigtag/user/register'] = array(
+    'title' => 'Register',
+    'description' => 'Register a Tigtag account.',
+    'page callback' => 'tigtag_user_register',
+    'access arguments' => array('access xiaozhushou settings'),
+    'file' => 'includes/tigtag_user.inc',
+    'type' => MENU_LOCAL_TASK,
+  );
   return $items;
 }
+
+/**
+ * Implements hook_tigtag_user_operations()
+ */
+function xiaozhushou_tigtag_user_tigtag_user_operations($form = array(), $form_state = array()) {
+  $operations = array(
+    'delete' => array(
+      'label' => t('Delete the selected users'),
+      'callback' => 'tigtag_user_operations_delete',
+    ),
+  );
+  return $operations;
+}
+
+/**
+ * Delete a Tigtag user account
+ */
+function tigtag_user_operations_delete() {
+  die('delete me');
+}
+
+/**
+ * Implements hook_theme()
+ */
+//function xiaozhushou_tigtag_user_theme($existing, $type, $theme, $path) {
+//  
+//}
