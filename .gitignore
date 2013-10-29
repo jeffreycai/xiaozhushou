@@ -7,4 +7,4 @@ sites/*/private
 
 
 # _rsync
-_rsync/db-dump.sql
+_rsync/db-dump.sh
