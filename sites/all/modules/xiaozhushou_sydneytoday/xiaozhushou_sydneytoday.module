@@ -1,0 +1,20 @@
+<?php
+
+/**
+* Implements hook_help().
+*/
+function xiaozhushou_sydneytoday_help($path, $arg) {
+  if ($path == 'admin/help#xiaozhushou_sydneytoday') {
+    return t('Scrape content from Sydneytoday');
+  }
+}
+
+/**
+ * Implements hook_init()
+ */
+function xiaozhushou_sydneytoday_init() {
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  
+  $util = Utility::getInstance();
+  $util->loadSettings('xiaozhushou_sydneytoday');
+}

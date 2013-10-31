@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function xiaozhushou_rental_install() {
+  $t = get_t();  // 
+
+  // machine name of the content type
+  $name = 'rental';
+  // define node type
+  $rentals = array(
+    'type' => $name,
+    'name' => $t('Rentals'),
+    'base' => 'node_content',
+    //'title_label' => $t('Property name'),
+    'custom' => true,
+  );
+  // set other node defaults not declared above
+  $content_type = node_type_set_defaults($rentals);
+
+  // add the body field
+  node_add_body_field($content_type, $t('Rental Description'));
+  // save
+  node_type_save($content_type);
+  
+}
+
+/**
+ * Implements hook_uninstall
+ */
+function xiaozhushou_rental_uninstall() {
+  node_type_delete('rental');
+}
