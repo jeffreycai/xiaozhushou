@@ -4,8 +4,9 @@
  * Implements hook_install().
  */
 function xiaozhushou_rental_install() {
-  $t = get_t();  // 
+  $t = get_t();  // Returns the name of the proper localization function
 
+  /* Step 1 - Create content type */
   // machine name of the content type
   $name = 'rental';
   // define node type
@@ -24,11 +25,51 @@ function xiaozhushou_rental_install() {
   // save
   node_type_save($content_type);
   
+  
+  /* Step 2 - Add persistant variables that control settings */
+  variable_set('additional_settings__active_tab_' . $name, 'edit-menu');
+  variable_set('node_preview_' . $name, 2);
+  variable_set('node_options_' . $name, array(0 => 'status', 1 => 'promote'));
+  variable_set('node_submitted_' . $name, 0);
+  variable_set('menu_options_' . $name, array());
+  variable_set('menu_parent_' . $name, 'main-menu:0');
+  
+  /* Step 3 - Create fields */
+  // reference: http://www.thecarneyeffect.co.uk/creating-custom-content-type-adding-fields-programmatically-drupal-7
+  
+  // create all the fields we are adding to our content type
+  foreach (_rentals_installed_fields() as $instance) {
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = $rentals['type'];
+    field_create_instance($instance);
+  }
+  
+  // create all the instances for our fields
+  foreach (_rentals_installed_instances() as $instance) {
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = $rentals['type'];
+    field_create_instance($instance);
+  }
 }
 
 /**
  * Implements hook_uninstall
  */
 function xiaozhushou_rental_uninstall() {
+  // remove persistant variables that control settings
+  variable_del('additional_settings__active_tab_' . $name);
+  variable_del('node_preview_' . $name);
+  variable_del('node_options_' . $name);
+  variable_del('node_submitted_' . $name);
+  variable_del('menu_options_' . $name);
+  variable_del('menu_parent_' . $name);
+  
   node_type_delete('rental');
+}
+
+/**
+ * Rental fields definition
+ */
+function _rentals_installed_fields() {
+  
 }
