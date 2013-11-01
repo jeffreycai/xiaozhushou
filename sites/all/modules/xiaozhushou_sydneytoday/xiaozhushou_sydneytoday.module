@@ -17,4 +17,31 @@ function xiaozhushou_sydneytoday_init() {
   
   $util = Utility::getInstance();
   $util->loadSettings('xiaozhushou_sydneytoday');
+  
+  module_load_include('inc', 'xiaozhushou_sydneytoday', 'includes/sydneytoday');
+}
+
+/**
+ * Implements hook_cron_queue_info()
+ */
+function xiaozhushou_sydneytoday_cron_queue_info() {
+  // cron task to craw rental list
+  $queues['sydneytoday_rental_list_craw'] = array(
+    'worker callback' => 'sydneytoday_rental_list_craw',
+    // 'time' => 30,
+  );
+  
+  // cron task to parse rental items as Drupal nodes
+  $queues['sydneytoday_rental_item_parse'] = array(
+    'worker callback' => 'sydneytoday_rental_item_parse',
+  );
+  
+  return $queues;
+}
+
+/**
+ * Implements hook_cron()
+ */
+function xiaozhushou_sydneytoday_cron() {
+
 }

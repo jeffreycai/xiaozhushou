@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * Implements hook_schema
+ */
+function xiaozhushou_sydneytoday_schema () {
+  $schema['xiaozhushou_sydneytoday_rental_item'] = array(
+    'description' => 'Rental items on Sydneytoday rental section',
+    'fields' => array(
+      
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => true,
+        'not null' => true
+      ),
+      
+      'rid' => array(
+        'type' => 'int',
+        'length' => 32,
+        'not null' => true,
+      ),
+      
+      'contact' => array(
+        'type' => 'varchar',
+        'length' => 15,
+        'not null' => false,
+      ),
+      
+      'mobile' => array(
+        'type' => 'int',
+        'length' => 12,
+        'not null' => false,
+      ),
+      
+      'qq' => array(
+        'type' => 'int',
+        'length' => 20,
+        'not null' => false,
+      ),
+        
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => false,
+      ),
+        
+      'property_type' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => false,
+      ),
+      
+      'rental type' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => false,
+      ),
+        
+      'facilities' => array(
+        'type' => 'varchar',
+        'length' => 300,
+        'not null' => false,
+      ),
+        
+      'price' => array(
+        'type' => 'int',
+        'length' => 4,
+        'not null' => false,
+      ),
+        
+      'near by facilities' => array(
+        'type' => 'varchar',
+        'length' => 300,
+        'not null' => false,
+      ),
+        
+      'address' => array(
+        'type' => 'varchar',
+        'length' => 150,
+        'not null' => false,
+      ),
+        
+      'comment' => array(
+        'type' => 'text',
+        'not null' => false,
+      ),
+        
+      'images' => array(
+        'type' => 'text',
+        'not null' => false,
+      ),
+    ),
+    'unique keys' => array(
+      'id' => array('id'),
+    ),
+  );
+  
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall()
+ */
+function xiaozhushou_tigtag_user_uninstall() {
+  db_query('DROP TABLE {xiaozhushou_sydneytoday_rental_item}');
+}
