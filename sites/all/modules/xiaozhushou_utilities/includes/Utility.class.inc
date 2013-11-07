@@ -37,5 +37,16 @@ class Utility {
   private function bootstrap() {
     $this->loadSettings('xiaozhushou_utilities');
   }
+  
+  /**
+   * get a page crawler
+   * @return \Crawler
+   */
+  public function getCrawler() {
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Crawler.class');
+    
+    $crawler = new Crawler();
+    return $crawler;
+  }
 }
 

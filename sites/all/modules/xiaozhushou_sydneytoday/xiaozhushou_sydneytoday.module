@@ -43,5 +43,7 @@ function xiaozhushou_sydneytoday_cron_queue_info() {
  * Implements hook_cron()
  */
 function xiaozhushou_sydneytoday_cron() {
-
+  $my_queue = DrupalQueue::get('sydneytoday_rental_list_craw');
+  $my_queue->createItem(null);
+  
 }

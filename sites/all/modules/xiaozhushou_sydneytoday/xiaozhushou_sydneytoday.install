@@ -50,7 +50,7 @@ function xiaozhushou_sydneytoday_schema () {
         'not null' => false,
       ),
       
-      'rental type' => array(
+      'rental_type' => array(
         'type' => 'varchar',
         'length' => 32,
         'not null' => false,
@@ -89,10 +89,24 @@ function xiaozhushou_sydneytoday_schema () {
         'type' => 'text',
         'not null' => false,
       ),
+        
+      'published_at' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when property was created.',
+      ),
+    ),
+    'indexes' => array(
+      'email' => array('email'),
+      'property_type' => array('property_type'),
+      'rental_type' => array('rental_type'),
+      'published_at' => array('published_at'),
     ),
     'unique keys' => array(
       'id' => array('id'),
     ),
+    'primary key' => array('id'),
   );
   
   return $schema;
