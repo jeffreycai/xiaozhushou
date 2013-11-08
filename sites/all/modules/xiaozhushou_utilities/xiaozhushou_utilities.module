@@ -13,6 +13,14 @@ function xiaozhushou_utilities_help($path, $arg) {
 }
 
 /**
+ * Implements hook_init()
+ */
+function xiaozhushou_utilities_init() {
+  // set default timezone to Sydney
+  date_default_timezone_set('Australia/Sydney');
+}
+
+/**
  * Implements hook_permission()
  */
 function xiaozhushou_utilities_permission() {

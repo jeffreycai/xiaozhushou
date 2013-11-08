@@ -7,7 +7,12 @@ function xiaozhushou_sydneytoday_schema () {
   $schema['xiaozhushou_sydneytoday_rental_item'] = array(
     'description' => 'Rental items on Sydneytoday rental section',
     'fields' => array(
-      
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => true,
+      ),
+        
       'id' => array(
         'type' => 'serial',
         'unsigned' => true,
@@ -19,6 +24,12 @@ function xiaozhushou_sydneytoday_schema () {
         'length' => 32,
         'not null' => true,
       ),
+        
+      'url' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => true,
+      ),
       
       'contact' => array(
         'type' => 'varchar',
@@ -28,7 +39,7 @@ function xiaozhushou_sydneytoday_schema () {
       
       'mobile' => array(
         'type' => 'int',
-        'length' => 12,
+        'length' => 128,
         'not null' => false,
       ),
       
@@ -63,12 +74,12 @@ function xiaozhushou_sydneytoday_schema () {
       ),
         
       'price' => array(
-        'type' => 'int',
-        'length' => 4,
+        'type' => 'varchar',
+        'length' => 32,
         'not null' => false,
       ),
         
-      'near by facilities' => array(
+      'near_by_facilities' => array(
         'type' => 'varchar',
         'length' => 300,
         'not null' => false,
@@ -96,8 +107,16 @@ function xiaozhushou_sydneytoday_schema () {
         'default' => 0,
         'description' => 'Timestamp for when property was created.',
       ),
+      
+      'cron_queued' => array(
+        'type' => 'int',
+        'not null' => true,
+        'default' => 0,
+        'length' => 1,
+      ),
     ),
     'indexes' => array(
+      'rid' => array('rid'),
       'email' => array('email'),
       'property_type' => array('property_type'),
       'rental_type' => array('rental_type'),

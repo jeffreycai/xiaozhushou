@@ -43,7 +43,18 @@ function xiaozhushou_sydneytoday_cron_queue_info() {
  * Implements hook_cron()
  */
 function xiaozhushou_sydneytoday_cron() {
-  $my_queue = DrupalQueue::get('sydneytoday_rental_list_craw');
-  $my_queue->createItem(null);
+  // add a list craw cron job to the queue
+  $queue_list = DrupalQueue::get('sydneytoday_rental_list_craw');
+  $queue_list->createItem(null);
   
+  // add un-queued items to queue
+  $items = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
+    ->fields('ri')
+    ->condition('cron_queued', 0)
+    ->execute()
+    ->fetchAssoc();
+  foreach ($items as $item) {
+    $queue_item = DrupalQueue::get('sydneytoday_rental_item_parse');
+    $queue_item->createItem($item);
+  }
 }
