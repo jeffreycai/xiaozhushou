@@ -10,6 +10,7 @@ module_load_include('inc', 'xiaozhushou_sydneytoday', 'includes/sydneytoday');
 
 
 $item = array(
-    'url' => 'http://www.sydneytoday.com/bencandy.php?fid=12&id=122069'
+    'url' => 'http://www.sydneytoday.com/bencandy.php?fid=12&id=130499',
+    'id' => 1
 );
 sydneytoday_rental_item_parse($item);

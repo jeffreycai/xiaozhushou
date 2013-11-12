@@ -33,25 +33,31 @@ function xiaozhushou_sydneytoday_schema () {
       
       'contact' => array(
         'type' => 'varchar',
-        'length' => 15,
-        'not null' => false,
-      ),
-      
-      'mobile' => array(
-        'type' => 'int',
         'length' => 128,
         'not null' => false,
       ),
       
+      'mobile' => array(
+        'type' => 'varchar',
+        'length' => 256,
+        'not null' => false,
+      ),
+        
+      'phone' => array(
+        'type' => 'varchar',
+        'length' => 256,
+        'not null' => false,
+      ),
+      
       'qq' => array(
-        'type' => 'int',
-        'length' => 20,
+        'type' => 'varchar',
+        'length' => 256,
         'not null' => false,
       ),
         
       'email' => array(
         'type' => 'varchar',
-        'length' => 32,
+        'length' => 256,
         'not null' => false,
       ),
         
@@ -87,7 +93,7 @@ function xiaozhushou_sydneytoday_schema () {
         
       'address' => array(
         'type' => 'varchar',
-        'length' => 150,
+        'length' => 280,
         'not null' => false,
       ),
         
@@ -108,11 +114,25 @@ function xiaozhushou_sydneytoday_schema () {
         'description' => 'Timestamp for when property was created.',
       ),
       
-      'cron_queued' => array(
+      'created_at' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when property was crawed for the first time.',
+      ),
+      
+      'crawed' => array(
         'type' => 'int',
         'not null' => true,
         'default' => 0,
         'length' => 1,
+      ),
+        
+      'imported' => array(
+        'type' => 'int',
+        'not null' => true,
+        'default' => 0,
+        'length' => 1
       ),
     ),
     'indexes' => array(

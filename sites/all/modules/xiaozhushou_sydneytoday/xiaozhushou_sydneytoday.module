@@ -51,9 +51,9 @@ function xiaozhushou_sydneytoday_cron() {
   $items = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
     ->fields('ri')
     ->condition('cron_queued', 0)
-    ->execute()
-    ->fetchAssoc();
-  foreach ($items as $item) {
+    ->execute();
+  
+  while ($item = $items->fetchAssoc()) {
     $queue_item = DrupalQueue::get('sydneytoday_rental_item_parse');
     $queue_item->createItem($item);
   }
