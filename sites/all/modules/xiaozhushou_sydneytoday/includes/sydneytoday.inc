@@ -124,8 +124,14 @@ function sydneytoday_rental_item_parse($item) {
 
     // grab description
     $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
-
-    $record['cron_queued'] = 1;
+    // mark as crawed
+    $record['crawed'] = 1;
+    // get images
+    $record['images'] = array();
+    foreach ($dom->find('#divmov_img img') as $img) {
+      $record['images'][] = $img->src;
+    }
+    $record['images'] = implode("\n", $record['images']);
 
     // dump to db
     $query = db_update('xiaozhushou_sydneytoday_rental_item')
@@ -135,4 +141,11 @@ function sydneytoday_rental_item_parse($item) {
   } catch (Exception $e) {
     watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_parse() error for item %url: ' . $e->getMessage(), array('%url' => $item['url']), WATCHDOG_ERROR);
   }
+}
+
+/**
+ * Import Rental item as Drupal nodes
+ */
+function sydneytoday_rental_item_import($item) {
+  
 }

@@ -9,7 +9,7 @@ function xiaozhushou_sydneytoday_schema () {
     'fields' => array(
       'title' => array(
         'type' => 'varchar',
-        'length' => 128,
+        'length' => 127,
         'not null' => true,
       ),
         
@@ -21,79 +21,79 @@ function xiaozhushou_sydneytoday_schema () {
       
       'rid' => array(
         'type' => 'int',
-        'length' => 32,
+        'length' => 31,
         'not null' => true,
       ),
         
       'url' => array(
         'type' => 'varchar',
-        'length' => 128,
+        'length' => 255,
         'not null' => true,
       ),
       
       'contact' => array(
         'type' => 'varchar',
-        'length' => 128,
+        'length' => 127,
         'not null' => false,
       ),
       
       'mobile' => array(
         'type' => 'varchar',
-        'length' => 256,
+        'length' => 255,
         'not null' => false,
       ),
         
       'phone' => array(
         'type' => 'varchar',
-        'length' => 256,
+        'length' => 255,
         'not null' => false,
       ),
       
       'qq' => array(
         'type' => 'varchar',
-        'length' => 256,
+        'length' => 255,
         'not null' => false,
       ),
         
       'email' => array(
         'type' => 'varchar',
-        'length' => 256,
+        'length' => 255,
         'not null' => false,
       ),
         
       'property_type' => array(
         'type' => 'varchar',
-        'length' => 32,
+        'length' => 31,
         'not null' => false,
       ),
       
       'rental_type' => array(
         'type' => 'varchar',
-        'length' => 32,
+        'length' => 31,
         'not null' => false,
       ),
         
       'facilities' => array(
         'type' => 'varchar',
-        'length' => 300,
+        'length' => 511,
         'not null' => false,
       ),
         
       'price' => array(
         'type' => 'varchar',
-        'length' => 32,
+        'length' => 31,
         'not null' => false,
       ),
         
       'near_by_facilities' => array(
         'type' => 'varchar',
-        'length' => 300,
+        'length' => 511,
         'not null' => false,
       ),
         
       'address' => array(
         'type' => 'varchar',
-        'length' => 280,
+        'length' => 511,
         'not null' => false,
       ),
         
