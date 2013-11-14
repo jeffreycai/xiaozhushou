@@ -1,2 +1,3 @@
 sydneytoday:
   list_url: http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=1
+  image_folder: public://cron/sydneytoday

@@ -124,8 +124,6 @@ function sydneytoday_rental_item_parse($item) {
 
     // grab description
     $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
-    // mark as crawed
-    $record['crawed'] = 1;
     // get images
     $record['images'] = array();
     foreach ($dom->find('#divmov_img img') as $img) {
@@ -147,5 +145,35 @@ function sydneytoday_rental_item_parse($item) {
  * Import Rental item as Drupal nodes
  */
 function sydneytoday_rental_item_import($item) {
-  
+  try{
+    global $user;
+    $node = new stdClass();
+    $node->title = $item['title'];
+    $node->type = 'rental';
+    node_object_prepare($node);
+    $node->language = LANGUAGE_NONE;
+    $node->uid = $user->uid;
+    $node->status = 1; // published or not
+    $node->promote = 0;
+    $node->comment = 0;
+    
+    foreach ($item as $key => $val) {
+      if (in_array($key, array('facilities', 'near_by_facilities'))) {
+        $field = 'field_rental_' . $key . '_';
+      } else if (in_array($key, array('published_at', 'created_at', 'crawed', 'imported', 'images'))) {
+        $field = null;
+      }
+      
+      if (!is_null($field)) {
+        $value = array();
+        $value['und'][0]['value'] = $val;
+        $node->$field = $value;
+      }
+    }
+    
+    node_save($node);
+    
+  } catch(Exception $e) {
+    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_import() error for item ID %id:' . $e->getMessage(), array('%id' => $item['id']), WATCHDOG_ERROR);
+  }
 }

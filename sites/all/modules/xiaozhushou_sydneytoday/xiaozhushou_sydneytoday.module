@@ -31,9 +31,14 @@ function xiaozhushou_sydneytoday_cron_queue_info() {
     // 'time' => 30,
   );
   
-  // cron task to parse rental items as Drupal nodes
+  // cron task to craw rental item details
   $queues['sydneytoday_rental_item_parse'] = array(
     'worker callback' => 'sydneytoday_rental_item_parse',
+  );
+  
+  // cron task to import rental items as Drupal nodes
+  $queues['sydneytoday_rental_item_import'] = array(
+    'worker callback' => 'sydneytoday_rental_item_import',
   );
   
   return $queues;
@@ -47,7 +52,7 @@ function xiaozhushou_sydneytoday_cron() {
   $queue_list = DrupalQueue::get('sydneytoday_rental_list_craw');
   $queue_list->createItem(null);
   
-  // add un-queued items to queue
+  // craw items details
   $items = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
     ->fields('ri')
     ->condition('crawed', 0)
@@ -56,6 +61,11 @@ function xiaozhushou_sydneytoday_cron() {
   while ($item = $items->fetchAssoc()) {
     $queue_item = DrupalQueue::get('sydneytoday_rental_item_parse');
     $queue_item->createItem($item);
+    // set to crawed
+    $query = db_update('xiaozhushou_sydneytoday_rental_item')
+      ->fields(array('crawed' => 1))
+      ->condition('id', $item['id'])
+      ->execute();
   }
   
   // import items to Drupal as nodes
@@ -67,5 +77,10 @@ function xiaozhushou_sydneytoday_cron() {
   while ($item = $items->fetchAssoc()) {
     $queue_item = DrupalQueue::get('sydneytoday_rental_item_import');
     $queue_item->createItem($item);
+    // set to imported
+    $query = db_update('xiaozhushou_sydneytoday_rental_item')
+      ->fields(array('imported' => 1))
+      ->condition('id', $item['id'])
+      ->execute();
   }
 }
