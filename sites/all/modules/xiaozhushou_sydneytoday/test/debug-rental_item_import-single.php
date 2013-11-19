@@ -6,6 +6,11 @@ define('DRUPAL_ROOT','/var/webs/xiaozhushou.com.au');
 require_once(DRUPAL_ROOT . '/includes/bootstrap.inc');
 drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
+chdir(DRUPAL_ROOT);
+
+//die(shell_exec('whoami'));
+
+
 module_load_include('inc', 'xiaozhushou_sydneytoday', 'includes/sydneytoday');
 
 $item = db_select('xiaozhushou_sydneytoday_rental_item','ri')
@@ -29,10 +34,14 @@ module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
 $util = Utility::getInstance();
 
 foreach ($item as $key => $val) {
+  $field = null;
+  // special treatment for "facilities" and "near_by_facilities" fields
   if (in_array($key, array('facilities', 'near_by_facilities'))) {
     $field = 'field_rental_' . $key . '_';
+  // escape non-node fields
   } else if (in_array($key, array('published_at', 'created_at', 'crawed', 'imported'))) {
-    $field = null;
+    continue;
+  // special treatment for "images" field
   } else if ($key == 'images') {
     if (is_string($item['images']) && strlen($item['images'])) {
       $images = explode("\n", $item['images']);
@@ -41,17 +50,18 @@ foreach ($item as $key => $val) {
         $image = file_get_contents($url);
         $name = basename($url);
         if ($file = file_save_data($image, $util->getSetting('sydneytoday->image_folder') . '/' . $name, FILE_EXISTS_RENAME)) {
-          $imgs[] = $file;
+          $imgs[] = (array)$file;
         }
       }
-
-      $node->field_rental_images[LANGUAGE_NONE][0] = (array)$imgs; 
+      $node->field_rental_images[LANGUAGE_NONE] = $imgs;
     }
+    continue;
   } else {
     $field = 'field_rental_' . $key;
   }
+  
   if (!is_null($field)) {
-    $value = array();
+    $value = $node->$field;
     $value[LANGUAGE_NONE][0]['value'] = $val;
     $node->$field = $value;
   }

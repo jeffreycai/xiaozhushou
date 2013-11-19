@@ -53,6 +53,7 @@ function sydneytoday_rental_list_craw() {
         }
       }
     }
+    $dom->clear();
   } catch (Exception $e) {
     watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_list_craw() error:' . $e->getMessage(), array(), WATCHDOG_ERROR);
   }
@@ -72,10 +73,11 @@ function sydneytoday_rental_item_parse($item) {
     $record = array();
 
     $trs = array();
-    foreach ($dom->find('#becan_l', 0)->find('tr') as $tr) {
+    
+    foreach ($dom->find('#becan_l tr') as $tr) {
       $trs[] = $tr;
     }
-    foreach ($dom->find('#becan_r', 0)->find('tr') as $tr) {
+    foreach ($dom->find('#becan_r tr') as $tr) {
       $trs[] = $tr;
     }
 
@@ -123,7 +125,16 @@ function sydneytoday_rental_item_parse($item) {
     }
 
     // grab description
-    $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
+    if ($elem = $dom->find('#list_middle', 0)) {
+      if ($elem = $elem->find('table', 0)) {
+        if ($elem = $elem->children(2)) {
+          if ($elem = $elem->find('div', 0)) {
+            $record['comment'] = $elem->plaintext;
+          }
+        }
+      }
+    }
+//    $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
     // get images
     $record['images'] = array();
     foreach ($dom->find('#divmov_img img') as $img) {
@@ -136,6 +147,8 @@ function sydneytoday_rental_item_parse($item) {
       ->fields($record)
       ->condition('id', $item['id'])
       ->execute();
+    
+    $dom->clear();
   } catch (Exception $e) {
     watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_parse() error for item %url: ' . $e->getMessage(), array('%url' => $item['url']), WATCHDOG_ERROR);
   }
