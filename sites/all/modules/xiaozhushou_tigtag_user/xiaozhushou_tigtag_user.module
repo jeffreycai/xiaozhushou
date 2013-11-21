@@ -39,34 +39,53 @@ function xiaozhushou_tigtag_user_menu() {
   );
   
   $items['admin/config/xiaozhushou/tigtag/user'] = array(
-    'title' => 'Tigtag users setting',
-    'description' => 'Manage user tigtag user accounts.',
-    'page callback' => 'tigtag_user_admin',
-//    'page arguments' => array('list'),
+    'title' => 'Tigtag user settings',
+    'description' => 'Administer Tigtag users.',
+    'page callback' => 'tigtag_user_overview',
     'access arguments' => array('access xiaozhushou settings'),
-    'position' => 'left',
-    'weight' => -4,
+    'file' => 'includes/tigtag_user.inc',
+    'weight' => -10,
+  );
+  
+  $items['admin/config/xiaozhushou/tigtag/user/%/check'] = array(
+    'title' => 'User validation',
+    'page callback' => 'tigtag_user_check',
+    'page arguments' => array(5),
+    'access arguments' => array('access xiaozhushou settings'),
     'file' => 'includes/tigtag_user.inc',
   );
   
+  $items['admin/config/xiaozhushou/tigtag/user/%/refresh'] = array(
+    'title' => 'User refresh (delete cookie)',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tigtag_user_refresh' ,5),
+    'access arguments' => array('access xiaozhushou settings'),
+    'file' => 'includes/tigtag_user.inc',
+  );
+  
+  $items['admin/config/xiaozhushou/tigtag/user/%/delete'] = array(
+    'title' => 'User deletion',
+    'page callback' => 'tigtag_user_delete',
+    'page arguments' => array(5),
+    'access arguments' => array('access xiaozhushou settings'),
+    'file' => 'includes/tigtag_user.inc',
+  );
+
   $items['admin/config/xiaozhushou/tigtag/user/list'] = array(
     'title' => 'List',
-    'description' => 'Find and manage Tigtag user accounts.',
-    'access arguments' => array('access xiaozhushou settings'),
+    'weight' => 0,
     'type' => MENU_DEFAULT_LOCAL_TASK,
-    'weight' => -10,
-    'file' => 'includes/tigtag_user.inc',
   );
-  
   $items['admin/config/xiaozhushou/tigtag/user/register'] = array(
-    'title' => 'Register',
-    'description' => 'Register a Tigtag account.',
-    'page callback' => 'tigtag_user_register',
+    'title' => 'Register Tigtag user',
+    'page callback' => 'tigtag_user_register', // two forms concatenated
     'access arguments' => array('access xiaozhushou settings'),
-    'file' => 'includes/tigtag_user.inc',
+    'weight' => 5,
     'type' => MENU_LOCAL_TASK,
+    'file' => 'includes/tigtag_user.inc',
   );
   return $items;
+
 }
 
 /**

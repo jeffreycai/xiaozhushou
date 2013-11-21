@@ -8,23 +8,18 @@ $_SERVER['SCRIPT_NAME'] = 'debug.php';
 
 define('DRUPAL_ROOT','/var/webs/xiaozhushou.com.au');
 require_once(DRUPAL_ROOT . '/includes/bootstrap.inc');
+
 chdir(DRUPAL_ROOT);
 drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
-module_load_include('inc', 'xiaozhushou_tigtag_user', 'TigtagUser.class');
+module_load_include('inc', 'xiaozhushou_tigtag_user', 'includes/TigtagUser.class');
 
-// create cookie file
-$cookie_path = tempnam('public://', 'cookie-');
-if (!$cookie_path) {
-  die("Failed to create cookie file: " . $cookie_path);
-}
 
 // login
-$user = new TigtagUser(USERNAME, PASSWORD);
-if ($user->login()) {
-  
-}
+$user = new TigtagUser();
+$user = $user->getValidUser();
+
+print_r($user);
 
 
-unlink($cookie_path);
-echo 'done. ' . $cookie_path;
+echo 'done. ' . "\n";

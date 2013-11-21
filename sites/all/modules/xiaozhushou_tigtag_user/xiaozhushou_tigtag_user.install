@@ -27,6 +27,12 @@ function xiaozhushou_tigtag_user_schema () {
         'not null' => true,
         'default' => ''
       ),
+        
+      'cookie_path' => array(
+        'type' => 'varchar',
+        'length' => 256,
+        'not null' => true
+      ),
       
       'created' => array(
         'description' => 'The Unix timestamp when the node was created.',
@@ -38,7 +44,7 @@ function xiaozhushou_tigtag_user_schema () {
       'valid' =>array(
         'type' => 'int',
         'not null' => TRUE,
-        'default' => 1,
+        'default' => 0,
       ),
       
     ),
@@ -70,10 +76,13 @@ function xiaozhushou_tigtag_user_install() {
   $username = $util->getSetting('tigtag_user->test_account->username');
   $password = $util->getSetting('tigtag_user->test_account->password');
   
+  $cookie_folder = drupal_get_path('module', 'xiaozhushou_tigtag_user') . DS . 'cookies';
+  
   db_insert('xiaozhushou_tigtag_user')
     ->fields(array(
         'username' => $username,
         'password' => $password,
+        'cookie_path' => tempnam($cookie_folder, 'user-'),
         'created' => time()
     ))
     ->execute();

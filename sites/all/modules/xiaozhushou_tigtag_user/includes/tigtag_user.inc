@@ -1,71 +1,47 @@
 <?php
+
 /**
  * tigtag_user_admin()
  */
-function tigtag_user_admin() {
-  $build['tigtag_user_list'] = drupal_get_form('tigtag_user_list');
-}
-
-/**
- * tigtag_user_list()
- * @return array
- */
-function tigtag_user_list() {
-  $header = array(
-    'id' => array('data' => 'ID', 'field' => 'tu.id'),
-    'username' => array('data' => 'Username', 'field' => 'tu.username'),
-    'password' => array('data' => 'Password', 'field' => 'tu.password'),
-    'created' => array('data' => 'Created at', 'field' => 'tu.created'),
-    'valid' => array('data' => 'isValid?', 'field' => 'tu.valid'),
-    'operations' => array('data' => 'operations'),
-  );
+function tigtag_user_overview() {
+  $records = db_select('xiaozhushou_tigtag_user', 'tu')
+    ->fields('tu')
+    ->execute();
   
-  $query = db_select('xiaozhushou_tigtag_user', 'tu');
-  
-  $count_query = clone $query;
-  $count_query->addExpression('COUNT(tu.id)');
-  
-  $query = $query->extend('PagerDefault')->extend('TableSort');
-  $query
-    ->fields('tu', array('id', 'username', 'password', 'created', 'valid'))
-    ->limit(50)
-    ->orderByHeader($header)
-    ->setCountQuery($count_query);
-  $result = $query->execute();
-  
-  $form['options'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Update options'),
-    '#attributes' => array('class' => array('container-inline')),
-  );
-  $options = array();
-  foreach (module_invoke_all('tigtag_user_operations') as $operation => $array) {
-    $options[$operation] = $array['label'];
+  if (!$records) {
+    echo "There is no user at the moment.";
+  } else {
+    $header = array('id', 'username', 'password', 'cookie path', 'created', 'valid', array('data' => 'operations', 'colspan' => '3'));
+    $rows = array();
+    while ($user = $records->fetch()) {
+      $row = array();
+      $row[] = $user->id;
+      $row[] = $user->username;
+      $row[] = $user->password;
+      $row[] = $user->cookie_path;
+      $row[] = date('Y-m-d H:i:s', $user->created);
+      $row[] = $user->valid;
+      $row[] = l('Check validation', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/check');
+      $row[] = l('Refresh cookie', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/refresh');
+      $row[] = l('Delete', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/delete');
+      $rows[] = $row;
+    }
+    return theme('table', array('header' => $header, 'rows' => $rows));
   }
-  $form['options']['operation'] = array(
-    '#type' => 'select',
-    '#title' => t('Operation'),
-    '#title_display' => 'invisible',
-    '#options' => $options,
-    '#default_value' => 'unblock',
-  );
-  $options = array();
-  $form['options']['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Update'),
-  );
-  
-  $destination = drupal_get_destination();
-  
-  
-  
-  return $form;
 }
 
-/**
- * tigtag_user_register()
- * @return string
- */
+function tigtag_user_check($id) {
+  return 'tigtag_user_check: ' . $id;
+}
+
+function tigtag_user_refresh($id) {
+  return 'tigtag_user_refresh' . $id;
+}
+
+function tigtag_user_delete($id) {
+  return 'tigtag_user_delete' . $id;
+}
+
 function tigtag_user_register() {
-  return "<p>Registration</p>";
+  return "tigtag_user_register";
 }
