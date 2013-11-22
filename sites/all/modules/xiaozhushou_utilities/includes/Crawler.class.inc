@@ -4,8 +4,8 @@ class Crawler {
   private $agent;
   
   public function __construct() {
-    $this->setUserAgent();print_r(tempnam(DRUPAL_ROOT . DS . drupal_get_path('module', 'xiaozhushou_utilities'), 'hello'));die();
-    $this->setCookiePath(tempnam(DRUPAL_ROOT . DS . drupal_get_path('module', 'xiaozhushou_utilities'), 'cookie-'));
+    $cookie_path = tempnam(DRUPAL_ROOT . DS . drupal_get_path('module', 'xiaozhushou_utilities') . DS . 'cache', 'cookie-');
+    $this->setUserAgent();
   }
   
   public function setCookiePath($path) {
@@ -30,7 +30,7 @@ class Crawler {
   
   public function read($url, $cookie_path = null, $headers = false, $tor = false) {
     if (is_null($cookie_path)) {
-      $cookie_path = $this->cookie_path;
+      $cookie_path = $this->getCookiePath();
     }
     
     

@@ -43,17 +43,17 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     return;
   }
   
-  // delete cookie file
+  // clear cookie file
   $cookie_path = $user->getCookiePath();
-  if (is_file($cookie_path)) {
-    unlink($cookie_path);
+  if ($file = fopen($cookie_path, 'w')) {
+    fclose($file);
   }
   
   // login action
   module_load_include('inc', 'xiaozhushou_utilities', 'includes/Crawler.class');
-  $crawler = new Crawler();var_dump($crawler->getCookiePath());die();
+  $crawler = new Crawler();
   $crawler->setCookiePath($cookie_path);
-  $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=logging&action=login', $cookie_path);
+  $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=logging&action=login');
   module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
   $dom = str_get_html($html);
   // get form hashes

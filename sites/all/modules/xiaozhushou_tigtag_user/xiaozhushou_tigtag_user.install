@@ -100,7 +100,7 @@ function xiaozhushou_tigtag_user_install() {
     ->fields(array(
         'username' => $username,
         'password' => $password,
-        'cookie_path' => tempnam($cookie_folder, 'user-'),
+        'cookie_path' => str_replace(DRUPAL_ROOT, '', tempnam($cookie_folder, 'user-')),
         'created' => time()
     ))
     ->execute();

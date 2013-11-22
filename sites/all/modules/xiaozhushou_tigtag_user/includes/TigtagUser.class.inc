@@ -92,7 +92,7 @@ class TigtagUser {
     $this->setId($record->id);
     $this->setUsername($record->username);
     $this->setPassword($record->password);
-    $this->setCookiePath($record->cookie_path);
+    $this->setCookiePath(DRUPAL_ROOT . $record->cookie_path);
     $this->setCreated($record->created);
     $this->setValid($record->valid);
   }
