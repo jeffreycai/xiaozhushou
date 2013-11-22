@@ -57,6 +57,24 @@ function xiaozhushou_tigtag_user_schema () {
 }
 
 /**
+ * Implements hook_enable
+ */
+function xiaozhushou_tigtag_user_requirements($phase) {
+  $requirements = array();
+  
+  $cache_path = __DIR__ . DS . 'cache';
+  if (!is_dir($cache_path) || !is_writable($cache_path)) {
+    $requirements['xiaozhushou_tigtag_user'] = array(
+      'title' => 'Xiaozhushou Tigtag User module',
+      'value' => 'cache folder does not exist or not writable.',
+      'severity' => REQUIREMENT_ERROR
+    );
+  }
+  
+  return $requirements;
+}
+
+/**
  * Implements hook_uninstall()
  */
 function xiaozhushou_tigtag_user_uninstall() {
@@ -76,7 +94,7 @@ function xiaozhushou_tigtag_user_install() {
   $username = $util->getSetting('tigtag_user->test_account->username');
   $password = $util->getSetting('tigtag_user->test_account->password');
   
-  $cookie_folder = drupal_get_path('module', 'xiaozhushou_tigtag_user') . DS . 'cookies';
+  $cookie_folder = drupal_get_path('module', 'xiaozhushou_tigtag_user') . DS . 'cache';
   
   db_insert('xiaozhushou_tigtag_user')
     ->fields(array(

@@ -1,0 +1,18 @@
+<?php
+/**
+ * Implements hook_enable
+ */
+function xiaozhushou_utilities_requirements($phase) {
+  $requirements = array();
+  
+  $cache_path = __DIR__ . DS . 'cache';
+  if (!is_dir($cache_path) || !is_writable($cache_path)) {
+    $requirements['xiaozhushou_utilities'] = array(
+      'title' => 'Xiaozhushou Utilities module',
+      'value' => 'cache folder does not exist or not writable.',
+      'severity' => REQUIREMENT_ERROR
+    );
+  }
+  
+  return $requirements;
+}
