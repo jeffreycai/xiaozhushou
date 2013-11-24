@@ -49,7 +49,7 @@ foreach ($item as $key => $val) {
       foreach ($images as $url) {
         $image = file_get_contents($url);
         $name = basename($url);
-        if ($file = file_save_data($image, $util->getSetting('sydneytoday->image_folder') . '/' . $name, FILE_EXISTS_RENAME)) {
+        if ($file = file_save_data($image, $util->getSetting('cache_folder') . '/' . $name, FILE_EXISTS_RENAME)) {
           $imgs[] = (array)$file;
         }
       }

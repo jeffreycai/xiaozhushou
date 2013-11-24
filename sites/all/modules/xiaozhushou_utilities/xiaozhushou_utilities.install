@@ -5,11 +5,25 @@
 function xiaozhushou_utilities_requirements($phase) {
   $requirements = array();
   
+  // check module cache
   $cache_path = __DIR__ . DS . 'cache';
   if (!is_dir($cache_path) || !is_writable($cache_path)) {
-    $requirements['xiaozhushou_utilities'] = array(
+    $requirements['xiaozhushou_utilities_module_cache'] = array(
       'title' => 'Xiaozhushou Utilities module',
-      'value' => 'cache folder does not exist or not writable.',
+      'value' => 'module cache folder does not exist or not writable.',
+      'severity' => REQUIREMENT_ERROR
+    );
+  }
+  
+  // check public cache
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  $util = Utility::getInstance();
+  
+  $cache_path = $util->getSetting('cache_folder');
+  if (!is_dir($cache_path) || !is_writable($cache_path)) {
+    $requirements['xiaozhushou_utilities_public _cache'] = array(
+      'title' => 'Xiaozhushou Utilities module',
+      'value' => 'public://cache folder does not exist or not writable.',
       'severity' => REQUIREMENT_ERROR
     );
   }

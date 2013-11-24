@@ -66,7 +66,7 @@ function xiaozhushou_tigtag_user_requirements($phase) {
   if (!is_dir($cache_path) || !is_writable($cache_path)) {
     $requirements['xiaozhushou_tigtag_user'] = array(
       'title' => 'Xiaozhushou Tigtag User module',
-      'value' => 'cache folder does not exist or not writable.',
+      'value' => 'module cache folder does not exist or not writable.',
       'severity' => REQUIREMENT_ERROR
     );
   }

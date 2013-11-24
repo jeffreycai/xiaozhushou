@@ -8,3 +8,5 @@ sites/*/private
 
 # _rsync
 _rsync/db-dump.sh
+# xiaozhushou
+sites/all/modules/xiaozhushou_*/cache/*
