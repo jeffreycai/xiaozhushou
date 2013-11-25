@@ -150,7 +150,6 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     '#size' => 4, 
     '#maxlength' => 4, 
     '#required' => TRUE,
-    '#default' => isset($seccode) ? $seccode : ''
   );
   $form['seccode_hash'] = array(
     '#type' => 'hidden',
@@ -211,9 +210,9 @@ function tigtag_user_refresh_submit($form, &$form_state) {
   $html = $crawler->post($url, $post_data, $cookie_path);
   // die(iconv('GBK', 'UTF-8', $html));
   if (strstr($html, 'error')) {
-    drupal_set_message('An error occurred, login failed.', 'error');
+    drupal_set_message('An error occurred, login failed:<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)), 'error');
   } else {
-    drupal_set_message('Cookie refreshed successfully!');
+    drupal_set_message('Cookie refreshed successfully!<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)));
   }
   $form_state['redirect'] = 'admin/config/xiaozhushou/tigtag/user';
 }
@@ -234,7 +233,7 @@ function tigtag_user_register($form, &$form_state) {
   $seccode_markup;
   $seccode_hash;
   $formhash;
-  $register_hash;
+//  $register_hash;
   $cookie_path;
   $username;
   $username_id;
@@ -259,8 +258,8 @@ function tigtag_user_register($form, &$form_state) {
     $cookie_path = tempnam($cookie_folder, 'user-');
 
     // login action
-    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Crawler.class');
-    $crawler = new Crawler();
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+    $crawler = Utility::getInstance()->getCrawler();
     $crawler->setCookiePath($cookie_path);
     $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=register');
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
@@ -322,11 +321,12 @@ function tigtag_user_register($form, &$form_state) {
   
   $form = array();
   
+  $default_username = Utility::getInstance()->generateUsername();
   $form['username'] = array(
     '#type' => 'textfield',
     '#title' => 'Username',
     '#required' => TRUE,
-    '#default' => isset($username) ? $username : ''
+    '#value' => isset($username) ? $username : $default_username,
   );
   $form['username_id'] = array(
     '#type' => 'hidden',
@@ -337,7 +337,7 @@ function tigtag_user_register($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => 'Password',
     '#required' => TRUE,
-    '#default' => '0172122a'
+    '#value' => '0172122a'
   );
   $form['password_id'] = array(
     '#type' => 'hidden',
@@ -353,16 +353,31 @@ function tigtag_user_register($form, &$form_state) {
     '#type' => 'textfield',
     '#title' => 'Email',
     '#required' => TRUE,
-    '#default' => isset($email) ? $email : ''
+    '#value' => isset($email) ? $email : Utility::getInstance()->generateEmail('findloveinsydney@gmail.com'),
   );
   $form['email_id'] = array(
     '#type' => 'hidden',
     '#value' => isset($email_id) ? $email_id : ''
   );
   
+  $form['cellphone'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Cellphone',
+    '#required' => FALSE,
+    '#value' => isset($cellphone) ? $cellphone : '',
+  );
+  $form['cellphone_id'] = array(
+    '#type' => 'hidden',
+    '#value' => isset($cellphone_id) ? $cellphone_id : ''
+  );
+  
   $form['status'] = array(
     '#type' => 'hidden',
-    '#value' => $status
+    '#value' => isset($status) ? $status : ''
+  );
+  $form['status_id'] = array(
+    '#type' => 'hidden',
+    '#value' => isset($status_id) ? $status_id : ''
   );
   
   $form['captcha'] = array(
@@ -379,13 +394,12 @@ function tigtag_user_register($form, &$form_state) {
     '#size' => 4, 
     '#maxlength' => 4, 
     '#required' => TRUE,
-    '#default' => isset($seccode) ? $seccode : ''
   );
   $form['seccode_hash'] = array(
     '#type' => 'hidden',
     '#value' => isset($seccode_hash) ? $seccode_hash : ''
   );
-  $form['form_hash'] = array(
+  $form['formhash'] = array(
     '#type' => 'hidden',
     '#value' => isset($formhash) ? $formhash : ''
   );
@@ -393,40 +407,111 @@ function tigtag_user_register($form, &$form_state) {
     '#type' => 'hidden',
     '#value' => isset($cookie_path) ? $cookie_path : ''
   );
+  $form['regsubmit'] = array(
+    '#type' => 'hidden',
+    '#value' => isset($regsubmit) ? $regsubmit : ''
+  );
+  $form['referer'] = array(
+    '#type' => 'hidden',
+    '#value' => isset($referer) ? $referer : ''
+  );
 
   
   $form['actions'] = array(
     '#type' => 'actions'
   );
   $form['actions']['submit'] = array(
-      '#type' => 'submit', 
-      '#value' => t('Register')
+    '#type' => 'submit', 
+    '#value' => t('Register')
   );
   $form['#submit'][] = 'tigtag_user_register_submit';
   return $form;
 }
 
 function tigtag_user_register_submit($form, &$form_state) {
-  echo "<pre>";print_r($form_state);die("</pre>");
   // get data from form
-  $seccode;
-  $seccode_markup;
-  $seccode_hash;
-  $formhash;
-  $register_hash;
-  $cookie_path;
-  $username;
-  $username_id;
-  $password;
-  $password_id;
-  $password_confirm;
-  $password_confirm_id;
-  $email;
-  $email_id;
-  $status;
-  $status_id;
-  $cellphone;
-  $cellphone_id;
-  $referer;
-  $regsubmit;
+  $seccode = $form_state['input']['seccode'];
+  $seccode_hash = $form_state['input']['seccode_hash'];
+  $formhash = $form_state['input']['formhash'];
+  $cookie_path = $form_state['input']['cookie_path'];
+  $username = $form_state['input']['username'];
+  $username_id = $form_state['input']['username_id'];
+  $password = $form_state['input']['password'];
+  $password_id = $form_state['input']['password_id'];
+  $password_confirm = $form_state['input']['password'];
+  $password_confirm_id = $form_state['input']['password_confirm_id'];
+  $email = $form_state['input']['email'];
+  $email_id = $form_state['input']['email_id'];
+  $status = $form_state['input']['status'];
+  $status_id = $form_state['input']['status_id'];
+  $cellphone = $form_state['input']['cellphone'];
+  $cellphone_id = $form_state['input']['cellphone_id'];
+  $referer = $form_state['input']['referer'];
+  $regsubmit = $form_state['input']['regsubmit'];
+  
+//echo "<pre>";
+//print_r(array(
+//  'seccode' => $seccode,
+//  'seccode_markup' => $seccode_markup,
+//  'seccode_hash' => $seccode_hash,
+//  'formhash' => $formhash,
+////  $register_hash;
+//  'cookie_path' => $cookie_path,
+//  'username' => $username,
+//  'username_id' => $username_id,
+//  'password' => $password,
+//  'password_id' => $password_id,
+//  'password_confirm' => $password_confirm,
+//  'password_confirm_id' => $password_confirm_id,
+//  'email' => $email,
+//  'email_id' => $email_id,
+//  'status' => $status,
+//  'status_id' => $status_id,
+//  'cellphone' => $cellphone,
+//  'cellphone_id' => $cellphone_id,
+//  'referer' => $referer,
+//  'regsubmit' => $regsubmit,
+//));
+//die("</pre>");
+
+  module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+  $crawler = Utility::getInstance()->getCrawler();
+  
+  $post_url = "http://bbs.tigtag.com/member.php?mod=register&inajax=1";
+  $header = array(
+    'Referer: http://bbs.tigtag.com/member.php?mod=register',
+  );
+  $post_data = array(
+    'regsubmit' => $regsubmit,
+    'formhash' => $formhash,
+    'referer' => $referer,
+    'activationauth' => '',
+    $username_id => $username,
+    $password_id => $password,
+    $password_confirm_id => $password_confirm,
+    $email_id => $email,
+    $status_id => iconv('UTF-8', 'GBK', $status),
+    $cellphone_id => $cellphone,
+    'sechash' => $seccode_hash,
+    'seccodeverify' => $seccode,
+  );
+  
+  $html = $crawler->post($post_url, $post_data, $cookie_path, $header, true);
+  
+  // die(iconv('GBK', 'UTF-8', $html));
+  if (strstr($html, 'error')) {
+    drupal_set_message('An error occurred, login failed:<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)), 'error');
+  } else {
+    drupal_set_message('Cookie refreshed successfully!<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)));
+    
+    module_load_include('inc', 'xiaozhushou_tigtag_user', 'includes/TigtagUser.class');
+    $user = new TigtagUser();
+    $user->setCookiePath($cookie_path);
+    $user->setCreated(time());
+    $user->setPassword($password);
+    $user->setUsername($username);
+    $user->setValid(1);
+    $user->insert();
+  }
+  $form_state['redirect'] = 'admin/config/xiaozhushou/tigtag/user';
 }

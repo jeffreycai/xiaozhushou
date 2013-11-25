@@ -48,5 +48,67 @@ class Utility {
     $crawler = new Crawler();
     return $crawler;
   }
+  
+  /**
+   * function to generate a username
+   * @param type $length
+   * @return string 
+   */
+  function generateUsername() {
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+    for ($i = 0; $i < 5; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    
+    $characters = '0123456789';
+    $rs = '';
+    for ($i = 0; $i < 3; $i++) {
+        $rs .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    
+    return $randomString.$rs;
+  }
+  
+  /**
+   * Generate a gmail alias address for $base
+   *
+   * @param type $base
+   * @param type $postfix
+   * @return type 
+   */
+  function generateEmail($base) {
+    if (!preg_match('/.+@.+/i', $base)) {
+      throw new Exception('Email base name needs to be valid');
+    }
+
+    $tokens = explode('@', $base);
+    $chars = str_split($tokens[0]);
+    $length = sizeof($chars);
+    
+    $rtn = '';
+    $occurence = array();
+    $insert_poses = array();
+    
+    for ($i = 0; $i < rand(1, $length); $i++) {
+      $insert_pos = rand(0, $length - 1);
+      if (in_array($insert_pos, $occurence)) {
+        continue;
+      } else {
+        $occurence[] = $insert_pos;
+        $insert_poses[] = $insert_pos;
+      }
+    }
+    
+    for ($i = 0; $i < $length; $i++) {
+      $rtn .= $chars[$i];
+      if (in_array($i, $insert_poses)) {
+        $rtn .= '.';
+      }
+    }
+    
+    return $rtn . '@' . $tokens[1];
+
+  }
 }
 

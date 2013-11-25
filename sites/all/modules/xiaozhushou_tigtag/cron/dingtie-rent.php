@@ -60,6 +60,7 @@ $html = $crawler->post($url_post, $data, $cookie_path, $headers);
 //die(iconv('GBK', 'UTF-8', $html));
 if (strpos($html, 'succeedhandle_fastpost')) {
   echo "Success!\n";
+  echo iconv('GBK', 'UTF-8', $html);
 } else {
   echo (iconv('GBK', 'UTF-8', $html));
   echo "\n";

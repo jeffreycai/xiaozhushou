@@ -36,9 +36,12 @@ class TigtagUser {
   }
   
   public function setCookiePath($path) {
-    $this->cookie_path = $path;
+    $this->cookie_path = str_replace(DRUPAL_ROOT, '', $path);
   }
   public function getCookiePath() {
+    if (strstr($this->cookie_path, DRUPAL_ROOT) == false) {
+      return DRUPAL_ROOT . $this->cookie_path;
+    }
     return $this->cookie_path;
   }
   
@@ -92,8 +95,20 @@ class TigtagUser {
     $this->setId($record->id);
     $this->setUsername($record->username);
     $this->setPassword($record->password);
-    $this->setCookiePath(DRUPAL_ROOT . $record->cookie_path);
+    $this->setCookiePath($record->cookie_path);
     $this->setCreated($record->created);
     $this->setValid($record->valid);
+  }
+  
+  public function insert() {
+    $nid = db_insert('xiaozhushou_tigtag_user') // Table name no longer needs {}
+    ->fields(array(
+      'username' => $this->getUsername(),
+      'password' => $this->getPassword(),
+      'cookie_path' => $this->getCookiePath(),
+      'created' => $this->getCreated(),
+      'valid' => $this->getValid()
+    ))
+    ->execute();
   }
 }

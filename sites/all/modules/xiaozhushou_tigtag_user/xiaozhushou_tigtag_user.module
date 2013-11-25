@@ -82,6 +82,7 @@ function xiaozhushou_tigtag_user_menu() {
     'page arguments' => array('tigtag_user_register'),
     'access arguments' => array('access xiaozhushou settings'),
     'file' => 'includes/tigtag_user.inc',
+    'type' => MENU_LOCAL_TASK
   );
   return $items;
 
