@@ -78,10 +78,9 @@ function xiaozhushou_tigtag_user_menu() {
   );
   $items['admin/config/xiaozhushou/tigtag/user/register'] = array(
     'title' => 'Register Tigtag user',
-    'page callback' => 'tigtag_user_register', // two forms concatenated
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tigtag_user_register'),
     'access arguments' => array('access xiaozhushou settings'),
-    'weight' => 5,
-    'type' => MENU_LOCAL_TASK,
     'file' => 'includes/tigtag_user.inc',
   );
   return $items;
