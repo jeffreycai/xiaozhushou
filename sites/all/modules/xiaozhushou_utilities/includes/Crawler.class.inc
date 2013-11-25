@@ -4,7 +4,6 @@ class Crawler {
   private $agent;
   
   public function __construct() {
-    $this->cookie_path = tempnam(DRUPAL_ROOT . DS . drupal_get_path('module', 'xiaozhushou_utilities') . DS . 'cache', 'cookie-');
     $this->setUserAgent();
   }
   

@@ -501,6 +501,7 @@ function tigtag_user_register_submit($form, &$form_state) {
   // die(iconv('GBK', 'UTF-8', $html));
   if (strstr($html, 'error')) {
     drupal_set_message('An error occurred, login failed:<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)), 'error');
+    if (is_file($cookie_path)) { unlink($cookie_path); }
   } else {
     drupal_set_message('Cookie refreshed successfully!<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)));
     
