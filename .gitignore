@@ -8,6 +8,8 @@ sites/*/private
 
 # _rsync
 _rsync/db-dump.sh
-# xiaozhushou
+# xiaozhushou caches
 sites/all/modules/xiaozhushou_tigtag_user/cache/*
 sites/all/modules/xiaozhushou_utilities/cache/*
+# symbolic link to prod sub sites
+sites/zufang.websitesydney.net
