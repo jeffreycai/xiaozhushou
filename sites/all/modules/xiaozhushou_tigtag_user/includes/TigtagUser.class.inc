@@ -105,7 +105,7 @@ class TigtagUser {
     ->fields(array(
       'username' => $this->getUsername(),
       'password' => $this->getPassword(),
-      'cookie_path' => $this->getCookiePath(),
+      'cookie_path' => str_replace(DRUPAL_ROOT, '', $this->cookie_path),
       'created' => $this->getCreated(),
       'valid' => $this->getValid()
     ))

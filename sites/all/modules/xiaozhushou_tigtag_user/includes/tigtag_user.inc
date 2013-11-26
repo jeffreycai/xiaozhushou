@@ -11,7 +11,7 @@ function tigtag_user_overview() {
   if (!$records) {
     echo "There is no user at the moment.";
   } else {
-    $header = array('id', 'username', 'password', 'cookie path', 'created', 'valid', array('data' => 'operations', 'colspan' => '3'));
+    $header = array('id', 'username', 'password', 'cookie path', 'created', 'valid', array('data' => 'operations', 'colspan' => '4'));
     $rows = array();
     while ($user = $records->fetch()) {
       $row = array();
@@ -23,9 +23,23 @@ function tigtag_user_overview() {
       $row[] = $user->valid;
       $row[] = l('Check validation', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/check');
       $row[] = l('Refresh cookie', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/refresh');
-      $row[] = l('Delete', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/delete');
+      $row[] = l('Delete', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/delete', array(
+          'attributes' => array('class' => 'delete-user')
+      ));
+      $row[] = l('Promote', 'admin/config/xiaozhushou/tigtag/user/' . $user->id . '/promote', array(
+          'attributes' => array('class' => 'promote-user')
+      ));
       $rows[] = $row;
     }
+    
+    drupal_add_js('jQuery(function ($) { 
+      $("a.delete-user").click(function(){
+        if (confirm("Do you really want to delete this user?") == true) {
+          return true;
+        }
+        return false;
+      });
+    });', 'inline');
     return theme('table', array('header' => $header, 'rows' => $rows));
   }
 }
@@ -58,6 +72,48 @@ function tigtag_user_check($id) {
     ))
     ->condition('id', $user->getId())
     ->execute();
+  drupal_goto('admin/config/xiaozhushou/tigtag/user');
+}
+
+/**
+ * Promote a user to the first location
+ * 
+ * @param type $id
+ */
+function tigtag_user_promote($id) {
+  $first_id = db_select('xiaozhushou_tigtag_user', 'tu')
+    ->fields('tu')
+    ->orderBy('tu.id', 'ASC')
+    ->range(0,1)
+    ->execute()
+    ->fetch()
+    ->id;
+  
+  // move the first to a temp id (99)
+  db_update('xiaozhushou_tigtag_user')
+    ->fields(array(
+      'id' => 99
+    ))
+    ->condition('id', $first_id)
+    ->execute();
+  
+  // update the current to first id
+  db_update('xiaozhushou_tigtag_user')
+    ->fields(array(
+      'id' => $first_id
+    ))
+    ->condition('id', $id)
+    ->execute();
+  
+  // update the first record to current id
+  db_update('xiaozhushou_tigtag_user')
+    ->fields(array(
+      'id' => $id
+    ))
+    ->condition('id', 99)
+    ->execute();
+  
+  drupal_set_message('User has been successfully promoted!');
   drupal_goto('admin/config/xiaozhushou/tigtag/user');
 }
 
@@ -223,10 +279,23 @@ function tigtag_user_refresh_submit($form, &$form_state) {
  * @return type 
  */
 function tigtag_user_delete($id) {
-  return 'tigtag_user_delete' . $id;
+  $path = current_path();
+  
+  db_delete('xiaozhushou_tigtag_user')
+    ->condition('id', $id)
+    ->execute();
+    
+  drupal_set_message('Tigtag user ' . $id . ' is successfully deleted!');
+  drupal_goto('admin/config/xiaozhushou/tigtag/user');
 }
 
-
+/**
+ * Register a tigtag user
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @return string
+ */
 function tigtag_user_register($form, &$form_state) {
   // declare all vars used in form
   $seccode;
@@ -428,6 +497,12 @@ function tigtag_user_register($form, &$form_state) {
   return $form;
 }
 
+/**
+ * Form submission action for tigtag_user_register()
+ * 
+ * @param type $form
+ * @param array $form_state
+ */
 function tigtag_user_register_submit($form, &$form_state) {
   // get data from form
   $seccode = $form_state['input']['seccode'];

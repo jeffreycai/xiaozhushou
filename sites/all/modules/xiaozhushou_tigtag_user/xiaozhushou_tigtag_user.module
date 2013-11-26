@@ -55,6 +55,14 @@ function xiaozhushou_tigtag_user_menu() {
     'file' => 'includes/tigtag_user.inc',
   );
   
+  $items['admin/config/xiaozhushou/tigtag/user/%/promote'] = array(
+    'title' => 'User promotion',
+    'page callback' => 'tigtag_user_promote',
+    'page arguments' => array(5),
+    'access arguments' => array('access xiaozhushou settings'),
+    'file' => 'includes/tigtag_user.inc',
+  );
+  
   $items['admin/config/xiaozhushou/tigtag/user/%/refresh'] = array(
     'title' => 'User refresh (delete cookie)',
     'page callback' => 'drupal_get_form',
