@@ -1,15 +1,19 @@
 <?php
 $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
-$_SERVER['SCRIPT_NAME'] = 'debug.php';
+$_SERVER['SCRIPT_NAME'] = '/debug.php';
 
-define('DRUPAL_ROOT','/var/webs/xiaozhushou.com.au');
+define('DRUPAL_ROOT','/var/webs/sydneyren.com.au');
 require_once(DRUPAL_ROOT . '/includes/bootstrap.inc');
+$variables['url'] = 'http://zufang.websitesydney.net';
+drupal_override_server_variables($variables);
+chdir(DRUPAL_ROOT);
 drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
-chdir(DRUPAL_ROOT);
 
-//die(shell_exec('whoami'));
-
+echo "<pre>";
+var_dump(file_get_stream_wrappers());
+var_dump(drupal_realpath('public://'));
+die("</pre>");
 
 module_load_include('inc', 'xiaozhushou_sydneytoday', 'includes/sydneytoday');
 
@@ -46,11 +50,19 @@ foreach ($item as $key => $val) {
     if (is_string($item['images']) && strlen($item['images'])) {
       $images = explode("\n", $item['images']);
       $imgs = array();
+      $image_folder = str_replace('public://', '', $util->getInstance()->getSetting('sydneytoday->cron_image_store'));
+      $image_folder = DRUPAL_ROOT . DS . variable_get('file_public_path') . DS . $image_folder;
+      if (!is_dir($image_folder) || !is_writable($image_folder)) {
+        throw new Exception('Folder ' . $image_folder . ' does not exist or writable.');
+      }
+
       foreach ($images as $url) {
         $image = file_get_contents($url);
-        $name = basename($url);
-        if ($file = file_save_data($image, $util->getSetting('cache_folder') . '/' . $name, FILE_EXISTS_RENAME)) {
+
+        if ($file = file_save_data($image, 'public://cronimgs', FILE_EXISTS_REPLACE)) {
           $imgs[] = (array)$file;
+        } else {
+          unlink($path);
         }
       }
       $node->field_rental_images[LANGUAGE_NONE] = $imgs;
@@ -60,7 +72,7 @@ foreach ($item as $key => $val) {
     $field = 'field_rental_' . $key;
   }
   
-  if (!is_null($field)) {
+  if (!is_null($field) && isset($node->$field)) {
     $value = $node->$field;
     $value[LANGUAGE_NONE][0]['value'] = $val;
     $node->$field = $value;

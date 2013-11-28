@@ -120,6 +120,9 @@ function sydneytoday_rental_item_parse($item) {
 
     // grab published at
     $match = array();
+    if (!$dom->find('#candytool', 0)) {
+      throw new Exception('Can not find #candytool');
+    }
     if (preg_match('/\d+\-\d+\-\d+/', $dom->find('#candytool', 0)->innertext, $match)) {
       $record['published_at'] = strtotime($match[0]);
     }
@@ -137,8 +140,8 @@ function sydneytoday_rental_item_parse($item) {
 //    $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
     // get images
     $record['images'] = array();
-    foreach ($dom->find('#divmov_img img') as $img) {
-      $record['images'][] = $img->src;
+    foreach ($dom->find('#divmov_img a[rel="shadowbox"]') as $a) {
+      $record['images'][] = $a->href;
     }
     $record['images'] = implode("\n", $record['images']);
 
@@ -150,7 +153,7 @@ function sydneytoday_rental_item_parse($item) {
     
     $dom->clear();
   } catch (Exception $e) {
-    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_parse() error for item %url: ' . $e->getMessage(), array('%url' => $item['url']), WATCHDOG_ERROR);
+    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_parse() error for item["id"]=%id item[%url]=' . $e->getMessage(), array('%id' => $item['id'],'%url' => $item['url']), WATCHDOG_ERROR);
   }
 }
 

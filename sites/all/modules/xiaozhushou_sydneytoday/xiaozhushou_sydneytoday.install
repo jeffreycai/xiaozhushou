@@ -157,3 +157,22 @@ function xiaozhushou_sydneytoday_schema () {
 function xiaozhushou_sydneytoday_uninstall() {
   db_query('DROP TABLE {xiaozhushou_sydneytoday_rental_item}');
 }
+
+/**
+ * Implements hook_enable
+ */
+function xiaozhushou_sydneytoday_requirements($phase) {
+  $requirements = array();
+  
+  $cronimgs_folder = Utility::getInstance()->getSetting('sydneytoday->cron_image_store');
+  
+  if (!is_dir($cronimgs_folder) || !is_writable($cronimgs_folder)) {
+    $requirements['xiaozhushou_sydneytoday'] = array(
+      'title' => 'Xiaozhushou Sydney Today module',
+      'value' => $cronimgs_folder . ' folder does not exist or not writable.',
+      'severity' => REQUIREMENT_ERROR
+    );
+  }
+  
+  return $requirements;
+}
