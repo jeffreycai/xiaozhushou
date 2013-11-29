@@ -6,56 +6,59 @@ function sydneytoday_rental_list_craw() {
   try {
     // load settings
     $util = Utility::getInstance();
-    $url = $util->getSetting('sydneytoday->list_url');
+    $urls = $util->getSetting('sydneytoday->list_url');
 
-    // read the list page
-    $crawler = $util->getCrawler();
-    $html = $crawler->read($url);
+    foreach ($urls as $url) {
+      // read the list page
+      $crawler = $util->getCrawler();
+      $html = $crawler->read($url);
 
-    // traverse dom and store items in db
-    module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
-    $dom = str_get_html($html);
-    foreach ($dom->find('table') as $table) {
-      // locate a row
-      if ($table->style == 'border-bottom: 1px dashed #CCC;') {
-        $property_type = trim($table->find('td', 0)->plaintext);
-        $title = trim($table->find('span', 0)->plaintext);
+      // traverse dom and store items in db
+      module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
+      $dom = str_get_html($html);
+      foreach ($dom->find('table') as $table) {
+        // locate a row
+        if ($table->style == 'border-bottom: 1px dashed #CCC;') {
+          $property_type = trim($table->find('td', 0)->plaintext);
+          $title = trim($table->find('span', 0)->plaintext);
 
-        $href = $table->find('a', 0)->href;
-        $tokens = explode('=', $href);
-        $rid = array_pop($tokens);
+          $href = $table->find('a', 0)->href;
+          $tokens = explode('=', $href);
+          $rid = array_pop($tokens);
 
-        // sanity check
-        if (!preg_match('/^\d+$/', $rid)) {
-          throw new Exception('Sydneytoday craw list error: rid is not integer');
-        // import records
-        } else {
-          // check if exists already
-          $existed = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
-            ->condition('rid', $rid)
-            ->countQuery()
-            ->execute()->fetchAssoc();
-          // if record already exists, quite
-          if ($existed['expression'] == '1') {
-            break;
-          // otherwise, import to db
+          // sanity check
+          if (!preg_match('/^\d+$/', $rid)) {
+            throw new Exception('Sydneytoday craw list error: rid is not integer');
+          // import records
           } else {
-            db_insert('xiaozhushou_sydneytoday_rental_item')
-              ->fields(array(
-                'title' => $title,
-                'rid' => $rid,
-                'url' => $href,
-                'property_type' => $property_type,
-                'created_at' => time()
-              ))
-              ->execute();
+            // check if exists already
+            $existed = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
+              ->condition('rid', $rid)
+              ->countQuery()
+              ->execute()->fetchAssoc();
+            // if record already exists, quite
+            if ($existed['expression'] == '1') {
+              return;
+            // otherwise, import to db
+            } else {
+              db_insert('xiaozhushou_sydneytoday_rental_item')
+                ->fields(array(
+                  'title' => $title,
+                  'rid' => $rid,
+                  'url' => $href,
+                  'property_type' => $property_type,
+                  'created_at' => time()
+                ))
+                ->execute();
+            }
           }
         }
       }
+      $dom->clear();
     }
-    $dom->clear();
   } catch (Exception $e) {
-    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_list_craw() error:' . $e->getMessage(), array(), WATCHDOG_ERROR);
+    $message = 'Sydneytoday sydneytoday_rental_list_craw() error:' . $e->getMessage();
+    watchdog('xiaozhushou', $message, array(), WATCHDOG_ERROR);
   }
 }
 
@@ -132,7 +135,9 @@ function sydneytoday_rental_item_parse($item) {
       if ($elem = $elem->find('table', 0)) {
         if ($elem = $elem->children(2)) {
           if ($elem = $elem->find('div', 0)) {
-            $record['comment'] = $elem->plaintext;
+            $comment = $elem->plaintext;
+            // clean weird char as they cause error
+            $record['comment'] = $comment;
           }
         }
       }
@@ -144,6 +149,9 @@ function sydneytoday_rental_item_parse($item) {
       $record['images'][] = $a->href;
     }
     $record['images'] = implode("\n", $record['images']);
+    
+    // set to crawed
+    $record['crawed'] = 1;
 
     // dump to db
     $query = db_update('xiaozhushou_sydneytoday_rental_item')
@@ -152,8 +160,14 @@ function sydneytoday_rental_item_parse($item) {
       ->execute();
     
     $dom->clear();
+    
   } catch (Exception $e) {
-    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_parse() error for item["id"]=%id item[%url]=' . $e->getMessage(), array('%id' => $item['id'],'%url' => $item['url']), WATCHDOG_ERROR);
+    $message = 'Sydneytoday sydneytoday_rental_item_parse() error for item["id"]='.$item['id'].' item["url"]='. $item['url'] . ' :' . $e->getMessage();
+    watchdog('xiaozhushou', $message, array(), WATCHDOG_ERROR);
+    db_update('xiaozhushou_sydneytoday_rental_item')
+      ->fields(array('error' => $message))
+      ->condition('id', $item['id'])
+      ->execute();
   }
 }
 
@@ -172,24 +186,85 @@ function sydneytoday_rental_item_import($item) {
     $node->status = 1; // published or not
     $node->promote = 0;
     $node->comment = 0;
-    
+
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+    $util = Utility::getInstance();
+
     foreach ($item as $key => $val) {
+      $field = null;
+      // special treatment for "facilities" and "near_by_facilities" fields
       if (in_array($key, array('facilities', 'near_by_facilities'))) {
         $field = 'field_rental_' . $key . '_';
-      } else if (in_array($key, array('published_at', 'created_at', 'crawed', 'imported', 'images'))) {
-        $field = null;
+      // escape non-node fields
+      } else if (in_array($key, array('published_at', 'created_at', 'crawed', 'imported'))) {
+        continue;
+      // special treatment for "images" field
+      } else if ($key == 'images') {
+        if (is_string($item['images']) && strlen($item['images'])) {
+          $images = explode("\n", $item['images']);
+          $imgs = array();
+          $image_folder = $util->getInstance()->getSetting('sydneytoday->cron_image_store');
+          if (!is_dir($image_folder) || !is_writable($image_folder)) {
+            throw new Exception('Folder ' . $image_folder . ' does not exist or writable.');
+          }
+
+          foreach ($images as $url) {
+            $image = file_get_contents($url);
+
+            if ($file = file_save_data($image, $image_folder, FILE_EXISTS_REPLACE)) {
+              $imgs[] = (array)$file;
+            } else {
+              unlink($path);
+            }
+          }
+          $node->field_rental_images[LANGUAGE_NONE] = $imgs;
+        }
+        continue;
+      } else {
+        $field = 'field_rental_' . $key;
       }
-      
+
       if (!is_null($field)) {
-        $value = array();
-        $value['und'][0]['value'] = $val;
+        if (!isset($node->$field)) {
+          $value = array();
+          $value[LANGUAGE_NONE] = array();
+          $value[LANGUAGE_NONE][0] = array();
+        } else {
+          $value = $node->$field;
+        }
+        
+        // format 'field_rental_comment'
+        if ($field == 'field_rental_comment') {
+          $val = format_field_rental_comment($val);
+          $value[LANGUAGE_NONE][0]['format'] = 'full_html';
+        }
+
+        $value[LANGUAGE_NONE][0]['value'] = $val;
         $node->$field = $value;
       }
     }
-    
+//    echo "<pre>";
+//    print_r($node);
+//    die ("</pre>");
     node_save($node);
     
   } catch(Exception $e) {
-    watchdog('xiaozhushou', 'Sydneytoday sydneytoday_rental_item_import() error for item ID %id:' . $e->getMessage(), array('%id' => $item['id']), WATCHDOG_ERROR);
+    $message = "Sydneytoday sydneytoday_rental_item_import() error for item ID ".$item['id'].":" . $e->getMessage();
+    watchdog('xiaozhushou', $message, array(), WATCHDOG_ERROR);
+    db_update('xiaozhushou_sydneytoday_rental_item')
+      ->fields(array('error' => $message))
+      ->condition('id', $item['id'])
+      ->execute();
   }
+}
+
+/**
+ * format comment field before import as node
+ * 
+ * @param type $val
+ */
+function format_field_rental_comment($val) {
+  $val = str_replace("\n", "<br />", $val);
+  return $val;
+//  $val = str_replace($, $subject);
 }

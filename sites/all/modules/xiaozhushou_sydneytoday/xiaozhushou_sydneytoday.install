@@ -98,7 +98,7 @@ function xiaozhushou_sydneytoday_schema () {
       ),
         
       'comment' => array(
-        'type' => 'text',
+        'type' => 'blob',
         'not null' => false,
       ),
         
@@ -134,6 +134,12 @@ function xiaozhushou_sydneytoday_schema () {
         'default' => 0,
         'length' => 1
       ),
+      
+      'error' => array(
+        'type' => 'text',
+        'not null' => false,
+        'default' => null,
+      ),
     ),
     'indexes' => array(
       'rid' => array('rid'),
@@ -163,6 +169,14 @@ function xiaozhushou_sydneytoday_uninstall() {
  */
 function xiaozhushou_sydneytoday_requirements($phase) {
   $requirements = array();
+  
+  // bootstrap module is yet to be installed
+  if ($phase == 'install') {
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+
+    $util = Utility::getInstance();
+    $util->loadSettings('xiaozhushou_sydneytoday');
+  }
   
   $cronimgs_folder = Utility::getInstance()->getSetting('sydneytoday->cron_image_store');
   

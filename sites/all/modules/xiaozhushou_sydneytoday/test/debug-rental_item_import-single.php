@@ -10,10 +10,10 @@ chdir(DRUPAL_ROOT);
 drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
 
 
-echo "<pre>";
-var_dump(file_get_stream_wrappers());
-var_dump(drupal_realpath('public://'));
-die("</pre>");
+//echo "<pre>";
+//var_dump(file_get_stream_wrappers());
+//var_dump(drupal_realpath('public://'));
+//die("</pre>");
 
 module_load_include('inc', 'xiaozhushou_sydneytoday', 'includes/sydneytoday');
 
@@ -50,8 +50,7 @@ foreach ($item as $key => $val) {
     if (is_string($item['images']) && strlen($item['images'])) {
       $images = explode("\n", $item['images']);
       $imgs = array();
-      $image_folder = str_replace('public://', '', $util->getInstance()->getSetting('sydneytoday->cron_image_store'));
-      $image_folder = DRUPAL_ROOT . DS . variable_get('file_public_path') . DS . $image_folder;
+      $image_folder = $util->getInstance()->getSetting('sydneytoday->cron_image_store');
       if (!is_dir($image_folder) || !is_writable($image_folder)) {
         throw new Exception('Folder ' . $image_folder . ' does not exist or writable.');
       }
@@ -59,7 +58,7 @@ foreach ($item as $key => $val) {
       foreach ($images as $url) {
         $image = file_get_contents($url);
 
-        if ($file = file_save_data($image, 'public://cronimgs', FILE_EXISTS_REPLACE)) {
+        if ($file = file_save_data($image, $image_folder, FILE_EXISTS_REPLACE)) {
           $imgs[] = (array)$file;
         } else {
           unlink($path);
@@ -72,8 +71,15 @@ foreach ($item as $key => $val) {
     $field = 'field_rental_' . $key;
   }
   
-  if (!is_null($field) && isset($node->$field)) {
-    $value = $node->$field;
+  if (!is_null($field)) {
+    if (!isset($node->$field)) {
+      $value = array();
+      $value[LANGUAGE_NONE] = array();
+      $value[LANGUAGE_NONE][0] = array();
+    } else {
+      $value = $node->$field;
+    }
+
     $value[LANGUAGE_NONE][0]['value'] = $val;
     $node->$field = $value;
   }

@@ -56,22 +56,21 @@ function xiaozhushou_sydneytoday_cron() {
   $items = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
     ->fields('ri')
     ->condition('crawed', 0)
+    ->condition('imported', 0)
+//    ->condition('error', null)
     ->execute();
   
   while ($item = $items->fetchAssoc()) {
     $queue_item = DrupalQueue::get('sydneytoday_rental_item_parse');
     $queue_item->createItem($item);
-    // set to crawed
-    $query = db_update('xiaozhushou_sydneytoday_rental_item')
-      ->fields(array('crawed' => 1))
-      ->condition('id', $item['id'])
-      ->execute();
   }
   
   // import items to Drupal as nodes
   $items = db_select('xiaozhushou_sydneytoday_rental_item', 'ri')
     ->fields('ri')
     ->condition('imported', 0)
+    ->condition('crawed', 1)
+//    ->condition('error', null)
     ->execute();
   
   while ($item = $items->fetchAssoc()) {
