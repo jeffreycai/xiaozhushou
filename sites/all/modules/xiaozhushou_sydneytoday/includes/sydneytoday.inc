@@ -211,10 +211,8 @@ function sydneytoday_rental_item_import($item) {
           foreach ($images as $url) {
             $image = file_get_contents($url);
 
-            if ($file = file_save_data($image, $image_folder, FILE_EXISTS_REPLACE)) {
+            if ($file = file_save_data($image, $image_folder, FILE_EXISTS_RENAME)) {
               $imgs[] = (array)$file;
-            } else {
-              unlink($path);
             }
           }
           $node->field_rental_images[LANGUAGE_NONE] = $imgs;
@@ -236,11 +234,24 @@ function sydneytoday_rental_item_import($item) {
         // format 'field_rental_comment'
         if ($field == 'field_rental_comment') {
           $val = format_field_rental_comment($val);
-          $value[LANGUAGE_NONE][0]['format'] = 'full_html';
+          $node->body[LANGUAGE_NONE][0]['value'] = $val;
+          $node->body[LANGUAGE_NONE][0]['format'] = 'full_html';
+        // for mobile and Email filed, if image url is given, fetch the remove image and put value as local image url
+        } else if (in_array($field, $util->getSetting('sydneytoday->img_textfields'))) {
+            $matches = array();
+            if (preg_match('/(http:\/\/[^\'"]+)[\'"]/', $val, $matches)) {
+                $num_url = $matches[1];
+                $num = file_get_contents($num_url);
+                $image_folder = $util->getInstance()->getSetting('sydneytoday->cron_image_store');
+                if (($file = file_save_data($num, $image_folder, FILE_EXISTS_RENAME))) {
+                    $value[LANGUAGE_NONE][0]['value'] = $file->uri;
+                    $node->$field = $value;
+                }
+            }
+        } else {
+            $value[LANGUAGE_NONE][0]['value'] = $val;
+            $node->$field = $value;
         }
-
-        $value[LANGUAGE_NONE][0]['value'] = $val;
-        $node->$field = $value;
       }
     }
 //    echo "<pre>";

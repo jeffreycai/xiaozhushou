@@ -83,3 +83,25 @@ function xiaozhushou_sydneytoday_cron() {
       ->execute();
   }
 }
+
+/**
+ * implements hook_node_delete()
+ * 
+ * @param type $node
+ */
+function xiaozhushou_sydneytoday_node_delete($node) {
+//  echo "<pre>";
+//  print_r($node);
+//  die("</pre>");
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+    $util = Utility::getInstance();
+    
+    foreach ($util->getSetting('sydneytoday->img_textfields') as $field) {
+      if (isset($node->{$field}['und'][0]['value'])) {
+        $value = $node->{$field}['und'][0]['value'];
+        if (strstr($value, 'public://')) {
+            unlink($value);
+        }
+      }
+    }
+}

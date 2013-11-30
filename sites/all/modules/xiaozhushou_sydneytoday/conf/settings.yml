@@ -1,7 +1,12 @@
 sydneytoday:
   list_url: 
     - http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=1
-    - http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=2
-    - http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=3
+#    - http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=2
+#    - http://www.sydneytoday.com/list.php?fid=12&sortid=&my_225czfs=&my_453huxin=&page=3
 
   cron_image_store: public://cronimgs
+  
+  img_textfields:
+    - field_rental_mobile
+    - field_rental_phone
+    - field_rental_email
