@@ -161,7 +161,22 @@ function xiaozhushou_sydneytoday_schema () {
  * Implements hook_uninstall()
  */
 function xiaozhushou_sydneytoday_uninstall() {
+  // drop "xiaozhushou_sydneytoday_rental_item" table
   db_query('DROP TABLE {xiaozhushou_sydneytoday_rental_item}');
+  
+  // remove vocabulary and its terms
+  $vocabularies = taxonomy_get_vocabularies();
+  $vid;
+  foreach ($vocabularies as $v) {
+    if ($v->machine_name == 'suburbs') {
+      $vid = $v->vid;
+      break;
+    }
+  }
+  if ($vid) {
+      
+  }
+  taxonomy_vocabulary_delete($vid);
 }
 
 /**
@@ -189,4 +204,27 @@ function xiaozhushou_sydneytoday_requirements($phase) {
   }
   
   return $requirements;
+}
+
+/**
+ * Implements hook_install().
+ */
+function xiaozhushou_sydneytoday_install() {
+  // create a vocabulary to hold suburbs
+  $vocabulary = new stdClass();
+  $vocabulary->name = 'Suburbs';
+  $vocabulary->machine_name = 'suburbs';
+  taxonomy_vocabulary_save($vocabulary);
+  $vid = $vocabulary->vid;
+  
+  // create suburb terms
+  $util = Utility::getInstance();
+  $suburbs = $util->getSetting('sydneytoday->suburbs');
+  
+  foreach ($suburbs as $suburb) {
+    $term = new stdClass();
+    $term->name = $suburb;
+    $term->vid = $vid;
+    taxonomy_term_save($term);
+  }
 }
