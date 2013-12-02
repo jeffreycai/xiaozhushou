@@ -142,6 +142,12 @@ function sydneytoday_rental_item_parse($item) {
         }
       }
     }
+    
+    // grab suburb
+    if ($suburb = $dom->find('#zone_tag', 0)) {
+      $record['suburb'] = $suburb->innertext;
+    }
+    
 //    $record['comment'] = $dom->find('#list_middle', 0)->find('table', 0)->children(2)->find('div', 0)->plaintext;
     // get images
     $record['images'] = array();
@@ -216,6 +222,14 @@ function sydneytoday_rental_item_import($item) {
             }
           }
           $node->field_rental_images[LANGUAGE_NONE] = $imgs;
+        }
+        continue;
+      // special treatment for 'suburb' field (taxonomy)
+      } else if ($key == 'suburb') { 
+        $terms = taxonomy_get_term_by_name($val, 'suburbs');
+        if (!empty($terms)) {
+          $term = array_pop($terms);
+          $node->field_rental_suburb[LANGUAGE_NONE][]['tid'] = $term->tid;
         }
         continue;
       } else {

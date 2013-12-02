@@ -1,6 +1,7 @@
 <?php
 class Setting {
   private $vars;
+  private $loaded;
     
   public static function getInstance() {
     static $inst = null;
@@ -12,6 +13,7 @@ class Setting {
 
   private function __construct() {
     $this->vars = array();
+    $this->loaded = array();
   }
   
   /**
@@ -19,6 +21,11 @@ class Setting {
    * @param type $module
    */
   public function load($module) {
+    // do not need to load if already loaded
+    if (in_array($module, $this->loaded)) {
+      return;
+    }
+    
     // load spyc lib to parse yaml file
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/spyc');
     $Spyc  = new Spyc;
@@ -31,6 +38,8 @@ class Setting {
     
     $setting = $Spyc->loadFile($module_settings_path);
     $this->set($setting);
+    
+    $this->loaded[] = $module;
   }
   
   /**

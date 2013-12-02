@@ -107,6 +107,12 @@ function xiaozhushou_sydneytoday_schema () {
         'not null' => false,
       ),
         
+      'suburb' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'default' => null,
+      ),
+        
       'published_at' => array(
         'type' => 'int',
         'not null' => TRUE,
@@ -147,6 +153,7 @@ function xiaozhushou_sydneytoday_schema () {
       'property_type' => array('property_type'),
       'rental_type' => array('rental_type'),
       'published_at' => array('published_at'),
+      'suburb' => array('suburb'),
     ),
     'unique keys' => array(
       'id' => array('id'),
@@ -165,6 +172,7 @@ function xiaozhushou_sydneytoday_uninstall() {
   db_query('DROP TABLE {xiaozhushou_sydneytoday_rental_item}');
   
   // remove vocabulary and its terms
+  /*
   $vocabularies = taxonomy_get_vocabularies();
   $vid;
   foreach ($vocabularies as $v) {
@@ -174,9 +182,9 @@ function xiaozhushou_sydneytoday_uninstall() {
     }
   }
   if ($vid) {
-      
+    taxonomy_vocabulary_delete($vid);
   }
-  taxonomy_vocabulary_delete($vid);
+   */
 }
 
 /**
@@ -210,21 +218,32 @@ function xiaozhushou_sydneytoday_requirements($phase) {
  * Implements hook_install().
  */
 function xiaozhushou_sydneytoday_install() {
-  // create a vocabulary to hold suburbs
-  $vocabulary = new stdClass();
-  $vocabulary->name = 'Suburbs';
-  $vocabulary->machine_name = 'suburbs';
-  taxonomy_vocabulary_save($vocabulary);
-  $vid = $vocabulary->vid;
+  // check if vocabulary 'suburbs' exists, if no, create it and terms
+  $vs = taxonomy_get_vocabularies();
+  $exists = false;
+  foreach ($vs as $v) {
+    if ($v->machine_name == 'suburbs') {
+      $exists = true;
+    }
+  }
   
-  // create suburb terms
-  $util = Utility::getInstance();
-  $suburbs = $util->getSetting('sydneytoday->suburbs');
-  
-  foreach ($suburbs as $suburb) {
-    $term = new stdClass();
-    $term->name = $suburb;
-    $term->vid = $vid;
-    taxonomy_term_save($term);
+  if ($exists == false) {
+    // create a vocabulary to hold suburbs
+    $vocabulary = new stdClass();
+    $vocabulary->name = 'Suburbs';
+    $vocabulary->machine_name = 'suburbs';
+    taxonomy_vocabulary_save($vocabulary);
+    $vid = $vocabulary->vid;
+
+    // create suburb terms
+    $util = Utility::getInstance();
+    $suburbs = $util->getSetting('sydneytoday->suburbs');
+
+    foreach ($suburbs as $suburb) {
+      $term = new stdClass();
+      $term->name = $suburb;
+      $term->vid = $vid;
+      taxonomy_term_save($term);
+    }
   }
 }
