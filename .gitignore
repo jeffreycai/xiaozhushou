@@ -9,7 +9,7 @@ sites/*/private
 # _rsync
 _rsync/db-dump.sh
 # sass cache
-*/.sass-cache
+sites/sydneyzufang/themes/sydneyren_zufang/.sass-cache/*
 # xiaozhushou caches
 sites/all/modules/xiaozhushou_tigtag_user/cache/*
 sites/all/modules/xiaozhushou_utilities/cache/*
