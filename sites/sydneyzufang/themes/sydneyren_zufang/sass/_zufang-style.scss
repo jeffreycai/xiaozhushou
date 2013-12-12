@@ -1,5 +1,7 @@
 $link-color: #21A0CB;
 $link-color-hover: #F39800;
+$logo-color: #0578A5;
+$search-box-color: #2BA6D2;
 
 
 html, body {
@@ -13,6 +15,9 @@ a {
 a:hover {
   color: $link-color-hover;
   text-decoration: underline;
+}
+.clear {
+  clear: both;
 }
 
 /**
@@ -64,3 +69,68 @@ a:hover {
   right: 7px;
 }
 
+/**
+* logo and site name style
+*/
+#name-and-slogan {
+  line-height: 1em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 193px;
+  float: none;
+}
+#site-name {
+  line-height: 1.4em;
+}
+#site-name a {
+  color: #777;
+  text-decoration: none;
+}
+#name-and-slogan .highlight {
+  color: #D63544;
+  text-align: center;
+}
+#logo {
+  font-size: 6em;
+  color: $logo-color;
+}
+#site-address {
+  float: left;
+  font-weight: bold;
+  color: #999;
+  position: relative;
+  top: -0.4em;
+}
+#site-slogan {
+  float: left;
+  color: $logo-color;
+}
+
+
+
+/**
+* Home page style
+*/
+    /**
+    * search box style
+    */
+    #block-search-form {
+      width: 80%;
+    }
+    #edit-search-block-form--2 {
+      border: 4px solid $search-box-color;
+      max-width: 365px;
+      height: 38px;
+      padding: 5px 5px 5px 25px;
+    }
+@media all and (min-width: 480px) {
+
+}
+@media all and (min-width: 480px) and (max-width: 959px) {
+
+}
+@media all and (min-width: 960px) {
+
+}

@@ -14,24 +14,24 @@
   </nav>
 </div>
 
-<div id="home-page">
+<div id="page">
 
   <header class="header" id="header" role="banner">
 
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" class="header__logo" id="logo"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" class="header__logo-image" /></a>
-    <?php endif; ?>
-
     <?php if ($site_name || $site_slogan): ?>
       <div class="header__name-and-slogan" id="name-and-slogan">
+        <i class="fa fa-home header__logo" id="logo"></i>
         <?php if ($site_name): ?>
           <h1 class="header__site-name" id="site-name">
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><span><?php print $site_name; ?></span></a>
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><?php // print $site_name; ?><span class="highlight">悉尼</span><br />租房网</a>
           </h1>
         <?php endif; ?>
-
+        <div class="clear"></div>
+        <div id="site-address">www.<span class="highlight">sydneyzufang</span>.com</div>
         <?php if ($site_slogan): ?>
+          <br />
           <div class="header__site-slogan" id="site-slogan"><?php print $site_slogan; ?></div>
+          <div class="clear"></div>
         <?php endif; ?>
       </div>
     <?php endif; ?>
@@ -42,7 +42,40 @@
 
   <div id="main">
 
+    <div id="content" class="column" role="main">
+      <?php print render($page['highlighted']); ?>
+      <?php print $breadcrumb; ?>
+      <a id="main-content"></a>
+      <?php print $messages; ?>
+      <?php print render($tabs); ?>
+      <?php print render($page['help']); ?>
+      <?php if ($action_links): ?>
+        <ul class="action-links"><?php print render($action_links); ?></ul>
+      <?php endif; ?>
+      <?php  print render($page['content']); ?>
+      <?php // print $feed_icons; ?>
+    </div>
 
+    <div id="navigation">
+
+        <nav id="main-menu" role="navigation" tabindex="-1">
+          <?php print render($page['navigation']); ?>
+        </nav>
+
+    </div>
+
+    <?php
+      // Render the sidebars to see if there's anything in them.
+      $sidebar_first  = render($page['sidebar_first']);
+      $sidebar_second = render($page['sidebar_second']);
+    ?>
+
+    <?php if ($sidebar_first || $sidebar_second): ?>
+      <aside class="sidebars">
+        <?php print $sidebar_first; ?>
+        <?php print $sidebar_second; ?>
+      </aside>
+    <?php endif; ?>
 
   </div>
 
