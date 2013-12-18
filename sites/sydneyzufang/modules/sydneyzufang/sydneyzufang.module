@@ -1,0 +1,20 @@
+<?php
+
+/**
+* Implements hook_help().
+*/
+function sydneyzufang_help($path, $arg) {
+  if ($path == 'admin/help#sydneyzufang') {
+    return t('Sydney Zufang module');
+  }
+}
+
+/**
+ * Implements hook_page_alter()
+ */
+function sydneyzufang_page_alter(&$page) {
+  // remove front page "no content" message
+  if (drupal_is_front_page()) {
+    unset($page['content']['system_main']);
+  }
+}

@@ -1,0 +1,9 @@
+name = Sydney Zufang
+description = Sydney Zufang module
+package = Sydney Zufang
+core = 7.x
+php = 5.3
+
+version = "7.x-1.0-dev"
+project = "sydneyzufang"
+

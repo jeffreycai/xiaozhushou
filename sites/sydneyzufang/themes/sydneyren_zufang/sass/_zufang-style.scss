@@ -3,6 +3,24 @@ $link-color-hover: #F39800;
 $logo-color: #0578A5;
 $search-box-color: #2BA6D2;
 
+$debug: true !default;
+$zen-column-count: $global-columns-small;
+
+@import "zen/background";
+
+@mixin debug-background() {
+  @if $debug {
+    @include zen-grid-background();
+  }
+}
+@mixin fill-grid() {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  float: none;
+  width: 100%;
+}
+
 
 html, body {
   font-family: Helvetica,Corbel,"Microsoft YaHei",Verdana,Arial,sans-serif;
@@ -113,24 +131,95 @@ a:hover {
 /**
 * Home page style
 */
-    /**
-    * search box style
-    */
-    #block-search-form {
-      width: 80%;
-    }
-    #edit-search-block-form--2 {
-      border: 4px solid $search-box-color;
-      max-width: 365px;
-      height: 38px;
-      padding: 5px 5px 5px 25px;
-    }
-@media all and (min-width: 480px) {
 
+body.front #content {
+  @include zen-nested-container();
 }
+
+  /**
+  * search box style
+  */
+  #block-search-form,
+  #block-search-form > #search-block-form,
+  #block-search-form > #search-block-form > div > div.container-inline,
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form,
+  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
+    @include zen-grid-item-base();
+  }
+  #block-search-form,
+  #block-search-form > #search-block-form,
+  #block-search-form > #search-block-form > div > div.container-inline {
+    @include zen-nested-container();
+  }
+
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form #edit-search-block-form--2 {
+    width: 100%;
+  }
+  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
+    width: 100%;
+    max-width: 200px;
+  } 
+
+
+/** ----------------------------- **/
+@media all and (min-width: 0px) and (max-width: 479px) {
+  /* columns count is defined on the top */
+
+  body.front #content {
+    @include debug-background();
+  }
+
+  /**
+  * search box style
+  */
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
+    @include zen-grid-item(1, 1);
+    @include zen-clear();
+  }
+  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
+    @include zen-grid-item(1, 1);
+    @include zen-clear();
+  }
+}
+
+/** ----------------------------- **/
 @media all and (min-width: 480px) and (max-width: 959px) {
+  $zen-column-count: $global-columns-middle;
+  
+  body.front #content {
+    @include debug-background();
+  }
 
+  /**
+  * search box style
+  */
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
+    @include zen-grid-item(3, 2);
+  }
+  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
+    @include zen-grid-item(1, 2, right);
+  }
 }
-@media all and (min-width: 960px) {
 
+/** --------------------------- **/
+@media all and (min-width: 960px) {
+  $zen-column-count: $global-columns-large;
+
+  body.front #content {
+    @include debug-background();
+  }
+
+  /**
+  * search box style
+  */
+  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
+    @include zen-grid-item(5, 3);
+  }
+  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
+    @include zen-grid-item(1, 3, right);
+  }
 }
