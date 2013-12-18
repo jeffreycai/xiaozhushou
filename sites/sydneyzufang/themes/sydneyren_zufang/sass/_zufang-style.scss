@@ -134,22 +134,25 @@ body.front #content {
   @include zen-nested-container();
 }
 
+#block-search-form,
+#block-search-form > #search-block-form,
+#block-search-form > #search-block-form > div > div.container-inline,
+#block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form,
+#block-search-form > #search-block-form > div > div.container-inline > #edit-actions,
+#block-block-1,
+#block-block-1 h2 {
+  @include zen-grid-item-base();
+}
+#block-search-form,
+#block-search-form > #search-block-form,
+#block-search-form > #search-block-form > div > div.container-inline,
+#block-block-1 {
+  @include zen-nested-container();
+}
+
   /**
   * search box style
   */
-  #block-search-form,
-  #block-search-form > #search-block-form,
-  #block-search-form > #search-block-form > div > div.container-inline,
-  #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form,
-  #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
-    @include zen-grid-item-base();
-  }
-  #block-search-form,
-  #block-search-form > #search-block-form,
-  #block-search-form > #search-block-form > div > div.container-inline {
-    @include zen-nested-container();
-  }
-
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -191,6 +194,23 @@ body.front #content {
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions > input:focus {
     background-color: $search-box-highlight-color;
   }
+  #block-search-form,
+  #block-block-1 {
+    @include zen-clear(right);
+  }
+  
+  /**
+  * Shortcut style
+  */
+  #block-block-1 {
+    margin-top: 20px;
+  }
+  #block-block-1 h2 {
+    color: #949494;
+    font-size: 0.9em;
+    padding: 5px 15px;
+    background-color: #EEEEEE;
+  }
     
 
 /** ----------------------------- **/
@@ -206,12 +226,18 @@ body.front #content {
   */
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     @include zen-grid-item(1, 1);
-    @include zen-clear();
     margin-bottom: 20px;
   }
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 1);
     @include zen-clear();
+  }
+  
+  /**
+  * shortcut style
+  */
+  #block-block-1 h2 {
+    @include zen-grid-item(1, 1);
   }
 }
 
@@ -232,6 +258,12 @@ body.front #content {
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 2, right);
   }
+  /**
+  * shortcut style
+  */
+  #block-block-1 h2 {
+    @include zen-grid-item(4, 2);
+  }
 }
 
 /** --------------------------- **/
@@ -250,5 +282,11 @@ body.front #content {
   }
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 3, right);
+  }
+  /**
+  * shortcut style
+  */
+  #block-block-1 h2 {
+    @include zen-grid-item(6, 3);
   }
 }
