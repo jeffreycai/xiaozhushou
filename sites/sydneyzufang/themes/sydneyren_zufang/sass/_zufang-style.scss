@@ -18,6 +18,9 @@ $zen-column-count: $global-columns-small;
   border-color: $search-box-color;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px $search-box-color;
 }
+@mixin homepage-shortcut-columnize($column) {
+
+}
 
 
 html, body {
@@ -126,9 +129,9 @@ a:hover {
 
 
 
-/**
+/** -------------
 * Home page style
-*/
+----------------- */
 
 body.front #content {
   @include zen-nested-container();
@@ -140,19 +143,22 @@ body.front #content {
 #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form,
 #block-search-form > #search-block-form > div > div.container-inline > #edit-actions,
 #block-block-1,
-#block-block-1 h2 {
+#block-block-1 h2,
+#block-block-1 ul,
+#block-block-1 ul li {
   @include zen-grid-item-base();
 }
+#header,
 #block-search-form,
 #block-search-form > #search-block-form,
 #block-search-form > #search-block-form > div > div.container-inline,
-#block-block-1 {
+#block-block-1 ul {
   @include zen-nested-container();
 }
 
-  /**
+  /** --------------
   * search box style
-  */
+  ------------------ */
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -196,24 +202,38 @@ body.front #content {
   }
   #block-search-form,
   #block-block-1 {
-    @include zen-clear(right);
+    @include zen-clear(both);
   }
   
-  /**
+  /** ------------
   * Shortcut style
-  */
-  #block-block-1 {
-    margin-top: 20px;
-  }
+  ----------------*/
   #block-block-1 h2 {
     color: #949494;
-    font-size: 0.9em;
-    padding: 5px 15px;
+    font-size: 0.92em;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #EEEEEE;
+    margin-top: 30px;
+  }
+  #block-block-1 ul {
+    list-style: none;
+    @include zen-clear(both);
+    border: 1px solid #EEEEEE;
+    margin-top: 0px;
+  }
+  #block-block-1 ul li a {
+    font-size: 0.9em;
+    display: block;
+    padding: 5px;
   }
     
 
-/** ----------------------------- **/
+/**
+* --------------------------------
+* ---------- Cell phone ----------
+* --------------------------------
+**/
 @media all and (min-width: 0px) and (max-width: 479px) {
   /* columns count is defined on the top */
 
@@ -221,27 +241,52 @@ body.front #content {
     @include debug-background();
   }
 
-  /**
+  /** --------------
   * search box style
-  */
+  ------------------*/
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     @include zen-grid-item(1, 1);
     margin-bottom: 20px;
   }
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 1);
-    @include zen-clear();
+    @include zen-clear(both);
   }
   
-  /**
+  /**--------------
   * shortcut style
-  */
-  #block-block-1 h2 {
+  -----------------*/
+  #block-block-1 {
     @include zen-grid-item(1, 1);
   }
+  #block-block-1 h2,
+  #block-block-1 ul {
+    @include zen-grid-item($zen-column-count, 1);
+  }
+
+  /** shortcut block **/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 2;
+  #block-block-1 ul {
+    @include zen-grid-item(2, 1);
+  }
+  #block-block-1 ul li:nth-child(2n+1) {
+    @include zen-grid-item(1, 1);
+    @include zen-clear(both);
+  }
+  #block-block-1 ul li:nth-child(2n) {
+    @include zen-grid-item(1, 2);
+  }
+  $zen-column-count: $temp-column-count;
+
+
 }
 
-/** ----------------------------- **/
+/**
+* --------------------------------
+* ------------ Tablet ------------
+* --------------------------------
+**/
 @media all and (min-width: 480px) and (max-width: 959px) {
   $zen-column-count: $global-columns-middle;
   
@@ -249,24 +294,49 @@ body.front #content {
     @include debug-background();
   }
 
-  /**
+  /**---------------
   * search box style
-  */
+  ------------------*/
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     @include zen-grid-item(3, 2);
   }
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 2, right);
   }
-  /**
+  /**-------------
   * shortcut style
-  */
-  #block-block-1 h2 {
+  ---------------*/
+  #block-block-1 {
     @include zen-grid-item(4, 2);
   }
+  #block-block-1 h2 {
+    @include zen-grid-item($zen-column-count, 1);
+  }
+
+
+  /** shortcut block **/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 2;
+  #block-block-1 ul {
+    @include zen-grid-item(2, 1);
+  }
+  #block-block-1 ul li:nth-child(2n+1) {
+    @include zen-grid-item(1, 1);
+    @include zen-clear(both);
+  }
+  #block-block-1 ul li:nth-child(2n) {
+    @include zen-grid-item(1, 2);
+  }
+  $zen-column-count: $temp-column-count;
+
+
 }
 
-/** --------------------------- **/
+/**
+* --------------------------------
+* ----------- Desktop ------------
+* --------------------------------
+**/
 @media all and (min-width: 960px) {
   $zen-column-count: $global-columns-large;
 
@@ -274,19 +344,45 @@ body.front #content {
     @include debug-background();
   }
 
-  /**
+  /**---------------
   * search box style
-  */
+  ------------------*/
   #block-search-form > #search-block-form > div > div.container-inline > div.form-item-search-block-form {
     @include zen-grid-item(5, 3);
   }
   #block-search-form > #search-block-form > div > div.container-inline > #edit-actions {
     @include zen-grid-item(1, 3, right);
   }
-  /**
+  /**-------------
   * shortcut style
-  */
-  #block-block-1 h2 {
+  ----------------*/
+  #block-block-1 {
     @include zen-grid-item(6, 3);
   }
+  #block-block-1 h2,
+  #block-block-1 ul {
+    @include zen-grid-item($zen-column-count, 1);
+  }
+
+
+  /** shortcut block **/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 3;
+  #block-block-1 ul {
+    @include zen-grid-item(3, 1);
+  }
+  #block-block-1 ul li:nth-child(3n+1) {
+    @include zen-grid-item(1, 1);
+    @include zen-clear(both);
+  }
+  #block-block-1 ul li:nth-child(3n+2) {
+    @include zen-grid-item(1, 2);
+  }
+  #block-block-1 ul li:nth-child(3n) {
+    @include zen-grid-item(1, 3);
+  }
+  $zen-column-count: $temp-column-count;
+
+
+
 }

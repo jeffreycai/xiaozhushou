@@ -23,7 +23,7 @@
         <i class="fa fa-home header__logo" id="logo"></i>
         <?php if ($site_name): ?>
           <h1 class="header__site-name" id="site-name">
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><?php // print $site_name; ?><span class="highlight">悉尼</span><br />租房网</a>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" class="header__site-link" rel="home"><?php // print $site_name; ?><span class="highlight">悉尼</span><br />租房网</a>
           </h1>
         <?php endif; ?>
         <div class="clear"></div>
