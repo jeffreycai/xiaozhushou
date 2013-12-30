@@ -1,0 +1,33 @@
+
+$zen-column-count: $global-columns-small;
+
+
+/**
+* --------------------------------
+* ---------- Cell phone ----------
+* --------------------------------
+**/
+@media all and (min-width: 0px) and (max-width: 479px) {
+  /* columns count is defined on the top */
+
+}
+ 
+/**
+* --------------------------------
+* ------------ Tablet ------------
+* --------------------------------
+**/
+@media all and (min-width: 480px) and (max-width: 959px) {
+  $zen-column-count: $global-columns-middle;
+
+}
+
+/**
+* --------------------------------
+* ----------- Desktop ------------
+* --------------------------------
+**/
+@media all and (min-width: 960px) {
+  $zen-column-count: $global-columns-large;
+
+}

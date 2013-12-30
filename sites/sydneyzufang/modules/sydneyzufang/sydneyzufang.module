@@ -18,3 +18,18 @@ function sydneyzufang_page_alter(&$page) {
     unset($page['content']['system_main']);
   }
 }
+
+/**
+ * Implement hook_form_alter()
+ * 
+ * @param type $form
+ * @param type $form_state
+ * @param type $form_id
+ */
+function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
+    // alter search form
+    if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-rental-item-search-page') {
+      $form['submit']['#value'] = '搜索房源';
+      $form['search_api_views_fulltext']['#placeholder'] = '请输入地区名，或者任意关键字';
+    }
+}
