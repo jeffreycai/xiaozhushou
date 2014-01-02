@@ -4,14 +4,3 @@ sites/*/settings*.php
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
-
-
-# _rsync
-_rsync/db-dump.sh
-# sass cache
-sites/sydneyzufang/themes/sydneyren_zufang/.sass-cache/*
-# xiaozhushou caches
-sites/all/modules/xiaozhushou_tigtag_user/cache/*
-sites/all/modules/xiaozhushou_utilities/cache/*
-# symbolic link to prod sub sites
-sites/zufang.websitesydney.net

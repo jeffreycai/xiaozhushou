@@ -27,9 +27,41 @@ function sydneyzufang_page_alter(&$page) {
  * @param type $form_id
  */
 function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
-    // alter search form
+    // exposed view search form
     if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-rental-item-search-page') {
+      // placeholder
       $form['submit']['#value'] = '搜索房源';
-      $form['search_api_views_fulltext']['#placeholder'] = '请输入地区名，或者任意关键字';
+      if (module_exists('placeholder')) {
+        $form['search_api_views_fulltext']['#placeholder'] = '请输入地区名，或者任意关键字';
+      }
+      // redirect to suburb search result
+      if (isset($form_state['input']) && !empty($form_state['input']) && isset($form_state['input']['search_api_views_fulltext'])) {
+        $keyword = ucfirst(trim($form_state['input']['search_api_views_fulltext']));
+        if (in_array($keyword, Utility::getInstance()->getSetting('sydneytoday->suburbs'))) {
+          
+          $suburbs = array_flip($form['field_rental_suburb']['#options']);
+          $suburb_id = isset($suburbs[$keyword]) ? $suburbs[$keyword] : null;
+          if (!is_null($suburb_id)) {
+            // clear full text input
+            unset($form_state['input']['search_api_views_fulltext']);
+            // clear property type
+            unset($form_state['input']['field_rental_property_type']);
+            // clear rental type
+            unset($form_state['input']['field_rental_rental_type']);
+            // set suburb
+            $form_state['input']['field_rental_suburb'][0] = $suburb_id;
+          }
+
+        }
+      }
     }
+    
 }
+
+/**
+ * Implement hook_block_view
+ * 
+ * @param type $delta
+ */
+//function sydneyzufang_block_view_alter (&$data, $block) {
+//}

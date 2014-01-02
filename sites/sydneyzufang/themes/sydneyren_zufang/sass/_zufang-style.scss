@@ -164,6 +164,7 @@ a:hover {
   height: 2.7em;
   color: #444;
   padding-left: 2em;
+  background-image: none;
 }
 #content #edit-search-api-views-fulltext:focus {
   @include glow($search-box-highlight-color);
@@ -187,6 +188,12 @@ a:hover {
 }
 #content #edit-submit-rental-item-search:hover {
   background-color: $search-box-highlight-color;
+}
+
+body.front #edit-field-rental-suburb-wrapper,
+body.front #edit-field-rental-property-type-wrapper,
+body.front #edit-field-rental-rental-type-wrapper {
+  display: none;
 }
 
 /** -------------

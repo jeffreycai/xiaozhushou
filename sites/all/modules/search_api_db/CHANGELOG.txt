@@ -1,3 +1,8 @@
+Search API Database Search 1.2 (12/25/2013):
+--------------------------------------------
+- #2156151 by drunken monkey: Fixed exception when clearing a server.
+- Follow-up to #2147361 by drunken monkey: Fixed left-over pieces of old code.
+
 Search API Database Search 1.1 (12/09/2013):
 --------------------------------------------
 - #2138669 by drunken monkey, acouch: Fixed MS SQL error for primary key on

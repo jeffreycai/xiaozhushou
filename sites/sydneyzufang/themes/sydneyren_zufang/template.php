@@ -34,14 +34,14 @@ function sydneyren_zufang_preprocess_maintenance_page(&$variables, $hook) {
  * @param $hook
  *   The name of the template being rendered ("html" in this case.)
  */
-function sydneyren_zufang_preprocess_html(&$variables, $hook) {
+//function sydneyren_zufang_preprocess_html(&$variables, $hook) {
   // The body tag's classes are controlled by the $classes_array variable. To
   // remove a class from $classes_array, use array_diff().
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));
 //  echo "<pre>";
 //  print_r($variables);
 //  die("</pre>");
-}
+//}
 
 
 /**

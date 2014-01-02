@@ -1,9 +1,3 @@
-#AuthUserFile /var/webs/.htpasswd
-#AuthName "Please log in"
-#AuthType Basic
-
-#require valid-user
-
 #
 # Apache/PHP/Drupal settings:
 #
