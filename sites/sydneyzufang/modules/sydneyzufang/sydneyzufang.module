@@ -49,7 +49,10 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
             // clear rental type
             unset($form_state['input']['field_rental_rental_type']);
             // set suburb
-            $form_state['input']['field_rental_suburb'][0] = $suburb_id;
+            $form_state['input']['field_rental_suburb'] = $suburb_id;
+//            echo "<pre>";
+//            print_r($form_state['input']['field_rental_suburb']);
+//            die("</pre>");
           }
 
         }
@@ -64,4 +67,5 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
  * @param type $delta
  */
 //function sydneyzufang_block_view_alter (&$data, $block) {
+//  // change exposed view search bar markup. move the submit button up
 //}

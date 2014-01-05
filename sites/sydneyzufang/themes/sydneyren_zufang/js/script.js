@@ -14,15 +14,23 @@
 
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
-Drupal.behaviors.my_custom_behavior = {
-  attach: function(context, settings) {
+//Drupal.behaviors.my_custom_behavior = {
+//  attach: function(context, settings) {
+//
+//    // Place your code here.
+//    
+//  }
+//};
 
-    // Place your code here.
-    
-  }
-};
-
-
+//  alter('hello world');
 
 
 })(jQuery, Drupal, this, this.document);
+
+jQuery(function($){
+  $('#block-block-1 a').click(function(){
+    var suburb = $(this).html();
+    $('#edit-search-api-views-fulltext').val(suburb);
+    $('#views-exposed-form-rental-item-search-page').submit();
+  });
+});
