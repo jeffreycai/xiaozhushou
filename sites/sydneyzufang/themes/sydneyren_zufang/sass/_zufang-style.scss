@@ -26,7 +26,9 @@ html, body {
   font-family: Helvetica,Corbel,"Microsoft YaHei",Verdana,Arial,sans-serif;
   color: #444;
 }
-
+h1 {
+  font-size: 1.7em;
+}
 a {
   text-decoration: none;
   color: $link-color;
@@ -45,7 +47,9 @@ a:hover {
 #block-block-1,
 #edit-field-rental-suburb-wrapper,
 #edit-field-rental-property-type-wrapper,
-#edit-field-rental-rental-type-wrapper {
+#edit-field-rental-rental-type-wrapper,
+.view-rental-item-search > .view-content > .item-list > ul > .views-row > div,
+#content > article > .field {
   @include zen-grid-item-base();
 }
 
@@ -57,7 +61,13 @@ a:hover {
 #content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form,
 #content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form .views-exposed-widgets,
 #block-block-1,
-#block-block-1 ul {
+#block-block-1 ul,
+.view-rental-item-search,
+.view-rental-item-search > .view-content,
+.view-rental-item-search > .view-content > .item-list,
+.view-rental-item-search > .view-content > .item-list > ul,
+.view-rental-item-search > .view-content > .item-list > ul > .views-row,
+#content > article {
   @include zen-grid-container();
 }
 
@@ -182,6 +192,9 @@ a:hover {
   color: #999;
   font-size: 0.8em;
 }
+#views-exposed-form-rental-item-search-page .views-submit-button {
+  margin-bottom: 1em;
+}
 #content #edit-submit-rental-item-search {
   margin: 0px;
   width: 100%;
@@ -199,6 +212,91 @@ body.front #edit-field-rental-property-type-wrapper,
 body.front #edit-field-rental-rental-type-wrapper {
   display: none;
 }
+#edit-field-rental-suburb-wrapper,
+#edit-field-rental-property-type-wrapper,
+#edit-field-rental-rental-type-wrapper {
+  font-size: 0.8em;
+}
+
+/** -------------
+* list style
+----------------*/
+.view-rental-item-search > .view-content > .item-list > ul {
+  list-style: none;
+  padding-left: 0px;
+}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row {
+  font-size: 0.8em;
+  @include zen-clear(both);
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px dashed #CCCCCC;
+}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row:hover {
+  background-color: #FEF6E8;
+}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row-odd {
+  background-color: #FCFCFC;
+}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb span,
+.view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-property-type span,
+.view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-rental-type span {
+  display: inline-block;
+  font-size: 0.8em;
+  padding: 0px 4px;
+  background-color: #EEE;
+  color: #888;
+}
+.view-rental-item-search .pager {
+  font-size: 0.8em;
+}
+.view-rental-item-search .pager li {
+  padding: 0.3em 0.5em;
+  border: 1px solid #EEE;
+}
+
+/** -------------
+* detail page style
+----------------*/
+#content > article {
+  font-size: 0.8em;
+  margin-top: 15px;
+}
+#content > article > .field {
+  @include zen-grid-item-base();
+  border-top: 1px dotted #DDDDDD;
+  font-size: 0.9em;
+}
+
+$temp-column-count: $zen-column-count;
+$zen-column-count: 2;
+#content > article > .field-name-field-rental-suburb,
+#content > article > .field-name-field-rental-address,
+#content > article > .field-name-field-rental-price,
+#content > article > .field-name-field-rental-property-type,
+#content > article > .field-name-field-rental-rental-type,
+#content > article > .field-name-field-rental-facilities-,
+#content > article > .field-name-field-rental-facilities-text,
+#content > article > .field-name-field-rental-near-by-facilities-,
+#content > article > .field-name-field-rental-near-by-facilities-text {
+  @include zen-grid-item(1, 1);
+  @include zen-clear(both);
+}
+#content > article > .field-name-field-rental-contact,
+#content > article > .field-name-field-rental-phone,
+#content > article > .field-name-field-rental-email,
+#content > article > .field-name-field-rental-qq,
+#content > article > .field-name-field-rental-mobile {
+  @include zen-grid-item(1, 2);
+}
+$zen-column-count: $temp-column-count;
+
+#content > article > .field.field-name-body,
+#content > article > .field.field-name-field-rental-images {
+  @include zen-clear(both);
+  @include zen-grid-item($zen-column-count, 1);
+}
+
 
 /** -------------
 * footer style
@@ -280,6 +378,14 @@ body.front #edit-field-rental-rental-type-wrapper {
     @include zen-grid-item(1, 1);
     @include zen-clear(both);
   }
+  #edit-field-rental-suburb-wrapper label,
+  #edit-field-rental-suburb-wrapper > div,
+  #edit-field-rental-property-type-wrapper label,
+  #edit-field-rental-property-type-wrapper > div,
+  #edit-field-rental-rental-type-wrapper label,
+  #edit-field-rental-rental-type-wrapper > div {
+    display: inline-block;
+  }
 
   /**-------------
   * footer block style
@@ -332,6 +438,24 @@ body.front #edit-field-rental-rental-type-wrapper {
     @include zen-grid-item(1, 2);
   }
   $zen-column-count: $temp-column-count;
+
+  /** -------------
+  * list style
+  ----------------*/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 4;
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > div {
+    display: none;
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+    display: block;
+    @include zen-grid-item(1, 1);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+    display: block;
+    @include zen-grid-item(3, 2);
+  }
+  $zen-column-count: $temp-column-count;
 }
 
 /**
@@ -360,19 +484,16 @@ body.front #edit-field-rental-rental-type-wrapper {
     @include zen-grid-item(1, 1, right);
   }
   #edit-field-rental-suburb-wrapper {
-    @include zen-grid-item(1, 1);
+    @include zen-grid-item(4, 1);
     @include zen-clear(both);
   }
-  $temp-column-count: $zen-column-count;
-  $zen-column-count: 2;
   #edit-field-rental-property-type-wrapper {
-    @include zen-grid-item(1, 1);
-    @include zen-clear(both);
+    @include zen-grid-item(2, 5);
   }
   #edit-field-rental-rental-type-wrapper {
-    @include zen-grid-item(1, 2);
+    @include zen-grid-item(6, 1);
+    @include zen-clear(both);
   }
-  $zen-column-count: $temp-column-count;
   
   /**-------------
   * footer block style
@@ -416,7 +537,7 @@ body.front #edit-field-rental-rental-type-wrapper {
   ----------------*/
   #block-block-1 {
     @include zen-clear(both);
-    @include zen-grid-item(4, 2);
+    @include zen-grid-item($zen-column-count, 1);
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 3;
@@ -429,6 +550,28 @@ body.front #edit-field-rental-rental-type-wrapper {
   }
   #block-block-1 ul li:nth-child(3n) {
     @include zen-grid-item(1, 3);
+  }
+  $zen-column-count: $temp-column-count;
+
+  /** -------------
+  * list style
+  ----------------*/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 5;
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > div {
+    display: none;
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+    display: block;
+    @include zen-grid-item(1, 1);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+    display: block;
+    @include zen-grid-item(3, 2);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
+    display: block;
+    @include zen-grid-item(1, 1, right);
   }
   $zen-column-count: $temp-column-count;
 }
@@ -514,7 +657,7 @@ body.front #edit-field-rental-rental-type-wrapper {
   ----------------*/
   #block-block-1 {
     @include zen-clear(both);
-    @include zen-grid-item(6, 3);
+    @include zen-grid-item($zen-column-count, 1);
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 4;
@@ -530,6 +673,31 @@ body.front #edit-field-rental-rental-type-wrapper {
   }
   #block-block-1 ul li:nth-child(4n) {
     @include zen-grid-item(1, 4);
+  }
+  $zen-column-count: $temp-column-count;
+
+  /** -------------
+  * list style
+  ----------------*/
+  $temp-column-count: $zen-column-count;
+  $zen-column-count: 9;
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+    @include zen-grid-item(1, 1);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-property-type {
+    @include zen-grid-item(1, 2);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-rental-type {
+    @include zen-grid-item(1, 3);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+    @include zen-grid-item(4, 4);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
+    @include zen-grid-item(1, 2, right);
+  }
+  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-created {
+    @include zen-grid-item(1, 1, right);
   }
   $zen-column-count: $temp-column-count;
 }
