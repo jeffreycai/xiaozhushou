@@ -266,6 +266,11 @@ body.front #edit-field-rental-rental-type-wrapper {
   @include zen-grid-item-base();
   border-top: 1px dotted #DDDDDD;
   font-size: 0.9em;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+#content > article > .field > .field-label {
+  margin-right: 7px;
 }
 
 $temp-column-count: $zen-column-count;
@@ -539,6 +544,9 @@ $zen-column-count: $temp-column-count;
     @include zen-clear(both);
     @include zen-grid-item($zen-column-count, 1);
   }
+  body.front #block-block-1 {
+    @include zen-grid-item(4, 2);
+  }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 3;
   #block-block-1 ul li:nth-child(3n+1) {
@@ -658,6 +666,9 @@ $zen-column-count: $temp-column-count;
   #block-block-1 {
     @include zen-clear(both);
     @include zen-grid-item($zen-column-count, 1);
+  }
+  body.front #block-block-1 {
+    @include zen-grid-item(6, 3);
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 4;
