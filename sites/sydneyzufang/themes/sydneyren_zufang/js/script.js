@@ -43,4 +43,28 @@ jQuery(function($){
   $('#content article .flexslider').flexslider({
     animation: "slide"
   });
+  
+  // search breadcrumb
+  if ($('#search-breadcrumb').length) {
+    var suburb = $('#edit-field-rental-suburb option:selected').html();
+    var property_type = $('#edit-field-rental-property-type option:selected').html();
+    var rental_type = $('#edit-field-rental-rental-type option:selected').html();
+    var keyword = $('#edit-search-api-views-fulltext').val();
+    
+    var wording = '当前搜索结果为: ';
+    if (keyword != '') {
+      wording += '关键词为"<span>'+keyword+'</span>", ';
+    }
+    wording += '位于"<span>'+(suburb == '- Any -' ? '任意地区' : suburb)+'</span>"， ';
+    wording += '"<span>'+(rental_type == '- Any -' ? '任意出租形式' : rental_type) + '</span>"的';
+    wording += '"<span>'+(property_type == '- Any -' ? '任意房屋类型' : property_type) +'</span>"';
+    wording += '<br /><a href="#"><i class="fa fa-angle-double-up"></i> 我要修改搜索条件</a>';
+    $('#search-breadcrumb').html(wording);
+  }
+  $('#search-breadcrumb a').click(function(){
+    $('body,html').animate({
+      scrollTop: $('#page-title').offset().top
+    }, 800);
+    return false;
+  });
 });

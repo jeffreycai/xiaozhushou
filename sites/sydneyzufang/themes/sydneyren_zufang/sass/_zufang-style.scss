@@ -254,6 +254,17 @@ body.front #edit-field-rental-rental-type-wrapper {
   padding: 0.3em 0.5em;
   border: 1px solid #EEE;
 }
+#search-breadcrumb {
+  padding-left: 10px;
+}
+#search-breadcrumb span {
+  color: $link-color-hover;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+#search-breadcrumb a {
+  font-size: 0.9em;
+}
 
 /** -------------
 * detail page style
