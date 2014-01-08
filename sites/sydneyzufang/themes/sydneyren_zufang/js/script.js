@@ -28,9 +28,19 @@
 })(jQuery, Drupal, this, this.document);
 
 jQuery(function($){
+  // short cut links js action
   $('#block-block-1 a').click(function(){
     var suburb = $(this).html();
     $('#edit-search-api-views-fulltext').val(suburb);
     $('#views-exposed-form-rental-item-search-page').submit();
+  });
+  // search form select js action
+  $('#views-exposed-form-rental-item-search-page select').change(function(){
+    $(this).parents('form').submit();
+  });
+  
+  // initialize flexslider 2
+  $('#content article .flexslider').flexslider({
+    animation: "slide"
   });
 });

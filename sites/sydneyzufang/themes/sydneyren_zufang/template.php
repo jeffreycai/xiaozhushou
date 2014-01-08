@@ -162,12 +162,12 @@ function sydneyren_zufang_field__field_rental_images__rental($variables) {
   }
 
   // Render the items.
-  $output .= '<ul class="field-items"' . $variables['content_attributes'] . '>';
+  $output .= '<div class="flexslider"><ul class="field-items slides"' . $variables['content_attributes'] . '>';
   foreach ($variables['items'] as $delta => $item) {
     $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
     $output .= '<li class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</li>';
   }
-  $output .= '</ul>';
+  $output .= '</ul></div>';
 
   // Render the top-level DIV.
   $output = '<div class="' . $variables['classes'] . '"' . $variables['attributes'] . '>' . $output . '</div>';

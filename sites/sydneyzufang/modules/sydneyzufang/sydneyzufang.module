@@ -69,3 +69,7 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
 //function sydneyzufang_block_view_alter (&$data, $block) {
 //  // change exposed view search bar markup. move the submit button up
 //}
+
+function _get_request_var($key) {
+  return (isset($_REQUEST[$key]) && !empty($_REQUEST[$key])) ? strip_tags($_REQUEST[$key]) : null;
+}

@@ -265,7 +265,7 @@ body.front #edit-field-rental-rental-type-wrapper {
 #content > article > .field {
   @include zen-grid-item-base();
   border-top: 1px dotted #DDDDDD;
-  font-size: 0.9em;
+  font-size: 1em;
   padding-top: 6px;
   padding-bottom: 6px;
 }
@@ -301,7 +301,9 @@ $zen-column-count: $temp-column-count;
   @include zen-clear(both);
   @include zen-grid-item($zen-column-count, 1);
 }
-
+#content > article > .field.field-name-field-rental-images .flex-direction-nav a:before {
+  margin-top: 8px;
+}
 
 /** -------------
 * footer style

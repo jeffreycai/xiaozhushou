@@ -51,6 +51,7 @@ stylesheets[all][] = system.theme.css
 
 ; Then we add our own stylesheet.
 stylesheets[all][] = font-awesome/css/font-awesome.min.css
+stylesheets[all][] = ../../../all/libraries/flexslider/flexslider.css
 stylesheets[all][] = css/styles.css
 
 ; Built-in conditional stylesheet support has been removed from Zen 7.x-5.x.
@@ -67,6 +68,7 @@ stylesheets[all][] = css/styles.css
 
 ; Optionally add some JavaScripts to your theme.
 
+scripts[] = ../../../all/libraries/flexslider/jquery.flexslider-min.js
 scripts[] = js/script.js
 
 

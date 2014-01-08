@@ -27,6 +27,10 @@
  * @ingroup views_templates
  */
 ?>
+
+
+
+
 <div class="<?php print $classes; ?>">
   <?php if ($exposed): ?>
     <div class="view-filters">
@@ -45,7 +49,31 @@
     </div>
   <?php endif; ?>
 
-
+  <div id="search-breadcrumb" style="clear: both;">
+    <?php $keyword = _get_request_var('search_api_views_fulltext');  ?>
+    <?php $tid = _get_request_var('field_rental_suburb'); $term = taxonomy_term_load($tid); $suburb = $term->name; ?>
+    <?php $property_type = _get_request_var('field_rental_property_type'); ?>
+    <?php $rental_type = _get_request_var('field_rental_rental_type'); ?>
+    <?php $suburbs = Utility::getInstance()->loadSettings('sydneytoday->suburbs'); ?>
+    当前您的搜索为: 
+      <?php if ($keyword): ?>
+        <?php if (!in_array(ucfirst(strtolower($keyword)), $suburbs)): ?>
+          基于关键字"<span><?php echo $keyword; ?></span>", 
+        <?php else: ?>
+          位于"<span><?php echo $keyword ?></span>"的
+        <?php endif; ?>
+      <?php elseif ($suburb): ?>
+        位于"<span><?php echo $suburb ?></span>"的
+      <?php endif; ?>
+      
+      <?php if ($rental_type): ?>
+        "<span><?php echo $rental_type ?></span>"的
+      <?php endif; ?>
+        
+      <?php if ($property_type): ?>
+        "<span><?php echo $property_type; ?></span>"
+      <?php endif; ?>
+  </div>
 
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">
