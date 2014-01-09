@@ -157,7 +157,7 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     module_load_include('inc', 'xiaozhushou_utilities', 'includes/Crawler.class');
     $crawler = new Crawler();
     $crawler->setCookiePath($cookie_path);
-    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=logging&action=login');
+    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=logging&action=login', $cookie_path = null, $headers = false, $tor = true);
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
     $dom = str_get_html($html);
     // get form hashes
@@ -172,7 +172,7 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     $dom->clear();
     // get form seccode
     // refresh seccode
-    $content = $crawler->read("http://bbs.tigtag.com/misc.php?mod=seccode&action=update&idhash=$seccode_hash&inajax=1&ajaxtarget=seccode_$seccode_hash", $cookie_path);
+    $content = $crawler->read("http://bbs.tigtag.com/misc.php?mod=seccode&action=update&idhash=$seccode_hash&inajax=1&ajaxtarget=seccode_$seccode_hash", $cookie_path, false, true);
     $matches = array();
     preg_match('/src="(([^"]+)update=(\d+)[^"]+)"/', $content, $matches);
     $update_url = "http://bbs.tigtag.com/" . $matches[1];
@@ -181,7 +181,7 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     $header = array(
       'Referer: http://bbs.tigtag.com/member.php?mod=logging&action=login',
     );
-    $seccode_content = $crawler->read($update_url, $cookie_path, $header);
+    $seccode_content = $crawler->read($update_url, $cookie_path, $header, true);
     $seccode_markup = '<img src="data:image/png;base64,' . base64_encode($seccode_content) . '" />';
   // if this form is submitted, we populate form vars with submit values
   } else {
@@ -263,7 +263,7 @@ function tigtag_user_refresh_submit($form, &$form_state) {
   $crawler = Utility::getInstance()->getCrawler();
   $crawler->setCookiePath($cookie_path);
   
-  $html = $crawler->post($url, $post_data, $cookie_path);
+  $html = $crawler->post($url, $post_data, $cookie_path, $headers = false, $tor = false);
   // die(iconv('GBK', 'UTF-8', $html));
   if (strstr($html, 'error')) {
     drupal_set_message('An error occurred, login failed:<br />' . htmlspecialchars(iconv('GBK', 'UTF-8', $html)), 'error');
@@ -330,7 +330,7 @@ function tigtag_user_register($form, &$form_state) {
     module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
     $crawler = Utility::getInstance()->getCrawler();
     $crawler->setCookiePath($cookie_path);
-    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=register');
+    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=registerzui');
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
     $dom = str_get_html($html);
     // get form field info
@@ -552,9 +552,9 @@ function tigtag_user_register_submit($form, &$form_state) {
   module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
   $crawler = Utility::getInstance()->getCrawler();
   
-  $post_url = "http://bbs.tigtag.com/member.php?mod=register&inajax=1";
+  $post_url = "http://bbs.tigtag.com/member.php?mod=registerzui&inajax=1";
   $header = array(
-    'Referer: http://bbs.tigtag.com/member.php?mod=register',
+    'Referer: http://bbs.tigtag.com/member.php?mod=registerzui',
   );
   $post_data = array(
     'regsubmit' => $regsubmit,

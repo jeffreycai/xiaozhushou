@@ -41,6 +41,18 @@ a:hover {
   clear: both;
 }
 
+input, textarea, checkbox {
+  -webkit-border-radius: 4px 4px 4px 4px;
+  border-radius: 4px 4px 4px 4px;
+  background-color: #F7F7F9;
+  border: 1px solid #E1E1E8;
+  padding: 7px;
+  font-size: 0.9em;
+}
+input:focus, textarea:focus, checkbox:focus {
+  background-color: #FFF;
+}
+
 #header .block,
 #edit-search-api-views-fulltext-wrapper,
 #views-exposed-form-rental-item-search-page .views-submit-button,
@@ -316,6 +328,63 @@ $zen-column-count: $temp-column-count;
   margin-top: 8px;
 }
 
+/** -------------
+* first sidebar style
+----------------*/
+#block-menu-block-3 ul {
+  padding: 0px;
+}
+#block-menu-block-3 ul li {
+  list-style: none;
+}
+#block-menu-block-3 li.menu-mlid-718 {
+  margin-bottom: 20px;
+  position: relative;
+}
+#block-menu-block-3 li.menu-mlid-718 a {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 9px 6px;
+  color: #FFF;
+  background-color: $link-color-hover;
+  text-align: center;
+}
+#block-menu-block-3 li.menu-mlid-718 a:before {
+  position: absolute;
+  font-family: FontAwesome;
+  top: 11px;
+  left: 7px;
+  content: "\f067";
+  color: #FFF;
+  font-size: 1.1em;
+}
+#block-menu-block-3 li.menu-mlid-718 a:hover {
+  text-decoration: none;
+}
+
+/**-------------
+* Create form style
+---------------- */
+#edit-field-rental-property-type > div,
+#edit-field-rental-rental-type > div,
+#edit-field-rental-facilities > div,
+#edit-field-rental-near-by-facilities > div {
+  width: 100%;
+}
+#edit-field-rental-property-type .form-checkboxes .form-item,
+#edit-field-rental-rental-type .form-checkboxes .form-item,
+#edit-field-rental-facilities .form-checkboxes .form-item,
+#edit-field-rental-near-by-facilities .form-checkboxes .form-item {
+  display: inline-block;
+  width: 105px;
+}
+#edit-field-rental-suburb-und {
+  background-position: 100% 999px;
+}
+#edit-field-rental-suburb-und.throbbing {
+  background-position: 100% -13px;
+}
 /** -------------
 * footer style
 ----------------- */
