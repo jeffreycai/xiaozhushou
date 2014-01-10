@@ -69,11 +69,12 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
     }
     if (module_exists('placeholder')) {
 //      echo "<pre>";
-//      print_r(($form['field_rental_price']));
+//      print_r(($form['actions']));
 //      die("</pre>");
       $form['title']['#title'] = '标题';
+      $form['actions']['submit']['#value'] = '立刻发布';
       $form['title']['#placeholder'] = '如: 宽敞主卧招安静女生';
-      $form['field_rental_suburb']['und'][0]['#placeholder'] = '如: Ashfield';
+      $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield';
       $form['field_rental_price']['und'][0]['value']['#placeholder'] = '周租金(数字),如: 250';
       $form['body']['und'][0]['value']['#placeholder'] = '输入任何您希望租客了解的信息';
       $form['field_rental_contact']['und'][0]['value']['#placeholder'] = '您的姓名';

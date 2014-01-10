@@ -53,6 +53,7 @@ input:focus, textarea:focus, checkbox:focus {
   background-color: #FFF;
 }
 
+
 #header .block,
 #edit-search-api-views-fulltext-wrapper,
 #views-exposed-form-rental-item-search-page .views-submit-button,
@@ -385,6 +386,19 @@ $zen-column-count: $temp-column-count;
 #edit-field-rental-suburb-und.throbbing {
   background-position: 100% -13px;
 }
+#edit-submit {
+  background-color: $search-box-color;
+  color: #FFF;
+  border: none;
+  width: 30%;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  text-align: center;
+  font-weight: bold;
+}
+#edit-submit:hover {
+  background-color: $search-box-highlight-color;
+}
 /** -------------
 * footer style
 ----------------- */
@@ -543,6 +557,13 @@ $zen-column-count: $temp-column-count;
     @include zen-grid-item(3, 2);
   }
   $zen-column-count: $temp-column-count;
+
+  /**-------------
+  * Create form style
+  ---------------- */
+  #edit-submit {
+    width: 100%;
+  }
 }
 
 /**
