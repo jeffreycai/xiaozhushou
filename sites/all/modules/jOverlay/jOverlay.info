@@ -1,0 +1,8 @@
+name = jOverlay
+description = jOverlay module
+dependencies[] = xiaozhushou_utilities
+core = 7.x
+php = 5.3
+
+version = "7.x-1.0-dev"
+

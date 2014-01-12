@@ -4,8 +4,8 @@
 
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	1390951894	9Mjd_2132_saltkey	rX9GA04G
 bbs.tigtag.com	FALSE	/	FALSE	1390951894	9Mjd_2132_lastvisit	1388356294
-bbs.tigtag.com	FALSE	/	FALSE	1389305412	9Mjd_2132_sid	Noog8G
-bbs.tigtag.com	FALSE	/	FALSE	1389305412	9Mjd_2132_lastact	1389219012%09forum.php%09post
+bbs.tigtag.com	FALSE	/	FALSE	1389407470	9Mjd_2132_sid	hi51DB
+bbs.tigtag.com	FALSE	/	FALSE	1389407470	9Mjd_2132_lastact	1389321070%09member.php%09logging
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_seccodeSTcYLiS0	d687vxK5ZEBqSga4Aud83TiWBcDeZjQJPBKu3Zw0BKEp%2B3O%2BLWJERvwXWJ1xzkiVPs1p1yn1LTjNEptGPJE
 bbs.tigtag.com	FALSE	/	FALSE	1419895903	9Mjd_2132_ulastactivity	a9dbMLXkqt2Elavm07DW4TuupHaf%2FSnOP%2B1KzDZg0uccSQUvAjMZ
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	1390951903	9Mjd_2132_auth	3535SBEUdryDD36RvzvjxYOZxGAWD%2Bmq7O%2BChsAPGAhSPnaAeNibyXLPZi1uGGnahntiR7oK4Z8k3ofB95S8IgY%2Fyl0
@@ -13,12 +13,12 @@ bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_loginuser	deleted
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_activationauth	deleted
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_pmnum	deleted
 bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditnotice	0D0D0D0D5D0D0D0D0D654498
-bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditbase	0D0D0D0D71D0D0D0D0
+bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditbase	0D0D0D0D126D0D0D0D0
 bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditrule	%E6%AF%8F%E5%A4%A9%E7%99%BB%E5%BD%95
 bbs.tigtag.com	FALSE	/	FALSE	1419895903	9Mjd_2132_lastcheckfeed	654498%7C1388359903
 bbs.tigtag.com	FALSE	/	FALSE	1388359933	9Mjd_2132_checkfollow	1
-bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_lip	172.19.1.86%2C1389219012
-bbs.tigtag.com	FALSE	/	FALSE	1389262016	9Mjd_2132_security_cookiereport	46b6K5j2Fwc9rsSkNZvcIXLqjEbvSm0EZ8UeaWbur60RErVpa4q3
-bbs.tigtag.com	FALSE	/	FALSE	1420755012	9Mjd_2132_connect_is_bind	0
+bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_lip	172.19.1.75%2C1389219091
+bbs.tigtag.com	FALSE	/	FALSE	1389364270	9Mjd_2132_security_cookiereport	c483A2YZO%2BSmc15qDk4olx3Vyob2s2KcSnEDWa5rj3QtnvU0pln%2F
+bbs.tigtag.com	FALSE	/	FALSE	1420857070	9Mjd_2132_connect_is_bind	0
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_connect_not_sync_feed	deleted
 bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_connect_not_sync_t	1

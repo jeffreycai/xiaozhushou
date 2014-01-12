@@ -199,7 +199,7 @@ input:focus, textarea:focus, checkbox:focus {
 #content #views-exposed-form-rental-item-search-page .form-item-search-api-views-fulltext:after {
   position: absolute;
   font-family: FontAwesome;
-  top: 10px;
+  top: 8px;
   left: 0.8em;
   content: "\f002";
   color: #999;
@@ -234,6 +234,13 @@ body.front #edit-field-rental-rental-type-wrapper {
 /** -------------
 * list style
 ----------------*/
+#page-title {
+  font-size: 1.2em;
+  padding-left: 10px;
+}
+body.page-node #page-title {
+  padding-left: 0px;
+}
 .view-rental-item-search > .view-content > .item-list > ul {
   list-style: none;
   padding-left: 0px;
@@ -332,41 +339,41 @@ $zen-column-count: $temp-column-count;
 /** -------------
 * first sidebar style
 ----------------*/
-#block-menu-block-3 ul {
-  padding: 0px;
-}
-#block-menu-block-3 ul li {
-  list-style: none;
-}
-#block-menu-block-3 li.menu-mlid-718 {
-  margin-bottom: 20px;
+#block-block-5 p {
+  margin: 0px;
   position: relative;
 }
-#block-menu-block-3 li.menu-mlid-718 a {
+#block-block-5 p a {
   display: block;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: bold;
   padding: 9px 6px;
   color: #FFF;
   background-color: $link-color-hover;
   text-align: center;
 }
-#block-menu-block-3 li.menu-mlid-718 a:before {
+#block-block-5 p a:before {
   position: absolute;
   font-family: FontAwesome;
   top: 11px;
   left: 7px;
   content: "\f067";
   color: #FFF;
-  font-size: 1.1em;
+  font-size: 1em;
 }
-#block-menu-block-3 li.menu-mlid-718 a:hover {
+#block-block-5 p a:hover {
   text-decoration: none;
 }
 
 /**-------------
 * Create form style
 ---------------- */
+#rental-node-form .form-item > label {
+  font-size: 0.8em;
+}
+#rental-node-form .form-item > label.option {
+  font-size: 0.9em;
+}
 #edit-field-rental-property-type > div,
 #edit-field-rental-rental-type > div,
 #edit-field-rental-facilities > div,
@@ -377,8 +384,17 @@ $zen-column-count: $temp-column-count;
 #edit-field-rental-rental-type .form-checkboxes .form-item,
 #edit-field-rental-facilities .form-checkboxes .form-item,
 #edit-field-rental-near-by-facilities .form-checkboxes .form-item {
-  display: inline-block;
+  display: block;
   width: 105px;
+  float: left;
+}
+#edit-field-rental-property-type:after,
+#edit-field-rental-rental-type:after,
+#edit-field-rental-facilities:after,
+#edit-field-rental-near-by-facilities:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 #edit-field-rental-suburb-und {
   background-position: 100% 999px;
@@ -487,6 +503,35 @@ $zen-column-count: $temp-column-count;
   #edit-field-rental-rental-type-wrapper > div {
     display: inline-block;
   }
+  
+  /**-------------
+  * name and slogan
+  ---------------*/
+  #name-and-slogan br {
+    display: none;
+  }
+  #name-and-slogan {
+    width: auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  #name-and-slogan div {
+    text-align: left;
+    font-size: 0.8em;
+    line-height: 1em;
+    padding-left: 0.3em;
+  }
+  #name-and-slogan h1 {
+    padding-left: 1.7em;
+    padding-top: 0px;
+  }
+  #name-and-slogan h1:after {
+    font-size: 1.7em;
+    top: 0px;
+  }
+  #name-and-slogan .site-intro {
+    margin-top: 0px;
+  }
 
   /**-------------
   * footer block style
@@ -517,10 +562,6 @@ $zen-column-count: $temp-column-count;
     margin-bottom: 0px;
   }
   $zen-column-count: $temp-column-count;
-
-  #name-and-slogan {
-    margin: 0px auto;
-  }
 
   /** -------------
   * shortcut block style

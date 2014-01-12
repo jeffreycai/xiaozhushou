@@ -66,23 +66,24 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
       unset($form['field_rental_facilities_']);
       unset($form['field_rental_comment']);
       unset($form['field_rental_url']);
-    }
-    if (module_exists('placeholder')) {
-//      echo "<pre>";
-//      print_r(($form['actions']));
-//      die("</pre>");
-      $form['title']['#title'] = '标题';
-      $form['actions']['submit']['#value'] = '立刻发布';
-      $form['title']['#placeholder'] = '如: 宽敞主卧招安静女生';
-      $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield';
-      $form['field_rental_price']['und'][0]['value']['#placeholder'] = '周租金(数字),如: 250';
-      $form['body']['und'][0]['value']['#placeholder'] = '输入任何您希望租客了解的信息';
-      $form['field_rental_contact']['und'][0]['value']['#placeholder'] = '您的姓名';
-      $form['field_rental_mobile']['und'][0]['value']['#placeholder'] = '您的手机号码';
-      $form['field_rental_phone']['und'][0]['value']['#placeholder'] = '您的座机号码';
-      $form['field_rental_qq']['und'][0]['value']['#placeholder'] = '您的QQ号码';
-      $form['field_rental_address']['und'][0]['value']['#placeholder'] = '如: 43/11 Pitt Street, Sydney';
-      $form['field_rental_email']['und'][0]['value']['#placeholder'] = '您的邮箱地址';
+
+      if (module_exists('placeholder')) {
+  //      echo "<pre>";
+  //      print_r(($form['actions']));
+  //      die("</pre>");
+        $form['title']['#title'] = '标题';
+        $form['actions']['submit']['#value'] = '立刻发布';
+        $form['title']['#placeholder'] = '如: 宽敞主卧招安静女生';
+        $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield';
+        $form['field_rental_price']['und'][0]['value']['#placeholder'] = '周租金(数字),如: 250';
+        $form['body']['und'][0]['value']['#placeholder'] = '输入任何您希望租客了解的信息';
+        $form['field_rental_contact']['und'][0]['value']['#placeholder'] = '您的姓名';
+        $form['field_rental_mobile']['und'][0]['value']['#placeholder'] = '您的手机号码';
+        $form['field_rental_phone']['und'][0]['value']['#placeholder'] = '您的座机号码';
+        $form['field_rental_qq']['und'][0]['value']['#placeholder'] = '您的QQ号码';
+        $form['field_rental_address']['und'][0]['value']['#placeholder'] = '如: 43/11 Pitt Street, Sydney';
+        $form['field_rental_email']['und'][0]['value']['#placeholder'] = '您的邮箱地址';
+      }
     }
 }
 

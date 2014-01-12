@@ -38,6 +38,17 @@ jQuery(function($){
   $('#views-exposed-form-rental-item-search-page select').change(function(){
     $(this).parents('form').submit();
   });
+  // search form select "Any" link
+  var parents = $('#views-exposed-form-rental-item-search-page select').parents('.views-exposed-widget');
+  $('label', parents).append('<a href="#" style="font-size: 0.9em;">[ 任意 ]</a>');
+  $('#views-exposed-form-rental-item-search-page label a').live("click", function(event){
+    event.preventDefault();
+    var parent = $(this).parents('.views-exposed-widget').first();
+    if ($('select', parent).val() != 'All') {
+      $('select', parent).val('All');
+      $(this).parents('form').submit();
+    }
+  });
   
   // initialize flexslider 2
   $('#content article .flexslider').flexslider({
