@@ -49,6 +49,14 @@ jQuery(function($){
       $(this).parents('form').submit();
     }
   });
+  // overlay actions
+  removeOverlay();
+  $('#views-exposed-form-rental-item-search-page').submit(function(){
+    addOverlay();
+  });
+//  $('.views-field-title a').click(function(){
+//    addOverlay();
+//  });
   
   // initialize flexslider 2
   $('#content article .flexslider').flexslider({
