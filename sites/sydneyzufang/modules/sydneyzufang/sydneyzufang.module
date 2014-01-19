@@ -28,7 +28,7 @@ function sydneyzufang_page_alter(&$page) {
  */
 function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
     // exposed view search form
-    if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-rental-item-search-page') {
+    if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-rental-item-search-search-result-list') {
       // placeholder
       $form['submit']['#value'] = '搜索房源';
       if (module_exists('placeholder')) {

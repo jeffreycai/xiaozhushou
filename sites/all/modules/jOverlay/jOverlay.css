@@ -7,7 +7,7 @@
   z-index: 99999;
   background-color: #AAA;
   display: none;
-  opacity: 0.8;
+  opacity: 0.95;
 }
 body.overlay #overlay {
   display: block;
@@ -17,7 +17,7 @@ body.overlay #overlay {
   padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 200px;
+  margin-top: 120px;
   background-color: #FFF;
   -webkit-border-radius: 8px 8px 8px 8px;
   border-radius: 8px 8px 8px 8px;

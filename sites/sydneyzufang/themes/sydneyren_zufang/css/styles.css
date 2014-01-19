@@ -1807,23 +1807,28 @@ h1 {
 }
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000332}}
+h1, h2, h3, h4, h5 {
+  color: #0578a5;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000335}}
 a {
   text-decoration: none;
   color: #21a0cb;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000339}}
 a:hover {
   color: #f39800;
   text-decoration: underline;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000343}}
 .clear {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000347}}
 input, textarea, checkbox {
   -webkit-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
@@ -1833,20 +1838,25 @@ input, textarea, checkbox {
   font-size: 0.9em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000352}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000355}}
 input:focus, textarea:focus, checkbox:focus {
   background-color: #FFF;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000365}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000358}}
+.block h2 {
+  font-size: 1.2em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000371}}
 #header .block,
 #edit-search-api-views-fulltext-wrapper,
-#views-exposed-form-rental-item-search-page .views-submit-button,
+#views-exposed-form-rental-item-search-search-result-list .views-submit-button,
 #block-block-1,
 #edit-field-rental-suburb-wrapper,
 #edit-field-rental-property-type-wrapper,
 #edit-field-rental-rental-type-wrapper,
-.view-rental-item-search > .view-content > .item-list > ul > .views-row > div,
+.view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > div,
 #content > article > .field {
   padding-left: 10px;
   padding-right: 10px;
@@ -1863,28 +1873,28 @@ input:focus, textarea:focus, checkbox:focus {
 #header > .region-header:after,
 #content #block-views-exp-rental-item-search-page:before,
 #content #block-views-exp-rental-item-search-page:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page:before,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div:before,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form:before,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form .views-exposed-widgets:before,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form .views-exposed-widgets:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list:before,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div:before,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form:before,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form .views-exposed-widgets:before,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form .views-exposed-widgets:after,
 #block-block-1:before,
 #block-block-1:after,
 #block-block-1 ul:before,
 #block-block-1 ul:after,
-.view-rental-item-search:before,
-.view-rental-item-search:after,
-.view-rental-item-search > .view-content:before,
-.view-rental-item-search > .view-content:after,
-.view-rental-item-search > .view-content > .item-list:before,
-.view-rental-item-search > .view-content > .item-list:after,
-.view-rental-item-search > .view-content > .item-list > ul:before,
-.view-rental-item-search > .view-content > .item-list > ul:after,
-.view-rental-item-search > .view-content > .item-list > ul > .views-row:before,
-.view-rental-item-search > .view-content > .item-list > ul > .views-row:after,
+.view-display-id-search_result_list:before,
+.view-display-id-search_result_list:after,
+.view-display-id-search_result_list > .view-content:before,
+.view-display-id-search_result_list > .view-content:after,
+.view-display-id-search_result_list > .view-content > .item-list:before,
+.view-display-id-search_result_list > .view-content > .item-list:after,
+.view-display-id-search_result_list > .view-content > .item-list > ul:before,
+.view-display-id-search_result_list > .view-content > .item-list > ul:after,
+.view-display-id-search_result_list > .view-content > .item-list > ul > .views-row:before,
+.view-display-id-search_result_list > .view-content > .item-list > ul > .views-row:after,
 #content > article:before,
 #content > article:after {
   content: "";
@@ -1894,17 +1904,17 @@ input:focus, textarea:focus, checkbox:focus {
 .container:after,
 #header > .region-header:after,
 #content #block-views-exp-rental-item-search-page:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form:after,
-#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-page > div .views-exposed-form .views-exposed-widgets:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form:after,
+#content #block-views-exp-rental-item-search-page #views-exposed-form-rental-item-search-search-result-list > div .views-exposed-form .views-exposed-widgets:after,
 #block-block-1:after,
 #block-block-1 ul:after,
-.view-rental-item-search:after,
-.view-rental-item-search > .view-content:after,
-.view-rental-item-search > .view-content > .item-list:after,
-.view-rental-item-search > .view-content > .item-list > ul:after,
-.view-rental-item-search > .view-content > .item-list > ul > .views-row:after,
+.view-display-id-search_result_list:after,
+.view-display-id-search_result_list > .view-content:after,
+.view-display-id-search_result_list > .view-content > .item-list:after,
+.view-display-id-search_result_list > .view-content > .item-list > ul:after,
+.view-display-id-search_result_list > .view-content > .item-list > ul > .views-row:after,
 #content > article:after {
   clear: both;
 }
@@ -1912,7 +1922,7 @@ input:focus, textarea:focus, checkbox:focus {
 /**
 * topnav style
 */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000392}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\0000398}}
 #topnav > nav {
   max-width: 1200px;
   position: relative;
@@ -1922,7 +1932,7 @@ input:focus, textarea:focus, checkbox:focus {
   margin-right: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003100}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003106}}
 #topnav {
   background-color: #F8F8F8;
   color: #CCC;
@@ -1932,12 +1942,12 @@ input:focus, textarea:focus, checkbox:focus {
   height: 28px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003108}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003114}}
 #topnav .block {
   margin: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003111}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003117}}
 #topnav ul.menu {
   margin: 0px;
   padding: 0px;
@@ -1948,7 +1958,7 @@ input:focus, textarea:focus, checkbox:focus {
   line-height: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003120}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003126}}
 #topnav ul.menu li {
   display: block;
   float: left;
@@ -1956,17 +1966,23 @@ input:focus, textarea:focus, checkbox:focus {
   border-right: solid 1px #DDD;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003126}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003132}}
 #topnav ul.menu li a {
   color: #949494;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003129}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003135}}
+#topnav ul.menu li.first a {
+  color: #f39800;
+  font-weight: bold;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003139}}
 #topnav ul.menu li a:hover {
   color: #f39800;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003133}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003143}}
 #topnav #block-system-user-menu ul.menu {
   left: auto;
   right: 7px;
@@ -1975,25 +1991,25 @@ input:focus, textarea:focus, checkbox:focus {
 /**--------------------------
 * Site name and slogan style
 --------------------------- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003141}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003151}}
 #header .block {
   position: relative;
   margin-bottom: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003145}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003155}}
 #name-and-slogan {
   width: 212px;
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003149}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003159}}
 #name-and-slogan a:hover {
   text-decoration: none;
   color: auto;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003153}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003163}}
 #name-and-slogan h1 {
   line-height: 46px;
   margin: 0px;
@@ -2001,25 +2017,25 @@ input:focus, textarea:focus, checkbox:focus {
   padding-top: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003160}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003170}}
 #name-and-slogan em {
   font-style: normal;
   color: #B90202;
   font-size: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003165}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003175}}
 #name-and-slogan div {
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003168}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003178}}
 #name-and-slogan .site-intro {
   margin-top: 12px;
   color: #777;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003172}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003182}}
 #name-and-slogan h1:after {
   position: absolute;
   font-family: FontAwesome;
@@ -2033,12 +2049,12 @@ input:focus, textarea:focus, checkbox:focus {
 /** -------------
 * search block style
 ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003185}}
-#content #views-exposed-form-rental-item-search-page .views-widget {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003195}}
+#content #views-exposed-form-rental-item-search-search-result-list .views-widget {
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003188}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003198}}
 #content #edit-search-api-views-fulltext {
   width: 100%;
   border: 4px solid #2ba6d2;
@@ -2048,15 +2064,15 @@ input:focus, textarea:focus, checkbox:focus {
   background-image: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003196}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003206}}
 #content #edit-search-api-views-fulltext:focus {
   border-color: #75b9f0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #75b9f0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #75b9f0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003199}}
-#content #views-exposed-form-rental-item-search-page .form-item-search-api-views-fulltext:after {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003209}}
+#content #views-exposed-form-rental-item-search-search-result-list .form-item-search-api-views-fulltext:after {
   position: absolute;
   font-family: FontAwesome;
   top: 8px;
@@ -2066,12 +2082,12 @@ input:focus, textarea:focus, checkbox:focus {
   font-size: 0.8em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003208}}
-#views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003218}}
+#views-exposed-form-rental-item-search-search-result-list .views-submit-button {
   margin-bottom: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003211}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003221}}
 #content #edit-submit-rental-item-search {
   margin: 0px;
   width: 100%;
@@ -2081,19 +2097,19 @@ input:focus, textarea:focus, checkbox:focus {
   height: 2.7em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003219}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003229}}
 #content #edit-submit-rental-item-search:hover {
   background-color: #75b9f0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003225}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003235}}
 body.front #edit-field-rental-suburb-wrapper,
 body.front #edit-field-rental-property-type-wrapper,
 body.front #edit-field-rental-rental-type-wrapper {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003230}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003240}}
 #edit-field-rental-suburb-wrapper,
 #edit-field-rental-property-type-wrapper,
 #edit-field-rental-rental-type-wrapper {
@@ -2103,24 +2119,29 @@ body.front #edit-field-rental-rental-type-wrapper {
 /** -------------
 * list style
 ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003237}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003247}}
 #page-title {
   font-size: 1.2em;
   padding-left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003241}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003251}}
+#page #page-title {
+  padding-left: 0px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003254}}
 body.page-node #page-title {
   padding-left: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003244}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003257}}
 .view-rental-item-search > .view-content > .item-list > ul {
   list-style: none;
   padding-left: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003248}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003261}}
 .view-rental-item-search > .view-content > .item-list > ul > .views-row {
   font-size: 0.8em;
   clear: both;
@@ -2129,17 +2150,22 @@ body.page-node #page-title {
   border-top: 1px dashed #CCCCCC;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003255}}
-.view-rental-item-search > .view-content > .item-list > ul > .views-row:hover {
-  background-color: #FEF6E8;
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003268}}
+.view-display-id-latest_published > .view-content > .item-list > ul > .views-row {
+  border-top: 1px solid #CCCCCC;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003258}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003271}}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row:hover {
+  background-color: #FEF6E8 !important;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003274}}
 .view-rental-item-search > .view-content > .item-list > ul > .views-row-odd {
   background-color: #FCFCFC;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003263}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003279}}
 .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb span,
 .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-property-type span,
 .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-rental-type span {
@@ -2150,35 +2176,57 @@ body.page-node #page-title {
   color: #888;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003270}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003286}}
 .view-rental-item-search .pager {
   font-size: 0.8em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003273}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003289}}
 .view-rental-item-search .pager li {
   padding: 0.3em 0.5em;
   border: 1px solid #EEE;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003277}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003293}}
 .view-rental-item-search > .view-content > .item-list > ul > .views-row .views-field-created {
   font-size: 0.9em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003280}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003296}}
+.view-display-id-latest_published > .view-content > .item-list > ul > .views-row {
+  border-top: 1px solid #CCCCCC;
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003301}}
+.view-display-id-latest_published > .view-content > .item-list > ul > .views-row .views-field-field-rental-images {
+  padding: 6px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003306}}
+.view-rental-item-search > .view-content > .item-list > ul > .views-row .views-field-field-rental-price {
+  color: #f39800;
+  font-size: 0.9em;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003312}}
 #search-breadcrumb {
   padding-left: 10px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003283}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003315}}
 #search-breadcrumb span {
   color: #f39800;
   font-size: 0.9em;
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003288}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003320}}
 #search-breadcrumb a {
   font-size: 0.9em;
 }
@@ -2186,13 +2234,13 @@ body.page-node #page-title {
 /** -------------
 * detail page style
 ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003295}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003327}}
 #content > article {
   font-size: 0.8em;
   margin-top: 15px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003299}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003331}}
 #content > article > .field {
   padding-left: 10px;
   padding-right: 10px;
@@ -2207,12 +2255,12 @@ body.page-node #page-title {
   padding-bottom: 6px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003306}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003338}}
 #content > article > .field > .field-label {
   margin-right: 7px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003320}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003352}}
 #content > article > .field-name-field-rental-suburb,
 #content > article > .field-name-field-rental-address,
 #content > article > .field-name-field-rental-price,
@@ -2229,7 +2277,7 @@ body.page-node #page-title {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003328}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003360}}
 #content > article > .field-name-field-rental-contact,
 #content > article > .field-name-field-rental-phone,
 #content > article > .field-name-field-rental-email,
@@ -2241,7 +2289,7 @@ body.page-node #page-title {
   margin-right: -100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003334}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003366}}
 #content > article > .field.field-name-body,
 #content > article > .field.field-name-field-rental-images {
   clear: both;
@@ -2251,7 +2299,7 @@ body.page-node #page-title {
   margin-right: -100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003338}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003370}}
 #content > article > .field.field-name-field-rental-images .flex-direction-nav a:before {
   margin-top: 8px;
 }
@@ -2259,13 +2307,13 @@ body.page-node #page-title {
 /** -------------
 * first sidebar style
 ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003345}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003377}}
 #block-block-5 p {
   margin: 0px;
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003349}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003381}}
 #block-block-5 p a {
   display: block;
   font-size: 1em;
@@ -2276,7 +2324,7 @@ body.page-node #page-title {
   text-align: center;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003358}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003390}}
 #block-block-5 p a:before {
   position: absolute;
   font-family: FontAwesome;
@@ -2287,7 +2335,7 @@ body.page-node #page-title {
   font-size: 1em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003367}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003399}}
 #block-block-5 p a:hover {
   text-decoration: none;
 }
@@ -2295,17 +2343,17 @@ body.page-node #page-title {
 /**-------------
 * Create form style
 ---------------- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003374}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003406}}
 #rental-node-form .form-item > label {
   font-size: 0.8em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003409}}
 #rental-node-form .form-item > label.option {
   font-size: 0.9em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003383}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003415}}
 #edit-field-rental-property-type > div,
 #edit-field-rental-rental-type > div,
 #edit-field-rental-facilities > div,
@@ -2313,7 +2361,7 @@ body.page-node #page-title {
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003389}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003421}}
 #edit-field-rental-property-type .form-checkboxes .form-item,
 #edit-field-rental-rental-type .form-checkboxes .form-item,
 #edit-field-rental-facilities .form-checkboxes .form-item,
@@ -2323,7 +2371,7 @@ body.page-node #page-title {
   float: left;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003397}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003429}}
 #edit-field-rental-property-type:after,
 #edit-field-rental-rental-type:after,
 #edit-field-rental-facilities:after,
@@ -2333,17 +2381,17 @@ body.page-node #page-title {
   clear: both;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003402}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003434}}
 #edit-field-rental-suburb-und {
   background-position: 100% 999px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003405}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003437}}
 #edit-field-rental-suburb-und.throbbing {
   background-position: 100% -13px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003408}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003440}}
 #edit-submit {
   background-color: #2ba6d2;
   color: #FFF;
@@ -2355,7 +2403,7 @@ body.page-node #page-title {
   font-weight: bold;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003418}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003450}}
 #edit-submit:hover {
   background-color: #75b9f0;
 }
@@ -2363,35 +2411,35 @@ body.page-node #page-title {
 /** -------------
 * footer style
 ----------------- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003424}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003456}}
 #footer-wrapper {
   width: 100%;
   clear: both;
   border-top: 1px solid #EEEEEE;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003429}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003461}}
 #block-block-2 {
   color: #999;
   font-size: 0.7em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003433}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003465}}
 #block-block-2 i {
   color: red;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003436}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003468}}
 #block-menu-block-2 {
   font-size: 0.7em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003439}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003471}}
 #block-menu-block-2 h2 {
   display: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003442}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003474}}
 #block-menu-block-2 ul.menu {
   list-style: none;
   padding-left: none;
@@ -2399,14 +2447,14 @@ body.page-node #page-title {
   padding-left: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003448}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003480}}
 #block-menu-block-2 ul.menu li {
   display: block;
   float: left;
   margin-right: 14px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003453}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003485}}
 #block-menu-block-2 ul.menu li a {
   color: #999;
 }
@@ -2414,7 +2462,7 @@ body.page-node #page-title {
 /** -------------
 * shortcut block style
 ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003460}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003492}}
 #block-block-1 h2 {
   padding: 5px 15px;
   background-color: #EEEEEE;
@@ -2422,7 +2470,7 @@ body.page-node #page-title {
   font-size: 0.9em;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003466}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003498}}
 #block-block-1 ul {
   list-style: none;
   border: #EEE 1px solid;
@@ -2430,10 +2478,17 @@ body.page-node #page-title {
   padding: 0px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003472}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003504}}
 #block-block-1 ul li {
   padding: 4px 7px;
   font-size: 0.8em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003508}}
+#block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-images {
+  font-size: 1.6em;
+  color: #DDD;
+  font-weight: bold;
 }
 
 /**
@@ -2446,9 +2501,9 @@ body.page-node #page-title {
   /** -------------
   * search block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003490}}
-  #views-exposed-form-rental-item-search-page #edit-search-api-views-fulltext-wrapper,
-  #views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003527}}
+  #views-exposed-form-rental-item-search-search-result-list #edit-search-api-views-fulltext-wrapper,
+  #views-exposed-form-rental-item-search-search-result-list .views-submit-button {
     float: left;
     width: 100%;
     margin-left: 0%;
@@ -2456,7 +2511,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003497}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003534}}
   #edit-field-rental-suburb-wrapper,
   #edit-field-rental-property-type-wrapper,
   #edit-field-rental-rental-type-wrapper {
@@ -2467,7 +2522,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003506}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003543}}
   #edit-field-rental-suburb-wrapper label,
   #edit-field-rental-suburb-wrapper > div,
   #edit-field-rental-property-type-wrapper label,
@@ -2480,19 +2535,19 @@ body.page-node #page-title {
   /**-------------
   * name and slogan
   ---------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003513}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003550}}
   #name-and-slogan br {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003516}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003553}}
   #name-and-slogan {
     width: auto;
     margin-top: 5px;
     margin-bottom: 20px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003521}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003558}}
   #name-and-slogan div {
     text-align: left;
     font-size: 0.8em;
@@ -2500,19 +2555,19 @@ body.page-node #page-title {
     padding-left: 0.3em;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003527}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003564}}
   #name-and-slogan h1 {
     padding-left: 1.7em;
     padding-top: 0px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003531}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003568}}
   #name-and-slogan h1:after {
     font-size: 1.7em;
     top: 0px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003535}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003572}}
   #name-and-slogan .site-intro {
     margin-top: 0px;
   }
@@ -2520,7 +2575,7 @@ body.page-node #page-title {
   /**-------------
   * footer block style
   ---------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003544}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003581}}
   #footer .block {
     float: left;
     width: 100%;
@@ -2530,12 +2585,12 @@ body.page-node #page-title {
     margin-bottom: 0px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003549}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003586}}
   #footer p {
     margin-bottom: 0px;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003552}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003589}}
   #footer ul.menu {
     margin: 0px 0px 10px 0px;
   }
@@ -2543,7 +2598,7 @@ body.page-node #page-title {
   /**-------------
   * header block style
   ---------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003562}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003599}}
   #header .block {
     float: left;
     width: 100%;
@@ -2556,7 +2611,7 @@ body.page-node #page-title {
   /** -------------
   * shortcut block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003572}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003609}}
   #block-block-1 {
     clear: both;
     float: left;
@@ -2565,7 +2620,7 @@ body.page-node #page-title {
     margin-right: -100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003578}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003615}}
   #block-block-1 ul li:nth-child(2n+1) {
     float: left;
     width: 50%;
@@ -2574,7 +2629,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003582}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003619}}
   #block-block-1 ul li:nth-child(2n) {
     float: left;
     width: 50%;
@@ -2585,13 +2640,13 @@ body.page-node #page-title {
   /** -------------
   * list style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003592}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > div {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003629}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > div {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003595}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003632}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
     display: block;
     float: left;
     width: 25%;
@@ -2599,8 +2654,8 @@ body.page-node #page-title {
     margin-right: -25%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003599}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003636}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-title {
     display: block;
     float: left;
     width: 75%;
@@ -2611,9 +2666,19 @@ body.page-node #page-title {
   /**-------------
   * Create form style
   ---------------- */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003608}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003645}}
   #edit-submit {
     width: 100%;
+  }
+
+  /**--------------
+  * second hand sidebar
+  *----------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003652}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f {
+    width: auto;
+    float: none;
+    margin: 0px;
   }
 }
 /**
@@ -2625,8 +2690,8 @@ body.page-node #page-title {
   /** -------------
   * search block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003625}}
-  #views-exposed-form-rental-item-search-page #edit-search-api-views-fulltext-wrapper {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003671}}
+  #views-exposed-form-rental-item-search-search-result-list #edit-search-api-views-fulltext-wrapper {
     float: left;
     width: 50%;
     margin-left: 16.66667%;
@@ -2634,31 +2699,31 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003629}}
-  #views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003675}}
+  #views-exposed-form-rental-item-search-search-result-list .views-submit-button {
     float: left;
     width: 16.66667%;
     margin-left: 66.66667%;
     margin-right: -83.33333%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003632}}
-  body.two-sidebars #views-exposed-form-rental-item-search-page #edit-search-api-views-fulltext-wrapper {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003678}}
+  body.two-sidebars #views-exposed-form-rental-item-search-search-result-list #edit-search-api-views-fulltext-wrapper {
     float: left;
     width: 83.33333%;
     margin-left: 0%;
     margin-right: -83.33333%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003635}}
-  body.two-sidebars #views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003681}}
+  body.two-sidebars #views-exposed-form-rental-item-search-search-result-list .views-submit-button {
     float: right;
     width: 16.66667%;
     margin-right: 0%;
     margin-left: -16.66667%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003638}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003684}}
   #edit-field-rental-suburb-wrapper {
     float: left;
     width: 66.66667%;
@@ -2667,7 +2732,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003642}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003688}}
   #edit-field-rental-property-type-wrapper {
     float: left;
     width: 33.33333%;
@@ -2675,7 +2740,7 @@ body.page-node #page-title {
     margin-right: -100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003645}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003691}}
   #edit-field-rental-rental-type-wrapper {
     float: left;
     width: 100%;
@@ -2687,7 +2752,7 @@ body.page-node #page-title {
   /**-------------
   * footer block style
   ---------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003655}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003701}}
   #footer .block:nth-child(2n+1) {
     float: left;
     width: 50%;
@@ -2696,7 +2761,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003659}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003705}}
   #footer .block:nth-child(2n) {
     float: left;
     width: 50%;
@@ -2723,7 +2788,7 @@ body.page-node #page-title {
     float: right;
   }
   */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003683}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003729}}
   #name-and-slogan {
     margin: 0 auto;
   }
@@ -2731,7 +2796,7 @@ body.page-node #page-title {
   /** -------------
   * shortcut block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003690}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003736}}
   #block-block-1 {
     clear: both;
     float: left;
@@ -2740,7 +2805,7 @@ body.page-node #page-title {
     margin-right: -100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003694}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003740}}
   body.front #block-block-1 {
     float: left;
     width: 66.66667%;
@@ -2748,7 +2813,7 @@ body.page-node #page-title {
     margin-right: -83.33333%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003699}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003745}}
   #block-block-1 ul li:nth-child(3n+1) {
     float: left;
     width: 33.33333%;
@@ -2757,7 +2822,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003703}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003749}}
   #block-block-1 ul li:nth-child(3n+2) {
     float: left;
     width: 33.33333%;
@@ -2765,7 +2830,7 @@ body.page-node #page-title {
     margin-right: -66.66667%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003706}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003752}}
   #block-block-1 ul li:nth-child(3n) {
     float: left;
     width: 33.33333%;
@@ -2776,13 +2841,13 @@ body.page-node #page-title {
   /** -------------
   * list style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003716}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > div {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003762}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > div {
     display: none;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003719}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003765}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
     display: block;
     float: left;
     width: 20%;
@@ -2790,8 +2855,8 @@ body.page-node #page-title {
     margin-right: -20%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003723}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003769}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-title {
     display: block;
     float: left;
     width: 60%;
@@ -2799,13 +2864,92 @@ body.page-node #page-title {
     margin-right: -80%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003727}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003773}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
     display: block;
     float: right;
     width: 20%;
     margin-right: 0%;
     margin-left: -20%;
+  }
+
+  /**--------------
+  * second hand sidebar
+  *----------------*/
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003782}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f {
+    width: auto;
+    float: none;
+    margin: 0px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass-extensions\/zen-grids\/stylesheets\/zen\/_grids\.scss}line{font-family:\0000346}}
+  aside .region-sidebar-second:before, aside .region-sidebar-second:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f:before,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search:before,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list:before,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list > ul:before,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list > ul:after {
+    content: "";
+    display: table;
+  }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass-extensions\/zen-grids\/stylesheets\/zen\/_grids\.scss}line{font-family:\0000350}}
+  aside .region-sidebar-second:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list:after,
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f > .view-rental-item-search > .view-content > .item-list > ul:after {
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003797}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f ul li {
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003800}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f ul li:nth-child(2n+1) {
+    float: left;
+    width: 50%;
+    margin-left: 0%;
+    margin-right: -50%;
+    clear: both;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003804}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f ul li:nth-child(2n) {
+    float: left;
+    width: 50%;
+    margin-left: 50%;
+    margin-right: -100%;
+    clear: none;
+    background-color: none;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003811}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f ul li.views-row:nth-child(4n+1),
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f ul li.views-row:nth-child(4n) {
+    background-color: #FCFCFC;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003814}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-images {
+    background-color: inherit;
+    height: 235px;
+  }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003818}}
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-images .no-image {
+    margin-top: 85px;
   }
 }
 /**
@@ -2817,8 +2961,8 @@ body.page-node #page-title {
   /** -------------
   * search block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003746}}
-  #views-exposed-form-rental-item-search-page #edit-search-api-views-fulltext-wrapper {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003836}}
+  #views-exposed-form-rental-item-search-search-result-list #edit-search-api-views-fulltext-wrapper {
     float: left;
     width: 50%;
     margin-left: 20%;
@@ -2826,31 +2970,31 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003750}}
-  #views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003840}}
+  #views-exposed-form-rental-item-search-search-result-list .views-submit-button {
     float: left;
     width: 10%;
     margin-left: 70%;
     margin-right: -80%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003753}}
-  body.two-sidebars #views-exposed-form-rental-item-search-page #edit-search-api-views-fulltext-wrapper {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003843}}
+  body.two-sidebars #views-exposed-form-rental-item-search-search-result-list #edit-search-api-views-fulltext-wrapper {
     float: left;
     width: 80%;
     margin-left: 0%;
     margin-right: -80%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003756}}
-  body.two-sidebars #views-exposed-form-rental-item-search-page .views-submit-button {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003846}}
+  body.two-sidebars #views-exposed-form-rental-item-search-search-result-list .views-submit-button {
     float: right;
     width: 20%;
     margin-right: 0%;
     margin-left: -20%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003761}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003851}}
   #edit-field-rental-suburb-wrapper {
     float: left;
     width: 33.33333%;
@@ -2859,7 +3003,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003765}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003855}}
   #edit-field-rental-property-type-wrapper {
     float: left;
     width: 33.33333%;
@@ -2867,7 +3011,7 @@ body.page-node #page-title {
     margin-right: -66.66667%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003768}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003858}}
   #edit-field-rental-rental-type-wrapper {
     float: left;
     width: 33.33333%;
@@ -2878,7 +3022,7 @@ body.page-node #page-title {
   /**-------------
   * footer block style
   ---------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003778}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003868}}
   #footer .block:nth-child(2n+1) {
     float: left;
     width: 50%;
@@ -2887,7 +3031,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003782}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003872}}
   #footer .block:nth-child(2n) {
     float: left;
     width: 50%;
@@ -2914,7 +3058,7 @@ body.page-node #page-title {
     float: right;
   }
   */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003806}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003896}}
   #name-and-slogan {
     margin: 0 auto;
   }
@@ -2922,7 +3066,7 @@ body.page-node #page-title {
   /** -------------
   * shortcut block style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003813}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003903}}
   #block-block-1 {
     clear: both;
     float: left;
@@ -2931,7 +3075,7 @@ body.page-node #page-title {
     margin-right: -100%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003817}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003907}}
   body.front #block-block-1 {
     float: left;
     width: 60%;
@@ -2939,7 +3083,7 @@ body.page-node #page-title {
     margin-right: -80%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003822}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003912}}
   #block-block-1 ul li:nth-child(4n+1) {
     float: left;
     width: 25%;
@@ -2948,7 +3092,7 @@ body.page-node #page-title {
     clear: both;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003826}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003916}}
   #block-block-1 ul li:nth-child(4n+2) {
     float: left;
     width: 25%;
@@ -2956,7 +3100,7 @@ body.page-node #page-title {
     margin-right: -50%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003829}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003919}}
   #block-block-1 ul li:nth-child(4n + 3) {
     float: left;
     width: 25%;
@@ -2964,7 +3108,7 @@ body.page-node #page-title {
     margin-right: -75%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003832}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003922}}
   #block-block-1 ul li:nth-child(4n) {
     float: left;
     width: 25%;
@@ -2975,48 +3119,48 @@ body.page-node #page-title {
   /** -------------
   * list style
   ----------------*/
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003842}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003932}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-suburb {
     float: left;
     width: 11.11111%;
     margin-left: 0%;
     margin-right: -11.11111%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003845}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-property-type {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003935}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-property-type {
     float: left;
     width: 11.11111%;
     margin-left: 11.11111%;
     margin-right: -22.22222%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003848}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-rental-type {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003938}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-rental-type {
     float: left;
     width: 11.11111%;
     margin-left: 22.22222%;
     margin-right: -33.33333%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003851}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-title {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003941}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-title {
     float: left;
     width: 44.44444%;
     margin-left: 33.33333%;
     margin-right: -77.77778%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003854}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003944}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-field-rental-price {
     float: right;
     width: 11.11111%;
     margin-right: 11.11111%;
     margin-left: -22.22222%;
   }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003857}}
-  .view-rental-item-search > .view-content > .item-list > ul > .views-row > .views-field-created {
+@media -sass-debug-info{filename{font-family:file\:\/\/\/var\/webs\/sydneyren\.com\.au\/sites\/sydneyzufang\/themes\/sydneyren_zufang\/sass\/_zufang-style\.scss}line{font-family:\00003947}}
+  .view-display-id-search_result_list > .view-content > .item-list > ul > .views-row > .views-field-created {
     float: right;
     width: 11.11111%;
     margin-right: 0%;

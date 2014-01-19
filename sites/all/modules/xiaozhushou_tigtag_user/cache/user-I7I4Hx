@@ -4,8 +4,8 @@
 
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	1391815501	9Mjd_2132_saltkey	z4aUd32P
 bbs.tigtag.com	FALSE	/	FALSE	1391815501	9Mjd_2132_lastvisit	1389219901
-bbs.tigtag.com	FALSE	/	FALSE	1389309925	9Mjd_2132_sid	L54f3T
-bbs.tigtag.com	FALSE	/	FALSE	1389309925	9Mjd_2132_lastact	1389223525%09member.php%09registerzui
+bbs.tigtag.com	FALSE	/	FALSE	1389933858	9Mjd_2132_sid	r9LlTI
+bbs.tigtag.com	FALSE	/	FALSE	1389933858	9Mjd_2132_lastact	1389847458%09member.php%09logging
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_seccodeSRCEfv40	40bdsAunQpd3cfDPOh4et0naukA2870jZHXUUv%2BYE%2FZhlRdVJdMeCGPNmSUeaAVkBumLc6TloKe%2FfjwgC3Y
 bbs.tigtag.com	FALSE	/	FALSE	1420759525	9Mjd_2132_ulastactivity	64a7OYWdOFcLrmyoO%2F4zwekrJPAoT1v3XjiASCFi2r9LEEKYak9b
 #HttpOnly_bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_auth	8f03dh3NIdCbMSA2%2FtFSgQjj7%2B0Ts1OM%2Br3MD8ftvUCb75WX4OV%2FT691sPSy4Wskgye8zhHct163VxxcWYv0C4ieKrxi
@@ -13,6 +13,9 @@ bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_loginuser	deleted
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_activationauth	deleted
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_pmnum	deleted
 bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditnotice	0D0D0D0D5D0D0D0D0D1445553
-bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditbase	0D0D0D0D0D0D0D0D0
+bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditbase	0D0D0D0D5D0D0D0D0
 bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_creditrule	%E6%AF%8F%E5%A4%A9%E7%99%BB%E5%BD%95
 bbs.tigtag.com	FALSE	/	FALSE	1	9Mjd_2132_invite_auth	deleted
+bbs.tigtag.com	FALSE	/	FALSE	0	9Mjd_2132_lip	106.187.53.82%2C1389846793
+bbs.tigtag.com	FALSE	/	FALSE	1421383458	9Mjd_2132_connect_is_bind	0
+bbs.tigtag.com	FALSE	/	FALSE	1389890658	9Mjd_2132_security_cookiereport	8421H7D8ew3S0J5zCxdInLh3WMNNeCF6yueti%2FGql7eOityY1MqW

@@ -32,16 +32,16 @@ jQuery(function($){
   $('#block-block-1 a').click(function(){
     var suburb = $(this).html();
     $('#edit-search-api-views-fulltext').val(suburb);
-    $('#views-exposed-form-rental-item-search-page').submit();
+    $('#views-exposed-form-rental-item-search-search-result-list').submit();
   });
   // search form select js action
-  $('#views-exposed-form-rental-item-search-page select').change(function(){
+  $('#views-exposed-form-rental-item-search-search-result-list select').change(function(){
     $(this).parents('form').submit();
   });
   // search form select "Any" link
-  var parents = $('#views-exposed-form-rental-item-search-page select').parents('.views-exposed-widget');
+  var parents = $('#views-exposed-form-rental-item-search-search-result-list select').parents('.views-exposed-widget');
   $('label', parents).append('<a href="#" style="font-size: 0.9em;">[ 任意 ]</a>');
-  $('#views-exposed-form-rental-item-search-page label a').live("click", function(event){
+  $('#views-exposed-form-rental-item-search-search-result-list label a').live("click", function(event){
     event.preventDefault();
     var parent = $(this).parents('.views-exposed-widget').first();
     if ($('select', parent).val() != 'All') {
@@ -51,7 +51,7 @@ jQuery(function($){
   });
   // overlay actions
   removeOverlay();
-  $('#views-exposed-form-rental-item-search-page').submit(function(){
+  $('#views-exposed-form-rental-item-search-search-result-list').submit(function(){
     addOverlay();
   });
 //  $('.views-field-title a').click(function(){
