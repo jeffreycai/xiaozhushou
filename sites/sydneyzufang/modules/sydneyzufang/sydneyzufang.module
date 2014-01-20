@@ -31,6 +31,10 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
     if (isset($form['#id']) && $form['#id'] == 'views-exposed-form-rental-item-search-search-result-list') {
       // placeholder
       $form['submit']['#value'] = '搜索房源';
+      $form['search_api_views_fulltext']['#type'] = 'searchfield';
+//echo "<pre>";
+//print_r(($form));
+//die("</pre>");
       if (module_exists('placeholder')) {
         $form['search_api_views_fulltext']['#placeholder'] = '请输入地区名，或者任意关键字';
       }
@@ -76,13 +80,21 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
         $form['title']['#placeholder'] = '如: 宽敞主卧招安静女生';
         $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield';
         $form['field_rental_price']['und'][0]['value']['#placeholder'] = '周租金(数字),如: 250';
+        $form['field_rental_price']['und'][0]['value']['#type'] = 'numberfield';
         $form['body']['und'][0]['value']['#placeholder'] = '输入任何您希望租客了解的信息';
         $form['field_rental_contact']['und'][0]['value']['#placeholder'] = '您的姓名';
         $form['field_rental_mobile']['und'][0]['value']['#placeholder'] = '您的手机号码';
+        $form['field_rental_mobile']['und'][0]['value']['#type'] = 'telfield';
         $form['field_rental_phone']['und'][0]['value']['#placeholder'] = '您的座机号码';
+        $form['field_rental_phone']['und'][0]['value']['#type'] = 'telfield';
         $form['field_rental_qq']['und'][0]['value']['#placeholder'] = '您的QQ号码';
+        $form['field_rental_qq']['und'][0]['value']['#type'] = 'numberfield';
         $form['field_rental_address']['und'][0]['value']['#placeholder'] = '如: 43/11 Pitt Street, Sydney';
         $form['field_rental_email']['und'][0]['value']['#placeholder'] = '您的邮箱地址';
+        $form['field_rental_email']['und'][0]['value']['#type'] = 'emailfield';
+//        echo "<pre>";
+//        print_r($form['field_rental_email']);
+//        die("</pre>");
       }
     }
 }
@@ -98,4 +110,24 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
 
 function _get_request_var($key) {
   return (isset($_REQUEST[$key]) && !empty($_REQUEST[$key])) ? strip_tags($_REQUEST[$key]) : null;
+}
+
+/**
+ * Implement hook_node_validate()
+ * 
+ * @param type $node
+ * @param type $form
+ * @param type $form_state
+ */
+function sydneyzufang_node_validate($node, $form, &$form_state) {
+  // validate rental node create form
+  if ($node->type == 'rental') {
+    // check if suburb is a valid suburb
+    if (isset($form_state['values']) && isset($form_state['values']['field_rental_suburb'])) {
+      $suburb = $form_state['values']['field_rental_suburb'];
+      if (isset($suburb['und'][0]['tid']) && $suburb['und'][0]['tid'] == 'autocreate') {
+        form_set_error('field_rental_suburb', '您输入的地区不存在，请输入一个合法的地区名');
+      }
+    }
+  }
 }

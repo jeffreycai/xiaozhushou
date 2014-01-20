@@ -55,6 +55,11 @@ input, textarea, checkbox {
 input:focus, textarea:focus, checkbox:focus {
   background-color: #FFF;
 }
+input[type="search"] {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .block h2 {
   font-size: 1.2em;
 }
@@ -132,17 +137,16 @@ input:focus, textarea:focus, checkbox:focus {
 #topnav ul.menu li a {
   color: #949494;
 }
-#topnav ul.menu li.first a {
-  color: $link-color-hover;
-  font-weight: bold;
-}
 #topnav ul.menu li a:hover {
   color: $link-color-hover;
 }
-
 #topnav #block-system-user-menu ul.menu {
   left: auto;
   right: 7px;
+}
+#topnav #block-system-user-menu ul.menu li a.first {
+  color: $link-color-hover;
+  font-weight: bold;
 }
 
 /**--------------------------
