@@ -329,6 +329,17 @@ body.page-node #page-title {
 #search-breadcrumb a {
   font-size: 0.9em;
 }
+.view-empty .no-result {
+  font-size: 2em;
+  text-align: center;
+  margin-top: 62px;
+  font-weight: bold;
+}
+.view-empty .no-result span {
+  display: block;
+  font-size: 0.7em;
+  margin-top: 20px;
+}
 
 /** -------------
 * detail page style
