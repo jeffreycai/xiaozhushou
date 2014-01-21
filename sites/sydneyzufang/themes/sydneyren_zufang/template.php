@@ -174,3 +174,12 @@ function sydneyren_zufang_field__field_rental_images__rental($variables) {
 
   return $output;
 }
+
+/**
+ * Implement theme_breadcrumb()
+ * 
+ * @param type $variables
+ */
+function sydneyren_zufang_breadcrumb($variables) {
+  
+}

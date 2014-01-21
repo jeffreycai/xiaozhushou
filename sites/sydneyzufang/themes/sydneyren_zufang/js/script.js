@@ -29,7 +29,7 @@
 
 jQuery(function($){
   // short cut links js action
-  $('#block-block-1 a').click(function(){
+  $('ul.shortcut a').click(function(){
     var suburb = $(this).html();
     $('#edit-search-api-views-fulltext').val(suburb);
     $('#views-exposed-form-rental-item-search-search-result-list').submit();
@@ -83,7 +83,9 @@ jQuery(function($){
   $('#search-breadcrumb a').click(function(){
     $('body,html').animate({
       scrollTop: $('#page-title').offset().top
-    }, 800);
+    }, 400, function(){
+      $('body.page-views #block-views-fd792b1b22e1547b4557bcc68d00a766').fadeIn();
+    });
     return false;
   });
 });

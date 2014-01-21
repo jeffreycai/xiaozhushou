@@ -26,3 +26,10 @@ body.overlay #overlay {
   line-height: 1.1em;
   border: solid 1px #222;
 }
+
+/** desktop **/
+@media all and (min-width: 960px) {
+  #overlay .inner {
+    margin-top: 300px;
+  }
+}

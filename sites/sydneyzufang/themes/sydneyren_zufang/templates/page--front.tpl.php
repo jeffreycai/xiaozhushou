@@ -27,7 +27,7 @@
     <div id="content" class="column" role="main">
       <div class="container">
         <?php print render($page['highlighted']); ?>
-        <?php print $breadcrumb; ?>
+        <?php // print $breadcrumb; ?>
         <a id="main-content"></a>
         <?php print $messages; ?>
         <?php print render($tabs); ?>
