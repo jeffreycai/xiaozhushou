@@ -181,5 +181,22 @@ function sydneyren_zufang_field__field_rental_images__rental($variables) {
  * @param type $variables
  */
 function sydneyren_zufang_breadcrumb($variables) {
+  $rtn = "<nav id='breadcrumb'>";
   
+  // for "rental item" page, we set the "Go back" link
+  if (preg_match('/\/rental\-item\/\d+/', $_SERVER['REQUEST_URI'])) {
+    if (preg_match('/\/rental\-search/', $_SERVER['HTTP_REFERER'])) {
+      $rtn .= "<a href='javascript:history.go(-1)'><i class='fa fa-angle-left'></i> 返回搜索</a>";
+    } else {
+      $rtn .= "<a href='/rental-search'><i class='fa fa-angle-left'></i> 返回搜索</a>";
+    }
+  // for other pages, we set breadcrumb
+  } else {
+    $rtn .= "<a href='/'><i class='fa fa-angle-left'></i> 返回首页</a>";
+  }
+  
+  
+  $rtn.= "</nav>";
+  
+  return $rtn;
 }

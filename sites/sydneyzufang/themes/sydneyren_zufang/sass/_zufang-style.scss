@@ -30,7 +30,8 @@ h1 {
   font-size: 1.7em;
 }
 h1, h2, h3, h4, h5 {
-  color: $logo-color;
+  color: #333;
+  margin-bottom: 20px;
 }
 a {
   text-decoration: none;
@@ -65,7 +66,7 @@ input[type="search"] {
 }
 
 
-#header .block,
+
 #edit-search-api-views-fulltext-wrapper,
 #views-exposed-form-rental-item-search-search-result-list .views-submit-button,
 #block-block-1,
@@ -244,7 +245,7 @@ body.page-views #block-views-fd792b1b22e1547b4557bcc68d00a766 {
   border: solid 1px $link-color;
   padding: 11px;
   margin-top: 15px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   background-color: #fbfbfb;
   display: none;
 }
@@ -266,6 +267,7 @@ body.page-node #page-title {
 .view-rental-item-search > .view-content > .item-list > ul {
   list-style: none;
   padding-left: 0px;
+  margin-top: 0px;
 }
 .view-rental-item-search > .view-content > .item-list > ul > .views-row {
   font-size: 0.8em;
@@ -319,7 +321,12 @@ body.page-node #page-title {
   margin-left: 10px;
 }
 #search-breadcrumb {
-  padding-left: 10px;
+  border: 1px solid #CCCCCC;
+  padding: 9px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  display: none;
 }
 #search-breadcrumb span {
   color: $link-color-hover;
@@ -339,6 +346,9 @@ body.page-node #page-title {
   display: block;
   font-size: 0.7em;
   margin-top: 20px;
+}
+.view-header {
+  font-size: 0.7em;
 }
 
 /** -------------
@@ -389,6 +399,13 @@ $zen-column-count: $temp-column-count;
 }
 #content > article > .field.field-name-field-rental-images .flex-direction-nav a:before {
   margin-top: 8px;
+}
+#breadcrumb {
+  margin-bottom: 5px;
+}
+#breadcrumb a {
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /** -------------
@@ -547,7 +564,11 @@ $zen-column-count: $temp-column-count;
 **/
 @media all and (min-width: 0px) and (max-width: 479px) {
   /* columns count is defined on the top */
-   #content > .container { @include debug-background();}
+
+  section.region-sidebar-first,
+  section.region-sidebar-second {
+    margin-top: 20px;
+  }
   
   /** -------------
   * search block style
@@ -859,7 +880,9 @@ $zen-column-count: $temp-column-count;
   #block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-images .no-image {
     margin-top: 85px;
   }
-  
+  #block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-price {
+    display: inline-block;
+  }
 }
 
 /**

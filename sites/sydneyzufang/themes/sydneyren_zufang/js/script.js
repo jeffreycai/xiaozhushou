@@ -64,28 +64,37 @@ jQuery(function($){
   });
   
   // search breadcrumb
-  if ($('#search-breadcrumb').length) {
+  if ($('#search-breadcrumb').length && $('#content .view-empty').length == 0) {
     var suburb = $('#edit-field-rental-suburb option:selected').html();
     var property_type = $('#edit-field-rental-property-type option:selected').html();
     var rental_type = $('#edit-field-rental-rental-type option:selected').html();
     var keyword = $('#edit-search-api-views-fulltext').val();
     
-    var wording = '当前搜索结果为: ';
+    var wording = '当前搜索: ';
     if (keyword != '') {
       wording += '关键词为"<span>'+keyword+'</span>", ';
     }
     wording += '位于"<span>'+(suburb == '- Any -' ? '任意地区' : suburb)+'</span>"， ';
     wording += '"<span>'+(rental_type == '- Any -' ? '任意出租形式' : rental_type) + '</span>"的';
     wording += '"<span>'+(property_type == '- Any -' ? '任意房屋类型' : property_type) +'</span>"';
-    wording += '<br /><a href="#"><i class="fa fa-angle-double-up"></i> 我要修改搜索条件</a>';
-    $('#search-breadcrumb').html(wording);
+    wording += '<br /><a href="#" class="search-again"><i class="fa fa-angle-double-up"></i> 我要修改搜索条件</a>';
+    $('#search-breadcrumb').html(wording).show();
   }
-  $('#search-breadcrumb a').click(function(){
-    $('body,html').animate({
-      scrollTop: $('#page-title').offset().top
-    }, 400, function(){
-      $('body.page-views #block-views-fd792b1b22e1547b4557bcc68d00a766').fadeIn();
-    });
+
+  var search_block = $('body.page-views #block-views-fd792b1b22e1547b4557bcc68d00a766');
+  var bg_color = search_block.css('backgroundColor');
+  $('a.search-again').click(function(){
+    if (!search_block.is(':visible')) {
+      search_block.fadeIn(1000);
+    } else {
+      search_block.animate({
+        backgroundColor: '#FDECD1'
+      }, 800, function(){
+        search_block.animate({
+          backgroundColor: bg_color
+        }, 800);
+      });
+    }
     return false;
   });
 });

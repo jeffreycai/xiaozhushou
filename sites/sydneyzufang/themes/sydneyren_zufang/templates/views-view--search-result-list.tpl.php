@@ -43,13 +43,14 @@
     <?php print $title; ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
+  
+  <div id="search-breadcrumb" style="clear: both;"></div>
+  
   <?php if ($header): ?>
     <div class="view-header">
       <?php print $header; ?>
     </div>
   <?php endif; ?>
-
-  <div id="search-breadcrumb" style="clear: both;"></div>
 
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">
