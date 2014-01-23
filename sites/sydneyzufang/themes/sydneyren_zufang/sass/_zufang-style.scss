@@ -45,7 +45,7 @@ a:hover {
   clear: both;
 }
 
-input, textarea, checkbox {
+input, textarea, checkbox, select {
   -webkit-border-radius: 4px 4px 4px 4px;
   border-radius: 4px 4px 4px 4px;
   background-color: #F7F7F9;
@@ -53,7 +53,7 @@ input, textarea, checkbox {
   padding: 7px;
   font-size: 0.9em;
 }
-input:focus, textarea:focus, checkbox:focus {
+input:focus, textarea:focus, checkbox:focus, select:focus {
   background-color: #FFF;
 }
 input[type="search"] {
@@ -487,6 +487,15 @@ $zen-column-count: $temp-column-count;
 #edit-submit:hover {
   background-color: $search-box-highlight-color;
 }
+#edit-field-rental-images .tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+#edit-field-rental-images .image-widget-data input[type=file] {
+  margin-right: 10px;
+}
+#edit-field-rental-images input[type=submit] {
+  /*display: none;*/
+}
 /** -------------
 * footer style
 ----------------- */
@@ -544,6 +553,9 @@ $zen-column-count: $temp-column-count;
 #block-block-8 ul li {
   padding: 4px 7px;
   font-size: 0.8em;
+}
+#block-views-0aae8f16839ea8fe565a84bf0ccf339f {
+  clear: both;
 }
 #block-views-0aae8f16839ea8fe565a84bf0ccf339f .views-field-field-rental-images {
   font-size: 1.6em;

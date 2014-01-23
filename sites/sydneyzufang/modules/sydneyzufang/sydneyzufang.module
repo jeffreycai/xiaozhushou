@@ -78,7 +78,7 @@ function sydneyzufang_form_alter(&$form, &$form_state, $form_id) {
         $form['title']['#title'] = '标题';
         $form['actions']['submit']['#value'] = '立刻发布';
         $form['title']['#placeholder'] = '如: 宽敞主卧招安静女生';
-        $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield';
+        $form['field_rental_suburb']['und']['#placeholder'] = '如: Ashfield (输入前三个字母后自动联想)';
         $form['field_rental_price']['und'][0]['value']['#placeholder'] = '周租金(数字),如: 250';
         $form['field_rental_price']['und'][0]['value']['#type'] = 'numberfield';
         $form['body']['und'][0]['value']['#placeholder'] = '输入任何您希望租客了解的信息';

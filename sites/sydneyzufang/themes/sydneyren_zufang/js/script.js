@@ -97,4 +97,19 @@ jQuery(function($){
     }
     return false;
   });
+  
+  // image update form action
+  $('#edit-field-rental-images input[type=file]').live('change', function(){
+    var parent = $(this).parent();
+    $('input[type=submit]', parent).fadeIn(800, function(){
+      var bg_color = $(this).css('backgroundColor');
+      $(this).animate({
+        backgroundColor: '#FDECD1',
+      }, 800, function(){
+        $(this).animate({
+          backgroundColor: bg_color
+        }, 800);
+      });
+    });
+  });
 });
