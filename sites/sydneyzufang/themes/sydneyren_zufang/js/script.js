@@ -32,7 +32,7 @@ jQuery(function($){
   $('ul.shortcut a').click(function(){
     var suburb = $(this).html();
     $('#edit-search-api-views-fulltext').val(suburb);
-    $('#views-exposed-form-rental-item-search-search-result-list').submit();
+//    $('#views-exposed-form-rental-item-search-search-result-list').submit();
   });
   // search form select js action
   $('#views-exposed-form-rental-item-search-search-result-list select').change(function(){
