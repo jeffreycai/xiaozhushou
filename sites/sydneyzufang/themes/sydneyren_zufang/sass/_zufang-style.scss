@@ -197,8 +197,11 @@ input[type="search"] {
 ----------------*/
 #block-block-9 {
   border: 2px solid $link-color;
-  padding: 20px;
+  padding: 15px;
   font-size: 0.8em;
+}
+#block-block-9 .result {
+  text-align: right;
 }
 #block-block-9 .row {
   position: relative;
@@ -221,6 +224,30 @@ input[type="search"] {
   zoom: 1;
   *display: inline;
   margin-right: 10px;
+  cursor: pointer;
+  padding: 0px 3px;
+}
+#block-block-9 ul li.selected:after {
+  content: "\f00d";
+  color: #FFF;
+  font-size: 1em;
+  font-family: FontAwesome;
+  position: relative;
+  left: 3px;
+}
+#block-block-9 ul li:hover {
+  text-decoration: underline;
+}
+#block-block-9 ul li.selected {
+  color: #FFF;
+  padding-right: 7px;
+  background-color: $link-color-hover;
+}
+#block-block-9 ul li.selected:hover {
+  text-decoration: none;
+}
+#block-views-fd792b1b22e1547b4557bcc68d00a766 {
+  display: none;
 }
 
 /** -------------
@@ -322,6 +349,9 @@ body.page-node #page-title {
 .view-header {
   font-size: 0.7em;
 }
+.view-display-id-search_result_list {
+  @include zen-clear(both);
+}
 
 /** -------------
 * detail page style
@@ -348,8 +378,10 @@ $zen-column-count: 2;
 #content > article > .field-name-field-rental-price,
 #content > article > .field-name-field-rental-property-type,
 #content > article > .field-name-field-rental-rental-type,
+#content > article > .field-name-field-rental-facilities,
 #content > article > .field-name-field-rental-facilities-,
 #content > article > .field-name-field-rental-facilities-text,
+#content > article > .field-name-field-rental-near-by-facilities,
 #content > article > .field-name-field-rental-near-by-facilities-,
 #content > article > .field-name-field-rental-near-by-facilities-text {
   @include zen-grid-item(1, 1);
@@ -371,6 +403,24 @@ $zen-column-count: $temp-column-count;
 }
 #content > article > .field.field-name-field-rental-images .flex-direction-nav a:before {
   margin-top: 8px;
+}
+#content > article > .field-name-field-rental-property-type .field-item,
+#content > article > .field.field-name-field-rental-facilities .field-item,
+#content > article > .field-name-field-rental-rental-type .field-item,
+#content > article > .field-name-field-rental-near-by-facilities .field-item {
+  display: inline;
+}
+#content > article > .field-name-field-rental-property-type .field-item:after,
+#content > article > .field.field-name-field-rental-facilities .field-item:after,
+#content > article > .field-name-field-rental-rental-type .field-item:after,
+#content > article > .field-name-field-rental-near-by-facilities .field-item:after {
+  content: "/";
+}
+#content > article > .field-name-field-rental-property-type .field-item:last-child:after,
+#content > article > .field.field-name-field-rental-facilities .field-item:last-child:after,
+#content > article > .field-name-field-rental-rental-type .field-item:last-child:after,
+#content > article > .field-name-field-rental-near-by-facilities .field-item:last-child:after {
+  content: "";
 }
 #breadcrumb {
   margin-bottom: 5px;
@@ -649,6 +699,8 @@ $zen-column-count: $temp-column-count;
   #block-block-1 {
     @include zen-clear(both);
     @include zen-grid-item(1, 1);
+    padding-left: 0px;
+    padding-right: 0px;
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 2;
@@ -708,7 +760,13 @@ $zen-column-count: $temp-column-count;
   /** -------------
   * search block style
   ----------------*/
-
+  #block-block-9 {
+    @include zen-clear(both);
+    @include zen-grid-item($zen-column-count, 1);
+  }
+  body.front #block-block-9 {
+    @include zen-grid-item(4, 2);
+  }
   
   /**-------------
   * footer block style
@@ -756,6 +814,8 @@ $zen-column-count: $temp-column-count;
   }
   body.front #block-block-1 {
     @include zen-grid-item(4, 2);
+    padding-left: 0px;
+    padding-right: 0px;
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 3;
@@ -852,6 +912,13 @@ $zen-column-count: $temp-column-count;
   /** -------------
   * search block style
   ----------------*/
+  #block-block-9 {
+    @include zen-clear(both);
+    @include zen-grid-item($zen-column-count, 1);
+  }
+  body.front #block-block-9 {
+    @include zen-grid-item(6, 3);
+  }
 
   /**-------------
   * footer block style
@@ -899,6 +966,8 @@ $zen-column-count: $temp-column-count;
   }
   body.front #block-block-1 {
     @include zen-grid-item(6, 3);
+    padding-left: 0px;
+    padding-right: 0px;
   }
   $temp-column-count: $zen-column-count;
   $zen-column-count: 4;

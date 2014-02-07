@@ -32,31 +32,46 @@ jQuery(function($){
   $('ul.shortcut a').click(function(){
     var suburb = $(this).html();
     $('#edit-search-api-views-fulltext').val(suburb);
-//    $('#views-exposed-form-rental-item-search-search-result-list').submit();
-  });
-  // search form select js action
-  $('#views-exposed-form-rental-item-search-search-result-list select').change(function(){
-    $(this).parents('form').submit();
-  });
-  // search form select "Any" link
-  var parents = $('#views-exposed-form-rental-item-search-search-result-list select').parents('.views-exposed-widget');
-  $('label', parents).append('<a href="#" style="font-size: 0.9em;">[ 任意 ]</a>');
-  $('#views-exposed-form-rental-item-search-search-result-list label a').live("click", function(event){
-    event.preventDefault();
-    var parent = $(this).parents('.views-exposed-widget').first();
-    if ($('select', parent).val() != 'All') {
-      $('select', parent).val('All');
-      $(this).parents('form').submit();
-    }
+    $('#views-exposed-form-rental-item-search-search-result-list').submit();
   });
   // overlay actions
   removeOverlay();
   $('#views-exposed-form-rental-item-search-search-result-list').submit(function(){
     addOverlay();
   });
-//  $('.views-field-title a').click(function(){
-//    addOverlay();
-//  });
+
+  // dummy search block action
+  // link click
+  $('#dummy-search ul li').click(function(){
+    var parent = $(this).parent('ul');
+    
+    // highlight selected criteria
+    if ($(this).hasClass('selected')) {
+      $(this).removeClass('selected');
+      // reset form field to "Any"
+      $('#' + parent.attr('class')).val('All');
+    } else {
+      $('li', parent).removeClass('selected');
+      $(this).addClass('selected');
+    }
+    
+    // select the corresponding form field
+    if ($(this).hasClass('selected')) {
+      var val = $(this).attr('class').replace('selected', '').replace(' ', '');
+      var target = $('#' + parent.attr('class'));
+      target.val(val);
+    }
+  });
+  // reverse link click
+  $('#block-block-9 ul.edit-field-rental-suburb li.' + $('#edit-field-rental-suburb option:selected').val()).addClass('selected');
+  $('#block-block-9 ul.edit-field-rental-property-type li.' + $('#edit-field-rental-property-type option:selected').val()).addClass('selected');
+  $('#block-block-9 ul.edit-field-rental-rental-type li.' + $('#edit-field-rental-rental-type option:selected').val()).addClass('selected');
+  // submission
+  $('#block-block-9 .result input').click(function(){
+    $('#views-exposed-form-rental-item-search-search-result-list').submit();
+  });
+  
+  
   
   // initialize flexslider 2
   $('#content article .flexslider').flexslider({
@@ -81,20 +96,16 @@ jQuery(function($){
     $('#search-breadcrumb').html(wording).show();
   }
 
-  var search_block = $('body.page-views #block-views-fd792b1b22e1547b4557bcc68d00a766');
-  var bg_color = search_block.css('backgroundColor');
+  // search again
   $('a.search-again').click(function(){
-    if (!search_block.is(':visible')) {
-      search_block.fadeIn(1000);
-    } else {
-      search_block.animate({
-        backgroundColor: '#FDECD1'
-      }, 800, function(){
-        search_block.animate({
-          backgroundColor: bg_color
-        }, 800);
-      });
-    }
+    $('#block-block-9').animate({
+      backgroundColor: '#FDECD1'
+    }, 800, function(){
+      $('#block-block-9').animate({
+        backgroundColor: '#FFF'
+      }, 800);
+    });
+
     return false;
   });
   

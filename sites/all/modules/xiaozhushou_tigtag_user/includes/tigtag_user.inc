@@ -330,7 +330,7 @@ function tigtag_user_register($form, &$form_state) {
     module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
     $crawler = Utility::getInstance()->getCrawler();
     $crawler->setCookiePath($cookie_path);
-    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=registerzui');
+    $html = $crawler->read('http://bbs.tigtag.com/member.php?mod=register');
     module_load_include('php', 'xiaozhushou_utilities', 'libraries/simple_html_dom');
     $dom = str_get_html($html);
     // get form field info
@@ -552,9 +552,9 @@ function tigtag_user_register_submit($form, &$form_state) {
   module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
   $crawler = Utility::getInstance()->getCrawler();
   
-  $post_url = "http://bbs.tigtag.com/member.php?mod=registerzui&inajax=1";
+  $post_url = "http://bbs.tigtag.com/member.php?mod=register&inajax=1";
   $header = array(
-    'Referer: http://bbs.tigtag.com/member.php?mod=registerzui',
+    'Referer: http://bbs.tigtag.com/member.php?mod=register',
   );
   $post_data = array(
     'regsubmit' => $regsubmit,
