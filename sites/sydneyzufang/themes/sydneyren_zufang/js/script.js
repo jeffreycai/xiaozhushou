@@ -86,9 +86,9 @@ jQuery(function($){
     var keyword = $('#edit-search-api-views-fulltext').val();
     
     var wording = '当前搜索: ';
-    if (keyword != '') {
-      wording += '关键词为"<span>'+keyword+'</span>", ';
-    }
+//    if (keyword != '') {
+//      wording += '关键词为"<span>'+keyword+'</span>", ';
+//    }
     wording += '位于"<span>'+(suburb == '- Any -' ? '任意地区' : suburb)+'</span>"， ';
     wording += '"<span>'+(rental_type == '- Any -' ? '任意出租形式' : rental_type) + '</span>"的';
     wording += '"<span>'+(property_type == '- Any -' ? '任意房屋类型' : property_type) +'</span>"';

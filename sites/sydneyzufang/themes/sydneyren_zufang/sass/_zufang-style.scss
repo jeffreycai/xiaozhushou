@@ -223,9 +223,8 @@ input[type="search"] {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  margin-right: 10px;
   cursor: pointer;
-  padding: 0px 3px;
+  padding: 0px 16px 0px 3px;
 }
 #block-block-9 ul li.selected:after {
   content: "\f00d";
@@ -240,7 +239,7 @@ input[type="search"] {
 }
 #block-block-9 ul li.selected {
   color: #FFF;
-  padding-right: 7px;
+  padding-right: 5px;
   background-color: $link-color-hover;
 }
 #block-block-9 ul li.selected:hover {
