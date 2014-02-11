@@ -7,3 +7,4 @@ sites/*/private
 
 # cache folders
 sites/sydneyzufang/themes/sydneyren_zufang/.sass-cache
+sites/all/modules/xiaozhushou_tigtag_user/cache

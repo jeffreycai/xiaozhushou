@@ -1,2 +1,5 @@
-## YAML Template.
----
+tigtag:
+  list_url: 
+    - http://bbs.tigtag.com/forum-48-1.html
+
+  cron_image_store: public://cronimgs

@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * Implements hook_schema
+ */
+function xiaozhushou_tigtag_schema () {
+  $schema['xiaozhushou_tigtag_rental_item'] = array(
+    'description' => 'Rental items on Tigtag rental section',
+    'fields' => array(
+      'title' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ),
+        
+      'id' => array(
+        'type' => 'serial',
+        'unsigned' => true,
+        'not null' => true
+      ),
+      
+      'rid' => array(
+        'type' => 'int',
+        'length' => 31,
+        'not null' => true,
+      ),
+        
+      'url' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ),
+        
+      'property_type' => array(
+        'type' => 'varchar',
+        'length' => 31,
+        'not null' => false,
+      ),
+        
+      'comment' => array(
+        'type' => 'blob',
+        'not null' => false,
+      ),
+        
+      'images' => array(
+        'type' => 'text',
+        'not null' => false,
+      ),
+        
+      'suburb' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'default' => null,
+      ),
+        
+      'published_at' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when property was created.',
+      ),
+      
+      'created_at' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp for when property was crawed for the first time.',
+      ),
+      
+      'crawed' => array(
+        'type' => 'int',
+        'not null' => true,
+        'default' => 0,
+        'length' => 1,
+      ),
+        
+      'imported' => array(
+        'type' => 'int',
+        'not null' => true,
+        'default' => 0,
+        'length' => 1
+      ),
+      
+      'error' => array(
+        'type' => 'text',
+        'not null' => false,
+        'default' => null,
+      ),
+    ),
+    'indexes' => array(
+      'rid' => array('rid'),
+      'published_at' => array('published_at'),
+      'suburb' => array('suburb'),
+    ),
+    'unique keys' => array(
+      'id' => array('id'),
+    ),
+    'primary key' => array('id'),
+  );
+  
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall()
+ */
+function xiaozhushou_tigtag_uninstall() {
+  // drop "xiaozhushou_tigtag_rental_item" table
+  db_query('DROP TABLE {xiaozhushou_tigtag_rental_item}');
+  
+  // remove vocabulary and its terms
+  /*
+  $vocabularies = taxonomy_get_vocabularies();
+  $vid;
+  foreach ($vocabularies as $v) {
+    if ($v->machine_name == 'suburbs') {
+      $vid = $v->vid;
+      break;
+    }
+  }
+  if ($vid) {
+    taxonomy_vocabulary_delete($vid);
+  }
+   */
+}
+
+/**
+ * Implements hook_enable
+ */
+function xiaozhushou_tigtag_requirements($phase) {
+  $requirements = array();
+  
+  // bootstrap module is yet to be installed
+  if ($phase == 'install') {
+    module_load_include('inc', 'xiaozhushou_utilities', 'includes/Utility.class');
+
+    $util = Utility::getInstance();
+    $util->loadSettings('xiaozhushou_tigtag');
+  }
+  
+  $cronimgs_folder = Utility::getInstance()->getSetting('tigtag->cron_image_store');
+  
+  if (!is_dir($cronimgs_folder) || !is_writable($cronimgs_folder)) {
+    $requirements['xiaozhushou_tigtag'] = array(
+      'title' => 'Xiaozhushou Tigtag module',
+      'value' => $cronimgs_folder . ' folder does not exist or not writable.',
+      'severity' => REQUIREMENT_ERROR
+    );
+  }
+  
+  return $requirements;
+}

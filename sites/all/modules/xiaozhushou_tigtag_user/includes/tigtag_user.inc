@@ -168,29 +168,42 @@ function tigtag_user_refresh($form, &$form_state, $id) {
     $login_hash = $dom->find('input[name="cookietime"]', 0)->id;
     $tokens = explode('_', $login_hash);
     $login_hash = array_pop($tokens);
-    
+//echo "<pre>";
+//print_r(array(
+//    'form_hash' => $form_hash, 
+//    'seccode_hash' => $seccode_hash, 
+//    'login_hash' => $login_hash
+//));
+//die("</per>");
     $dom->clear();
     // get form seccode
     // refresh seccode
+    //                         http://bbs.tigtag.com/misc.php?mod=seccode&action=update&idhash=SJ1IAuS0     &inajax=1&ajaxtarget=seccode_SJ1IAuS0
     $content = $crawler->read("http://bbs.tigtag.com/misc.php?mod=seccode&action=update&idhash=$seccode_hash&inajax=1&ajaxtarget=seccode_$seccode_hash", $cookie_path, false, true);
     $matches = array();
     preg_match('/src="(([^"]+)update=(\d+)[^"]+)"/', $content, $matches);
+    //             http://bbs.tigtag.com/    misc.php?mod=seccode&update=38082&idhash=SJ1IAuS0
     $update_url = "http://bbs.tigtag.com/" . $matches[1];
     $update_id = $matches[3];
+//echo "<pre>";
+//print_r($matches);
+//die("</pre>");
   //  // fetch the seccode
     $header = array(
       'Referer: http://bbs.tigtag.com/member.php?mod=logging&action=login',
     );
     $seccode_content = $crawler->read($update_url, $cookie_path, $header, true);
     $seccode_markup = '<img src="data:image/png;base64,' . base64_encode($seccode_content) . '" />';
+//    $seccode_markup = '<a href="#" id="refresh" title="Click to refresh">'.$seccode_markup.'</a>';
   // if this form is submitted, we populate form vars with submit values
   } else {
     foreach ($form_state['input'] as $key => $val) {
       $$key = $val;
     }
   }
-  
+
   $form = array();
+  $cookie_path = isset($user) ? $user->getCookiePath() : '';
   
   $form['captcha'] = array(
     '#type' => 'item',
@@ -239,6 +252,11 @@ function tigtag_user_refresh($form, &$form_state, $id) {
       '#value' => t('Login')
   );
   $form['#submit'][] = 'tigtag_user_refresh_submit';
+  
+  $form['#attached']['js'] = array(
+      drupal_get_path('module', 'xiaozhushou_tigtag_user') . '/js/tigtag_user.js'
+  );
+  
   return $form;
 
 }
